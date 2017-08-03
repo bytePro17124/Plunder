@@ -20,7 +20,7 @@ bool Texture::load(const std::string &path) {
 	} else {
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
 		SDLtex = SDL_CreateTextureFromSurface(SDLrenderer, loadedSurface);
-		if (newTexture == nullptr) {
+		if (SDLtex == nullptr) {
 			printf("failed to load newTexture in Texture::load function path %s\n", path.c_str());
 		} else {
 			width = loadedSurface->w;

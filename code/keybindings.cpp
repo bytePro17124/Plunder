@@ -1,7 +1,5 @@
 #include "scenemanager.h"
 
-const int RADIO_BUTTON_SIZE = 26;
-
 void SceneManager::process_mouse_and_keyboard() {
 	while (SDL_PollEvent (&e) != 0) {
 		switch (e.type) {
@@ -10,23 +8,24 @@ void SceneManager::process_mouse_and_keyboard() {
 			break;
 		case SDL_MOUSEBUTTONDOWN:  // any click
 			switch (e.button.button) {
-			case SDL_BUTTON_LEFT:  
-				mouseLeftX = e.button.x;   
+			case SDL_BUTTON_LEFT:
+				mouseLeftX = e.button.x;
 				mouseLeftY = e.button.y;
 				switch (scene) {
+				case EXIT: break;  //disallow key clicks
 				case MAIN_MENU:
 					//click horde loot?
-                                        //click spellbook
-                                        //click scrolls
-                                        //click saved data
+					//todo click spellbook
+					//todo click scrolls
+					//todo click saved data
 					break;
+				case HORDE_LOOT:
+					//click for the horde loot area
+					break;
+				}
 				break;
 			}
 			break;
-                case SDL_MOUSEMOTION:          // any mouse motion
-                        mouseLeftX = e.motion.x;
-                        mouseLeftY = e.motion.y;
-                break;
 		}
 	}
 }

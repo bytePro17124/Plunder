@@ -1,9 +1,18 @@
-all: plunder
-	@ECHO UPGRADE COMPLETE
+TARGET = plunder
+PREREQUISITES = build-essential gcc git libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
+SOURCE_PATH = code
 
-plunder:
-	+(MAKE) src
-	
+all:
+	+$(MAKE) -C $(SOURCE_PATH)
+	@echo "\nUPGRADE COMPLETE"
+
 clean:
-	-rm plunder
-	+(MAKE) src clean
+	-rm $(TARGET)
+	+$(MAKE) -C $(SOURCE_PATH) $@
+
+dep:
+	sudo apt-get install $(PREREQUISITES)	
+	
+install:
+	mkdir /home/mje/.plunder
+	sudo cp -u plunder /usr/bin
