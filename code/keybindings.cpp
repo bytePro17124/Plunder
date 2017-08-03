@@ -12,9 +12,14 @@ void SceneManager::process_mouse_and_keyboard() {
 				mouseLeftX = e.button.x;
 				mouseLeftY = e.button.y;
 				switch (scene) {
-				case EXIT: break;  //disallow key clicks
+				case STARTUP:
+					//DO NOTHING
+					break;
 				case MAIN_MENU:
-					//click horde loot?
+					if ( (mouseLeftX > (ScreenWidth/2 - hordelooticon.getWidth()/2) && mouseLeftX < (ScreenWidth/2 + hordelooticon.getWidth()/2)) && (mouseLeftY > (ScreenHeight/2 - hordelooticon.getHeight()/2) && mouseLeftY < (ScreenWidth/2 + hordelooticon.getHeight()/2)))
+					{
+						scene = HORDE_LOOT;
+					}
 					//todo click spellbook
 					//todo click scrolls
 					//todo click saved data
@@ -22,6 +27,7 @@ void SceneManager::process_mouse_and_keyboard() {
 				case HORDE_LOOT:
 					//click for the horde loot area
 					break;
+				case EXIT: break;  //disallow key clicks
 				}
 				break;
 			}

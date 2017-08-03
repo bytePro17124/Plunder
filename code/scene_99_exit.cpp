@@ -1,6 +1,6 @@
 #include "scenemanager.h"
 
-void SceneManager::scene_00_exit() {
+void SceneManager::scene_99_exit() {
 
 	printf("goodbye!\n");
 

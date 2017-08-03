@@ -1,13 +1,8 @@
 #include "graphics.h"
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
-
 bool SDL_graphics::init()
 {
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
+	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		return false;
 	} else {
@@ -37,10 +32,6 @@ bool SDL_graphics::init()
 					printf("SDL_ttf could not initialize! SDL2_ttf Error: %s\n", TTF_GetError());
 					return false;
 				}
-				if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 ) {
-					printf( "SDL_mixer could not initialize! SDL2_mixer Error: %s\n", Mix_GetError() );
-					return false;
-				}
 			}
 		}
 	}
@@ -57,7 +48,6 @@ SDL_graphics::~SDL_graphics(void) {
 	mainRenderer = NULL;
 	SDL_DestroyWindow(mainWindow);
 	mainWindow = NULL;
-	Mix_Quit();
 	IMG_Quit();
 	TTF_Quit();
 	SDL_Quit();
@@ -70,5 +60,8 @@ SDL_graphics::SDL_graphics() {
 
 	printf("Screen Size Defaulted to %dx%d\n", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-	init();
+	if ( !init() ) {
+		printf("Graphics failed to initialize fully\n");
+		exit(-1);
+	}
 }

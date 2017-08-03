@@ -1,29 +1,14 @@
 #pragma once
 
 #include "graphics.h"
+#include "sound.h"
+#include "texture.h"
 
 class SceneManager {
 public:
-	SceneManager() {
-		fullQuit = false;
-		mouseLeftX = mouseLeftY = 0;
-		scene = MAIN_MENU;
-		renderer = Graphics_Engine.getRenderer();
-		ScreenHeight = Graphics_Engine.getScreenHeight();
-		ScreenWidth = Graphics_Engine.getScreenWidth();
-		Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 30);
-		if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
-		TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
-		Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 45);
-		if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
-	}
+	SceneManager();
 	
-	~SceneManager() {
-		TTF_CloseFont(Vecna);
-		Vecna = NULL;
-		TTF_CloseFont(Bookman);
-		Bookman = NULL;
-	}
+	~SceneManager();
 
 	void scene_selector();
 
@@ -36,12 +21,13 @@ private:
 	SDL_Renderer *renderer;
 	int ScreenWidth, ScreenHeight;  // scene sizes
 	
-	enum SCENE { EXIT, MAIN_MENU, HORDE_LOOT };  //core scenes
-	SCENE scene; 
-	
-	void scene_00_exit();  // do exit scene
+	enum SCENE { STARTUP, MAIN_MENU, HORDE_LOOT, EXIT };  //core scenes
+	SCENE scene;
+
+	void scene_00_startup();  //startup logo and such
 	void scene_01_main_menu();  // display main menu
-	void scene_02_horde_loot(); 
+	void scene_02_horde_loot();
+	void scene_99_exit();  // do exit scene
 	
 	SDL_Event e;  // key press management
 	int mouseLeftX, mouseLeftY;  // mouse movement and clicks management
@@ -57,6 +43,12 @@ private:
 	SDL_Color Green = {0,255,127,0};
 	
 	TTF_Font *Leadcoat, *Bookman, *Vivian, *Vecna, *Verdana;
+
+	SDL_sound Sound_Engine;
+
+	Texture logo1;
+	Texture hordelooticon;
+
 
 	
 };
