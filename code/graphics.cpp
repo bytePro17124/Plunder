@@ -1,7 +1,6 @@
 #include "graphics.h"
 
-bool SDL_graphics::init()
-{
+bool SDL_graphics::init() {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		return false;
@@ -9,10 +8,7 @@ bool SDL_graphics::init()
 		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")) {
 			printf("Warning: Linear texture filtering not enabled!");
 		}
-		mainWindow = SDL_CreateWindow("Plunder Loot",
-									  SDL_WINDOWPOS_UNDEFINED,
-									  SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
-									  SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+		mainWindow = SDL_CreateWindow("Plunder Loot", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (mainWindow == NULL) {
 			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 			return false;
@@ -54,12 +50,9 @@ SDL_graphics::~SDL_graphics(void) {
 }
 
 SDL_graphics::SDL_graphics() {
-
 	SCREEN_WIDTH = 1280;
 	SCREEN_HEIGHT = 720;
-
 	printf("Screen Size Defaulted to %dx%d\n", SCREEN_WIDTH, SCREEN_HEIGHT);
-
 	if ( !init() ) {
 		printf("Graphics failed to initialize fully\n");
 		exit(-1);

@@ -52,9 +52,7 @@ bool Texture::load(TTF_Font *font, std::string text, SDL_Color text_color) {
 	return SDLtex != NULL;
 }
 
-void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double angle, SDL_Point *center, SDL_RendererFlip render_flip)
-{
-
+void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double angle, SDL_Point *center, SDL_RendererFlip render_flip) {
 	SDL_Rect srcClip = {0, 0, width, height};
 	if (src_clip != nullptr) {
 		srcClip.x = src_clip->x;
@@ -67,7 +65,6 @@ void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double 
 		renderQuad.w = dst_rect->w;
 		renderQuad.h = dst_rect->h;
 	}
-
 	SDL_RenderCopyEx(SDLrenderer, SDLtex, &srcClip, &renderQuad, angle, center, render_flip);
 }
 

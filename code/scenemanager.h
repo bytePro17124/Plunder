@@ -6,33 +6,24 @@
 
 class SceneManager {
 public:
-	SceneManager();
-	
+	SceneManager();	
 	~SceneManager();
-
 	void scene_selector();
-
 private:
-
-	bool fullQuit;  // application management
-	
+	bool fullQuit;  // application management	
 	// SCENE MANAGEMENT
 	SDL_graphics Graphics_Engine;
 	SDL_Renderer *renderer;
-	int ScreenWidth, ScreenHeight;  // scene sizes
-	
+	int ScreenWidth, ScreenHeight;  // scene sizes	
 	enum SCENE { STARTUP, MAIN_MENU, HORDE_LOOT, EXIT };  //core scenes
 	SCENE scene;
-
 	void scene_00_startup();  //startup logo and such
 	void scene_01_main_menu();  // display main menu
 	void scene_02_horde_loot();
-	void scene_99_exit();  // do exit scene
-	
+	void scene_99_exit();  // do exit scene	
 	SDL_Event e;  // key press management
 	int mouseLeftX, mouseLeftY;  // mouse movement and clicks management
-	void process_mouse_and_keyboard();
-	
+	void process_mouse_and_keyboard();	
 	//preloaded scene variables below
 	SDL_Color Black = {0,0,0,0};
 	SDL_Color Orange = {255,115,35,0};
@@ -40,15 +31,9 @@ private:
 	SDL_Color Red = {255,0,0,0};
 	SDL_Color Blue = {0,0,255,0};
 	SDL_Color Teal = {0,191,255,0};
-	SDL_Color Green = {0,255,127,0};
-	
+	SDL_Color Green = {0,255,127,0};	
 	TTF_Font *Leadcoat, *Bookman, *Vivian, *Vecna, *Verdana;
-
 	SDL_sound Sound_Engine;
-
 	Texture logo1;
-	Texture hordelooticon;
-
-
-	
+	Texture hordelooticon;	
 };
