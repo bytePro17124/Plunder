@@ -3,6 +3,7 @@
 #include "graphics.h"
 #include "sound.h"
 #include "texture.h"
+#include <vector>
 
 class SceneManager {
 public:
@@ -37,4 +38,9 @@ private:
 	Texture logo1;
 	Texture hordelooticon;
 	Texture displaytext1;
+	Texture backarrow;
+	std::vector<Texture> horde_menu_display;
+	const std::vector<std::string> horde_loot_menu_items = { "Party Loot Level: ", "0-4", "5-10", "11-16", "17+" };
+	std::vector<Texture> horde_loot_display;
+	std::vector<std::string> horde_loot_found_items = { "Nothing here" };
 };

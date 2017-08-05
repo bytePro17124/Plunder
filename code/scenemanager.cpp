@@ -1,4 +1,5 @@
 #include "scenemanager.h"
+#include <iostream>
 
 
 SceneManager::SceneManager() {
@@ -11,7 +12,7 @@ SceneManager::SceneManager() {
 	Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 30);
 	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
 	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
-	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 45);
+	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
 	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
 	logo1.setRenderer(renderer);
 	logo1.load("assets/textures/test-logo.png");
@@ -19,6 +20,17 @@ SceneManager::SceneManager() {
 	hordelooticon.load("assets/textures/horde_loot_icon.png");
 	displaytext1.setRenderer(renderer);
 	displaytext1.setBlendMode(SDL_BLENDMODE_BLEND);
+	backarrow.setRenderer(renderer);
+	backarrow.load("assets/textures/back-arrow-75x75.png");
+
+	horde_menu_display.resize(5);
+
+	for (int i = 0; i < 5; i++) {
+		horde_menu_display[i].setRenderer(renderer);
+		if (i == 0)	horde_menu_display[i].load(Vecna, horde_loot_menu_items[i], Orange);
+		else horde_menu_display[i].load(Bookman, horde_loot_menu_items[i], White);
+		horde_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
+	}
 }
 
 
