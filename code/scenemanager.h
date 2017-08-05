@@ -3,7 +3,10 @@
 #include "graphics.h"
 #include "sound.h"
 #include "texture.h"
+#include "horde_loot.h"
 #include <vector>
+#include <ctime>
+#include <fstream>
 
 class SceneManager {
 public:
@@ -33,7 +36,7 @@ private:
 	SDL_Color Blue = {0,0,255,0};
 	SDL_Color Teal = {0,191,255,0};
 	SDL_Color Green = {0,255,127,0};
-	TTF_Font *Leadcoat, *Bookman, *Vivian, *Vecna, *Verdana;
+	TTF_Font *Bookman, *Vecna;
 	SDL_sound Sound_Engine;
 	Texture logo1;
 	Texture hordelooticon;
@@ -41,6 +44,19 @@ private:
 	Texture backarrow;
 	std::vector<Texture> horde_menu_display;
 	const std::vector<std::string> horde_loot_menu_items = { "Party Loot Level: ", "0-4", "5-10", "11-16", "17+" };
+	bool loot_results_ready = false;
+	Texture loot_found_header;
 	std::vector<Texture> horde_loot_display;
-	std::vector<std::string> horde_loot_found_items = { "Nothing here" };
+	Horde_Loot treasure_pile;
+	bool update_horde_display = false;
+	Texture save_loot_button;
+	bool loot_write_out = false;
+	bool loot_write_out_notification = false;
+	std::string fileoutputname;
+	Texture notification_text;
+	Uint8 notification_alpha = 0;
+	int loot_rolls_this_session = 0;
+	std::time_t now;
+	tm *ltm;
+	std::ofstream save_to_file;
 };

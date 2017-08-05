@@ -4,6 +4,7 @@ SOURCE_PATH = code
 
 all:
 	+$(MAKE) -C $(SOURCE_PATH)
+	mkdir -p saved_loot
 	@echo "\nUPGRADE COMPLETE"
 
 clean:

@@ -4,6 +4,9 @@ scenemanager.o \
 keybindings.o \
 main.o \
 texture.o \
+gear.o \
+random_gen.o \
+horde_loot.o \
 scene_00_startup.o \
 scene_01_main_menu.o \
 scene_02_horde_loot.o \

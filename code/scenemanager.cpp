@@ -9,7 +9,7 @@ SceneManager::SceneManager() {
 	renderer = Graphics_Engine.getRenderer();
 	ScreenHeight = Graphics_Engine.getScreenHeight();
 	ScreenWidth = Graphics_Engine.getScreenWidth();
-	Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 30);
+	Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 31);
 	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
 	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
@@ -31,6 +31,11 @@ SceneManager::SceneManager() {
 		else horde_menu_display[i].load(Bookman, horde_loot_menu_items[i], White);
 		horde_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
 	}
+
+	loot_found_header.setRenderer(renderer);
+	loot_found_header.load(Vecna, "Treasure Pile: ", Orange);
+	save_loot_button.setRenderer(renderer);
+	save_loot_button.load("assets/textures/save.png");
 }
 
 
@@ -50,8 +55,7 @@ void SceneManager::scene_selector() {
 		case MAIN_MENU:
 			scene_01_main_menu(); break;
 		case HORDE_LOOT:
-			scene_02_horde_loot();
-			break;
+			scene_02_horde_loot(); break;
 		case EXIT:
 			scene_99_exit();
 			fullQuit = true;
