@@ -14,14 +14,27 @@ SDL_sound::SDL_sound() {
 		printf("Failed to load startup sound! SDL_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
 	}
+	shutdownSound = Mix_LoadWAV("assets/sounds/powerdown-16-bit.wav");
+        if (shutdownSound == NULL) {
+		printf("Failed to load shutdown sound! SDL_mixer Error: %s\n", Mix_GetError());
+		exit(-1);
+	}
 }
 
 SDL_sound::~SDL_sound() {
 	Mix_FreeChunk(startupSound);
 	startupSound = NULL;
+        Mix_FreeChunk(shutdownSound);
+        shutdownSound = NULL;
 	Mix_Quit();
 }
 
 void SDL_sound::playstartupsound() {
 	Mix_PlayChannel( -1,  startupSound, 0 );
 }
+
+
+void SDL_sound::playshutdownsound() {
+    Mix_PlayChannel( -1, shutdownSound, 0 ); 
+}
+

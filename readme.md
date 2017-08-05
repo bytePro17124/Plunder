@@ -1,3 +1,5 @@
-# Plunderer
+# Plunder
 
-##### get to lootin'
+### get to lootin'
+
+````make && ./plunder````

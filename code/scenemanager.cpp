@@ -17,6 +17,8 @@ SceneManager::SceneManager() {
 	logo1.load("assets/textures/test-logo.png");
 	hordelooticon.setRenderer(renderer);
 	hordelooticon.load("assets/textures/horde_loot_icon.png");
+	displaytext1.setRenderer(renderer);
+	displaytext1.setBlendMode(SDL_BLENDMODE_BLEND);
 }
 
 

@@ -8,12 +8,13 @@ public:
 	SDL_sound();
 	~SDL_sound();
 	void playstartupsound();
+	void playshutdownsound();
 private:
 	//The music that will be played
 //	Mix_Music *themeMusic = NULL;
 	//The sound effects that will be used
 	Mix_Chunk *startupSound = NULL;
-//	Mix_Chunk *gHigh = NULL;
+        Mix_Chunk *shutdownSound = NULL;
 //	Mix_Chunk *gMedium = NULL;
 //	Mix_Chunk *gLow = NULL;
 };
