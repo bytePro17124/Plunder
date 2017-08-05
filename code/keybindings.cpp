@@ -31,6 +31,11 @@ void SceneManager::process_mouse_and_keyboard() {
 						scene = MAIN_MENU;
 						Sound_Engine.playcancelsound();
 					}
+
+					for (int i = 1; i < 5; i++) {
+						if (mouseLeftX > )
+
+					}
 					break;
 				case EXIT: break;  //disallow key clicks
 				}
