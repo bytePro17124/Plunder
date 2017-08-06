@@ -17,3 +17,5 @@ dep:
 #install:
 #	mkdir $(HOME)/.plunder
 #	install -m 755 plunder /usr/local/bin/plunder
+
+.PHONY: all clean dep
