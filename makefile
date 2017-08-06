@@ -12,8 +12,8 @@ clean:
 	+$(MAKE) -C $(SOURCE_PATH) $@
 
 dep:
-	sudo apt-get install $(PREREQUISITES)	
+	apt-get install $(PREREQUISITES)	
 	
 install:
-	mkdir /home/mje/.plunder
-	sudo cp -u plunder /usr/bin
+	mkdir $(HOME)/.plunder
+	install -m 755 plunder /usr/local/bin/plunder
