@@ -14,6 +14,6 @@ clean:
 dep:
 	apt-get install $(PREREQUISITES)	
 	
-install:
-	mkdir $(HOME)/.plunder
-	install -m 755 plunder /usr/local/bin/plunder
+#install:
+#	mkdir $(HOME)/.plunder
+#	install -m 755 plunder /usr/local/bin/plunder
