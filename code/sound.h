@@ -11,6 +11,7 @@ public:
 	void playshutdownsound();
 	void playlootsound();
 	void playcancelsound();
+	void playmenusound();
 private:
 	//The music that will be played
 	//	Mix_Music *themeMusic = NULL;
@@ -19,4 +20,5 @@ private:
 	Mix_Chunk *shutdownSound = NULL;
 	Mix_Chunk *lootSound = NULL;
 	Mix_Chunk *cancelSound = NULL;
+	Mix_Chunk *menuSound = NULL;
 };

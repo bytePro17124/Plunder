@@ -15,29 +15,29 @@ SceneManager::SceneManager() {
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
 	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
 	logo1.setRenderer(renderer);
-	logo1.load("assets/textures/test-logo.png");
+	logo1.load("assets/textures/chest-130x105.png");
 	hordelooticon.setRenderer(renderer);
 	hordelooticon.load("assets/textures/horde_loot_icon.png");
+	scrollicon.setRenderer(renderer);
+	scrollicon.load("assets/textures/scroll_icon.png");
+	spellbookicon.setRenderer(renderer);
+	spellbookicon.load("assets/textures/spellbook_icon.png");
 	displaytext1.setRenderer(renderer);
 	displaytext1.setBlendMode(SDL_BLENDMODE_BLEND);
 	backarrow.setRenderer(renderer);
 	backarrow.load("assets/textures/back-arrow-75x75.png");
-
 	horde_menu_display.resize(5);
-
 	for (int i = 0; i < 5; i++) {
 		horde_menu_display[i].setRenderer(renderer);
 		if (i == 0)	horde_menu_display[i].load(Vecna, horde_loot_menu_items[i], Orange);
 		else horde_menu_display[i].load(Bookman, horde_loot_menu_items[i], White);
 		horde_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
 	}
-
 	loot_found_header.setRenderer(renderer);
 	loot_found_header.load(Vecna, "Treasure Pile: ", Orange);
 	save_loot_button.setRenderer(renderer);
 	save_loot_button.load("assets/textures/save.png");
 }
-
 
 SceneManager::~SceneManager() {
 	TTF_CloseFont(Vecna);
@@ -45,7 +45,6 @@ SceneManager::~SceneManager() {
 	TTF_CloseFont(Bookman);
 	Bookman = NULL;
 }
-
 
 void SceneManager::scene_selector() {
 	while (!fullQuit) {
@@ -63,5 +62,3 @@ void SceneManager::scene_selector() {
 		}
 	}
 }
-
-

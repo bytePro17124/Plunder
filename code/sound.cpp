@@ -29,6 +29,11 @@ SDL_sound::SDL_sound() {
 		printf("Failed to load cancel sound! SDL_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
 	}
+	menuSound = Mix_LoadWAV("assets/sounds/menu-click-16-bit.wav");
+	if (menuSound == NULL) {
+		printf("Failed to load menu sound! SDL_mixer Error: %s\n", Mix_GetError());
+		exit(-1);
+	}
 }
 
 SDL_sound::~SDL_sound() {
@@ -40,6 +45,8 @@ SDL_sound::~SDL_sound() {
 	lootSound = NULL;
 	Mix_FreeChunk(cancelSound);
 	cancelSound = NULL;
+	Mix_FreeChunk(menuSound);
+	menuSound = NULL;
 	Mix_Quit();
 }
 
@@ -59,4 +66,8 @@ void SDL_sound::playlootsound() {
 
 void SDL_sound::playcancelsound() {
 	Mix_PlayChannel( -1, cancelSound, 0);
+}
+
+void SDL_sound::playmenusound() {
+	Mix_PlayChannel( -1, menuSound, 0);
 }

@@ -29,17 +29,18 @@ private:
 	int mouseLeftX, mouseLeftY;  // mouse movement and clicks management
 	void process_mouse_and_keyboard();
 	//preloaded scene variables below
-	SDL_Color Black = {0,0,0,0};
+	//	SDL_Color Black = {0,0,0,0};
 	SDL_Color Orange = {255,115,35,0};
 	SDL_Color White = {240,248,240,0};  //offwhite cause it looks better
-	SDL_Color Red = {255,0,0,0};
-	SDL_Color Blue = {0,0,255,0};
-	SDL_Color Teal = {0,191,255,0};
+	//	SDL_Color Red = {255,0,0,0};
+	//	SDL_Color Blue = {0,0,255,0};
+	//	SDL_Color Teal = {0,191,255,0};
 	SDL_Color Green = {0,255,127,0};
 	TTF_Font *Bookman, *Vecna;
 	SDL_sound Sound_Engine;
 	Texture logo1;
-	Texture hordelooticon;
+	Texture hordelooticon, spellbookicon, scrollicon;
+	const int offset = 10;
 	Texture displaytext1;
 	Texture backarrow;
 	std::vector<Texture> horde_menu_display;

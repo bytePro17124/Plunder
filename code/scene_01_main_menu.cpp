@@ -5,7 +5,11 @@ void SceneManager::scene_01_main_menu() {
 	while (scene == MAIN_MENU) {  	// scene loop
 		Graphics_Engine.clear();  //reset screen
 		process_mouse_and_keyboard();  //check for any keypresses
-		hordelooticon.draw( ((ScreenWidth / 2) - (hordelooticon.getWidth() / 2)) , ((ScreenHeight / 2) - (hordelooticon.getHeight() / 2)) );		
+
+		hordelooticon.draw( ScreenWidth/2 - offset - hordelooticon.getWidth(), ScreenHeight/2 - offset - hordelooticon.getHeight() );
+		spellbookicon.draw( ScreenWidth/2 + offset, ScreenHeight/2 - offset - spellbookicon.getHeight() );
+		scrollicon.draw( ScreenWidth/2 - offset - scrollicon.getWidth(), ScreenHeight/2 + offset);
+
 		Graphics_Engine.render();  //update screen
 	}
 }

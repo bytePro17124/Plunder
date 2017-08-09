@@ -14,13 +14,14 @@ void SceneManager::process_mouse_and_keyboard() {
 				switch (scene) {
 				case STARTUP: break;
 				case MAIN_MENU:
-					if ( (mouseLeftX > (ScreenWidth/2 - hordelooticon.getWidth()/2) && mouseLeftX < (ScreenWidth/2 + hordelooticon.getWidth()/2)) && (mouseLeftY > (ScreenHeight/2 - hordelooticon.getHeight()/2) && mouseLeftY < (ScreenWidth/2 + hordelooticon.getHeight()/2))) {
+					if ( (mouseLeftX > (ScreenWidth/2 - hordelooticon.getWidth() - offset) && mouseLeftX < (ScreenWidth/2 - offset)) && (mouseLeftY > (ScreenHeight/2 - hordelooticon.getHeight() - offset) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click horde loot
 						scene = HORDE_LOOT;
-						Sound_Engine.playlootsound();
+						Sound_Engine.playmenusound();
+					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + spellbookicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 - offset - spellbookicon.getHeight()) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click spellbook
+						Sound_Engine.playmenusound();
+					} else if ( (mouseLeftX > ScreenWidth/2 - scrollicon.getWidth() - offset && mouseLeftX < ScreenWidth/2 - offset) && (mouseLeftY > ScreenHeight/2 + offset && mouseLeftY < ScreenHeight/2 + offset + scrollicon.getHeight()) ) {  // click scroll+
+						Sound_Engine.playmenusound();
 					}
-					//todo click spellbook
-					//todo click scrolls
-					//todo click saved data
 					break;
 				case HORDE_LOOT:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
