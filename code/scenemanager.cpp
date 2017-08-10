@@ -31,7 +31,7 @@ SceneManager::SceneManager() {
 		horde_menu_display[i].setRenderer(renderer);
 		if (i == 0)	horde_menu_display[i].load(Vecna, horde_loot_menu_items[i], Orange);
 		else horde_menu_display[i].load(Bookman, horde_loot_menu_items[i], White);
-		horde_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
+//		horde_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
 	}
 	loot_found_header.setRenderer(renderer);
 	loot_found_header.load(Vecna, "Treasure Pile: ", Orange);

@@ -5,7 +5,7 @@ using namespace std;
 
 Gear::Gear() {}
 
-Gear::Gear(const int& q, const string& i){
+Gear::Gear(const int& q, const string& i) {
 	quantity = q;
 	item_name = i;
 }

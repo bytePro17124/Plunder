@@ -68,7 +68,7 @@ void SceneManager::scene_02_horde_loot() {
 			}
 		} else {
 			for (int i = 0; i < 5; i++) {
-				horde_menu_display[i].setAlpha(190);
+//				horde_menu_display[i].setAlpha(190);
 				horde_menu_display[i].draw(((ScreenWidth/2)-(horde_menu_display[i].getWidth()/2)), 110 + i * 95);
 			}
 		}
