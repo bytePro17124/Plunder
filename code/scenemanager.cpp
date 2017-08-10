@@ -55,6 +55,10 @@ void SceneManager::scene_selector() {
 			scene_01_main_menu(); break;
 		case HORDE_LOOT:
 			scene_02_horde_loot(); break;
+		case SPELLBOOK_CREATE:
+			scene_03_spellbook(); break;
+		case SCROLL_ROLLER:
+			scene_04_scroll(); break;
 		case EXIT:
 			scene_99_exit();
 			fullQuit = true;

@@ -18,8 +18,10 @@ void SceneManager::process_mouse_and_keyboard() {
 						scene = HORDE_LOOT;
 						Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + spellbookicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 - offset - spellbookicon.getHeight()) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click spellbook
+						scene = SPELLBOOK_CREATE;
 						Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 - scrollicon.getWidth() - offset && mouseLeftX < ScreenWidth/2 - offset) && (mouseLeftY > ScreenHeight/2 + offset && mouseLeftY < ScreenHeight/2 + offset + scrollicon.getHeight()) ) {  // click scroll+
+						scene = SCROLL_ROLLER;
 						Sound_Engine.playmenusound();
 					}
 					break;
@@ -62,6 +64,18 @@ void SceneManager::process_mouse_and_keyboard() {
 						if (mouseLeftX > ScreenWidth - 75 - save_loot_button.getWidth() && mouseLeftX < ScreenWidth - 75 && mouseLeftY > ScreenHeight - 75 - save_loot_button.getHeight() && mouseLeftY < ScreenHeight - 75) {
 							loot_write_out = true;
 						}
+					}
+					break;
+				case SPELLBOOK_CREATE:
+					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
+						scene = MAIN_MENU;
+						Sound_Engine.playcancelsound();
+					}
+					break;
+				case SCROLL_ROLLER:
+					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
+						scene = MAIN_MENU;
+						Sound_Engine.playcancelsound();
 					}
 					break;
 				case EXIT: break;  //disallow key clicks
