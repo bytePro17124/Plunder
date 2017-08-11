@@ -6,7 +6,7 @@
 /// This class relies on the artObjects.dat and gems.dat files
 class Gear;
 
-class Horde_Loot {
+class Hoard_Loot {
 
 public:
 

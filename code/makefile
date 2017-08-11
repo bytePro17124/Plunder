@@ -6,10 +6,10 @@ main.o \
 texture.o \
 gear.o \
 random_gen.o \
-horde_loot.o \
+hoard_loot.o \
 scene_00_startup.o \
 scene_01_main_menu.o \
-scene_02_horde_loot.o \
+scene_02_hoard_loot.o \
 scene_03_spellbook.o \
 scene_04_scroll.o \
 scene_99_exit.o

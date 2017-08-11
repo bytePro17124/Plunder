@@ -15,13 +15,3 @@ static std::uniform_int_distribution<int> rolld20(1, 20);
 static std::uniform_int_distribution<int> rolld100(1, 100);
 
 int randomNumber(const int&, const int&);
-
-
-template<typename T, typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type>
-std::string toString(const T& a) {
-	std::string tmp = "";
-	std::stringstream stringconverter;
-	stringconverter << a;
-	tmp += stringconverter.str();
-	return tmp;
-};

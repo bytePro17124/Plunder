@@ -14,8 +14,8 @@ void SceneManager::process_mouse_and_keyboard() {
 				switch (scene) {
 				case STARTUP: break;
 				case MAIN_MENU:
-					if ( (mouseLeftX > (ScreenWidth/2 - hordelooticon.getWidth() - offset) && mouseLeftX < (ScreenWidth/2 - offset)) && (mouseLeftY > (ScreenHeight/2 - hordelooticon.getHeight() - offset) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click horde loot
-						scene = HORDE_LOOT;
+					if ( (mouseLeftX > (ScreenWidth/2 - hoardlooticon.getWidth() - offset) && mouseLeftX < (ScreenWidth/2 - offset)) && (mouseLeftY > (ScreenHeight/2 - hoardlooticon.getHeight() - offset) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click hoard loot
+						scene = hoard_LOOT;
 						Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + spellbookicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 - offset - spellbookicon.getHeight()) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click spellbook
 						scene = SPELLBOOK_CREATE;
@@ -25,35 +25,35 @@ void SceneManager::process_mouse_and_keyboard() {
 						Sound_Engine.playmenusound();
 					}
 					break;
-				case HORDE_LOOT:
+				case hoard_LOOT:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
 						if (!loot_results_ready) Sound_Engine.playcancelsound();
 						loot_results_ready = false;
-						horde_loot_display.clear();
+						hoard_loot_display.clear();
 						treasure_pile.full_gear_list.clear();
 					}
 					if (!loot_results_ready) {
 						for (int i = 1; i < 5; i++) {
-							if ((mouseLeftX > ScreenWidth/2 - horde_menu_display[i].getWidth()/2 && mouseLeftX < ScreenWidth/2 + horde_menu_display[i].getWidth()/2) && ( mouseLeftY > 110 + i * 95 && mouseLeftY < 110 + i * 95 + horde_menu_display[i].getWidth()) ) {
+							if ((mouseLeftX > ScreenWidth/2 - hoard_menu_display[i].getWidth()/2 && mouseLeftX < ScreenWidth/2 + hoard_menu_display[i].getWidth()/2) && ( mouseLeftY > 110 + i * 95 && mouseLeftY < 110 + i * 95 + hoard_menu_display[i].getWidth()) ) {
 								switch (i) {
 								case 1:
 									treasure_pile.GenerateHoardTreasureCR_0_4();
-									update_horde_display = loot_results_ready = true;
+									update_hoard_display = loot_results_ready = true;
 									break;
 								case 2:
 									treasure_pile.GenerateHoardTreasureCR_5_10();
-									update_horde_display = loot_results_ready = true;
+									update_hoard_display = loot_results_ready = true;
 									Sound_Engine.playlootsound();
 									break;
 								case 3:
 									treasure_pile.GenerateHoardTreasureCR_11_16();
-									update_horde_display = loot_results_ready = true;
+									update_hoard_display = loot_results_ready = true;
 									Sound_Engine.playlootsound();
 									break;
 								case 4:
 									treasure_pile.GenerateHoardTreasureCR_17();
-									update_horde_display = loot_results_ready = true;
+									update_hoard_display = loot_results_ready = true;
 									Sound_Engine.playlootsound();
 									break;
 								default:break;

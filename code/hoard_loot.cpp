@@ -1,12 +1,12 @@
 
-#include "horde_loot.h"
+#include "hoard_loot.h"
 #include <algorithm> //for sort function
 #include <fstream>  //art and gems load from a file
 #include "random_gen.h" //lots of that random gen
 
 using namespace std;
 
-void Horde_Loot::GenerateHoardTreasureCR_0_4(){
+void Hoard_Loot::GenerateHoardTreasureCR_0_4(){
 	vector<Gear> tmplist;
 	int copper(0), silver(0), gold(0);
 	for (int i(0); i < 6; i++) copper += rolld6(mgen);
@@ -133,7 +133,7 @@ void Horde_Loot::GenerateHoardTreasureCR_0_4(){
 	full_gear_list = tmplist;
 }
 
-void Horde_Loot::GenerateHoardTreasureCR_5_10(){
+void Hoard_Loot::GenerateHoardTreasureCR_5_10(){
 	vector<Gear> tmplist;
 	int copper(0), silver(0), gold(0), plat(0);
 	for (int i(0); i < 2; i++) copper += rolld6(mgen);
@@ -341,7 +341,7 @@ void Horde_Loot::GenerateHoardTreasureCR_5_10(){
 	}
 	full_gear_list = tmplist;
 }
-void Horde_Loot::GenerateHoardTreasureCR_11_16(){
+void Hoard_Loot::GenerateHoardTreasureCR_11_16(){
 	vector<Gear> tmplist;
 	int gold(0), plat(0);
 	for (int i(0); i < 4; i++) gold += rolld6(mgen);
@@ -581,7 +581,7 @@ void Horde_Loot::GenerateHoardTreasureCR_11_16(){
 
 }
 
-void Horde_Loot::GenerateHoardTreasureCR_17(){
+void Hoard_Loot::GenerateHoardTreasureCR_17(){
 	vector<Gear> tmplist;
 	int gold(0), plat(0);
 	for (int i(0); i < 12; i++) gold += rolld6(mgen);
@@ -751,7 +751,7 @@ void Horde_Loot::GenerateHoardTreasureCR_17(){
 
 }
 
-Gear Horde_Loot::TableA(){
+Gear Hoard_Loot::TableA(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 50) {
@@ -781,7 +781,7 @@ Gear Horde_Loot::TableA(){
 	}
 }
 
-Gear Horde_Loot::TableB(){
+Gear Hoard_Loot::TableB(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 15) {
@@ -905,7 +905,7 @@ Gear Horde_Loot::TableB(){
 	}
 }
 
-Gear Horde_Loot::TableC(){
+Gear Hoard_Loot::TableC(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 15) {
@@ -1012,7 +1012,7 @@ Gear Horde_Loot::TableC(){
 	}
 }
 
-Gear Horde_Loot::TableD(){
+Gear Hoard_Loot::TableD(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 20) {
@@ -1068,7 +1068,7 @@ Gear Horde_Loot::TableD(){
 		return tmp;
 	}
 }
-Gear Horde_Loot::TableE(){
+Gear Hoard_Loot::TableE(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 30) {
@@ -1097,7 +1097,7 @@ Gear Horde_Loot::TableE(){
 	}
 }
 
-Gear Horde_Loot::TableF(){
+Gear Hoard_Loot::TableF(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 15) {
@@ -1282,7 +1282,7 @@ Gear Horde_Loot::TableF(){
 		return tmp;
 	}
 }
-Gear Horde_Loot::TableG(){
+Gear Hoard_Loot::TableG(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 11) {
@@ -1580,7 +1580,7 @@ Gear Horde_Loot::TableG(){
 		return tmp;
 	}
 }
-Gear Horde_Loot::TableH(){
+Gear Hoard_Loot::TableH(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 10) {
@@ -1792,7 +1792,7 @@ Gear Horde_Loot::TableH(){
 		return tmp;
 	}
 }
-Gear Horde_Loot::TableI(){
+Gear Hoard_Loot::TableI(){
 	int roll = 0;
 	roll = rolld100(mgen);
 	if (roll <= 5) {
@@ -1983,7 +1983,7 @@ Gear Horde_Loot::TableI(){
 	}
 }
 
-string Horde_Loot::GenerateScroll(const int& lvl) const{
+string Hoard_Loot::GenerateScroll(const int& lvl) const{
 	int ss = 0;
 	string scroll;
 	switch (lvl) {
@@ -3044,7 +3044,7 @@ string Horde_Loot::GenerateScroll(const int& lvl) const{
 	return scroll;
 }
 
-string Horde_Loot::GenerateGemstone(const int& amount, const int& value) const {
+string Hoard_Loot::GenerateGemstone(const int& amount, const int& value) const {
 	string gemstring = "error: check code or gemfile";
 	ifstream fileOfGems;
 	fileOfGems.open("assets/data/gems.dat");
@@ -3104,7 +3104,7 @@ string Horde_Loot::GenerateGemstone(const int& amount, const int& value) const {
 			getline(fileOfGems, tmpName, ';');
 			fileOfGems.seekg(len, ios_base::beg);  //return to position - return to snapshot of place in file
 			if (i == 0) {           //very first gem case
-				gemstring = toString(value) + "gp Gems:" + tmpName;
+				gemstring = std::to_string(value) + "gp Gems:" + tmpName;
 			} else {
 				size_t find_position = gemstring.find(tmpName + ",");
 				if (find_position != string::npos) { //found first duplicate gemname on the list - not last item either
@@ -3143,7 +3143,7 @@ string Horde_Loot::GenerateGemstone(const int& amount, const int& value) const {
 }
 
 
-string Horde_Loot::GenerateArt(const int& amount, const int& value) const {
+string Hoard_Loot::GenerateArt(const int& amount, const int& value) const {
 	string artstring = "error: check code or artfile";
 	ifstream fileOfArt;
 	fileOfArt.open("assets/data/artObjects.dat");
@@ -3195,7 +3195,7 @@ string Horde_Loot::GenerateArt(const int& amount, const int& value) const {
 			getline(fileOfArt, tmpName, ';');
 			fileOfArt.seekg(len, ios_base::beg);  //return to position//return to snapshot of place in file
 			if (i == 0) {  //first time through
-				artstring = (toString(value) + "gp Art Objects:" + tmpName);
+				artstring = (std::to_string(value) + "gp Art Objects:" + tmpName);
 			} else {
 				size_t find_position = artstring.find(tmpName + ",");
 				if (find_position != string::npos) { //found first duplicate Artname on the list - not last item either
