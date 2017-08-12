@@ -1,5 +1,5 @@
 TARGET = plunder
-PREREQUISITES = build-essential gcc git libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
+PREREQUISITES = build-essential libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
 SOURCE_PATH = code
 
 all:

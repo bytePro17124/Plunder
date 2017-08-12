@@ -30,7 +30,7 @@ SceneManager::SceneManager() {
 	for (int i = 0; i < 5; i++) {
 		hoard_menu_display[i].setRenderer(renderer);
 		if (i == 0)	hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Orange);
-                else hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], White);
+                else hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Green);
 //		hoard_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
 	}
 	loot_found_header.setRenderer(renderer);
@@ -53,7 +53,7 @@ void SceneManager::scene_selector() {
 			scene_00_startup(); break;
 		case MAIN_MENU:
 			scene_01_main_menu(); break;
-		case hoard_LOOT:
+                case HOARD_LOOT:
 			scene_02_hoard_loot(); break;
 		case SPELLBOOK_CREATE:
 			scene_03_spellbook(); break;

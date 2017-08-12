@@ -19,7 +19,7 @@ private:
 	SDL_graphics Graphics_Engine;
 	SDL_Renderer *renderer;
 	int ScreenWidth, ScreenHeight;  // scene sizes
-	enum SCENE { STARTUP, MAIN_MENU, hoard_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, EXIT };  //core scenes
+        enum SCENE { STARTUP, MAIN_MENU, HOARD_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, EXIT };  //core scenes
 	SCENE scene;
 	void scene_00_startup();  //startup logo and such
 	void scene_01_main_menu();  // display main menu
