@@ -9,9 +9,9 @@ SceneManager::SceneManager() {
 	renderer = Graphics_Engine.getRenderer();
 	ScreenHeight = Graphics_Engine.getScreenHeight();
 	ScreenWidth = Graphics_Engine.getScreenWidth();
-	Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 31);
+        Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 22);
 	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
-	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
+//	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
 	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
 	logo1.setRenderer(renderer);
@@ -30,7 +30,7 @@ SceneManager::SceneManager() {
 	for (int i = 0; i < 5; i++) {
 		hoard_menu_display[i].setRenderer(renderer);
 		if (i == 0)	hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Orange);
-		else hoard_menu_display[i].load(Bookman, hoard_loot_menu_items[i], White);
+                else hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], White);
 //		hoard_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
 	}
 	loot_found_header.setRenderer(renderer);

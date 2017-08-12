@@ -46,7 +46,7 @@ private:
 	Texture displaytext1;
 	Texture backarrow;
 	std::vector<Texture> hoard_menu_display;
-	const std::vector<std::string> hoard_loot_menu_items = { "Party Loot Level: ", "0-4", "5-10", "11-16", "17+" };
+        const std::vector<std::string> hoard_loot_menu_items = { "Challenge Rating : ", "0-4", "5-10", "11-16", "17+" };
 	bool loot_results_ready = false;
 	Texture loot_found_header;
 	std::vector<Texture> hoard_loot_display;
