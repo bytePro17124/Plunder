@@ -1,8 +1,8 @@
 # Plunder
 
-<img src="img/plunder_screenshot_main_menu.png" height="180px" align="center">
+<img src="plunder_screenshot_main_menu.png" height="180px" align="center">
 
-*written on Ubuntu 16.04 Gnome3 - start in terminal to run*
+*currently this runs on linux, recommend using a VM if you are on windows, its all free*
 
 #### get to lootin'
 
@@ -14,7 +14,7 @@
 
 ````make dep````
 
-* installs all dependencies on Ubuntu
+* installs all dependencies using apt-get
 
 #### fook it just do this the first time:
 
