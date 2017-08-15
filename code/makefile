@@ -6,6 +6,7 @@ main.o \
 texture.o \
 gear.o \
 random_gen.o \
+gen_scroll.o \
 hoard_loot.o \
 scene_00_startup.o \
 scene_01_main_menu.o \

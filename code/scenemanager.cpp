@@ -43,6 +43,8 @@ SceneManager::SceneManager() {
 		else scroll_menu_display[i].load(Vecna, scroll_level_menu_items[i], Green);
 	}
 
+	scroll_loot_display.setRenderer(renderer);
+
 	loot_found_header.setRenderer(renderer);
 	loot_found_header.load(Vecna, "Treasure Pile: ", Orange);
 	save_loot_button.setRenderer(renderer);
