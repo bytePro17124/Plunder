@@ -2,7 +2,7 @@
 
 <img src="plunder_screenshot_main_menu.png" height="180px" align="center">
 
-*currently this runs on linux, recommend using a VM if you are on windows, its all fr*
+*currently this runs on linux, recommend using a VM if you are on windows, its all free*
 
 #### get to lootin'
 
