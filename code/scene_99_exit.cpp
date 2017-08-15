@@ -4,7 +4,7 @@ void SceneManager::scene_99_exit() {
 	std::string displaytext = "Roll For Dexterity!";
 	displaytext1.load(Vecna, displaytext, Orange);
 	displaytext1.setAlpha(0);
-	Sound_Engine.playshutdownsound();
+	//	Sound_Engine.playshutdownsound();
 	for (Uint8 currentalpha = 0; currentalpha < 255; currentalpha++) {
 		Graphics_Engine.clear();
 		if (currentalpha == 195) {

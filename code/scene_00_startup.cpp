@@ -8,6 +8,6 @@ void SceneManager::scene_00_startup() {
 		logo1.draw( ((ScreenWidth / 2) - (logo1.getWidth() / 2)), ((ScreenHeight / 2) - (logo1.getHeight() / 2)) );
 		Graphics_Engine.render();
 	}
-	Sound_Engine.playstartupsound();
+	//	Sound_Engine.playstartupsound();
 	scene = MAIN_MENU;
 }

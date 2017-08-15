@@ -10,7 +10,7 @@ using namespace std;
 void SceneManager::scene_02_hoard_loot() {
 	// reset scene defaults here
 
-        while (scene == HOARD_LOOT) {  	// scene loop
+	while (scene == HOARD_LOOT) {  	// scene loop
 		Graphics_Engine.clear();  //reset screen
 		process_mouse_and_keyboard();  //check for any keypresses
 
@@ -22,7 +22,7 @@ void SceneManager::scene_02_hoard_loot() {
 			}
 			update_hoard_display = false;
 			loot_rolls_this_session++;
-			Sound_Engine.playlootsound();
+			//			Sound_Engine.playlootsound();
 		}
 
 		if (loot_write_out) {
@@ -69,9 +69,9 @@ void SceneManager::scene_02_hoard_loot() {
 			}
 		} else {
 			for (int i = 0; i < 5; i++) {
-//				hoard_menu_display[i].setAlpha(190);
-                            if (i == 0) hoard_menu_display[i].draw(((ScreenWidth/2)-(hoard_menu_display[i].getWidth()/2)), 110 + i * 95);
-                            else hoard_menu_display[i].draw(((ScreenWidth/2)-(hoard_menu_display[i].getWidth()/2)), 110 + i * 75);
+				//				hoard_menu_display[i].setAlpha(190);
+				if (i == 0) hoard_menu_display[i].draw(((ScreenWidth/2)-(hoard_menu_display[i].getWidth()/2)), 110 + i * 95);
+				else hoard_menu_display[i].draw(((ScreenWidth/2)-(hoard_menu_display[i].getWidth()/2)), 110 + i * 75);
 			}
 		}
 		backarrow.draw( 75, ScreenHeight - 75 - backarrow.getHeight());

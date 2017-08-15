@@ -19,7 +19,7 @@ private:
 	SDL_graphics Graphics_Engine;
 	SDL_Renderer *renderer;
 	int ScreenWidth, ScreenHeight;  // scene sizes
-        enum SCENE { STARTUP, MAIN_MENU, HOARD_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, EXIT };  //core scenes
+	enum SCENE { STARTUP, MAIN_MENU, HOARD_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, EXIT };  //core scenes
 	SCENE scene;
 	void scene_00_startup();  //startup logo and such
 	void scene_01_main_menu();  // display main menu
@@ -46,7 +46,7 @@ private:
 	Texture displaytext1;
 	Texture backarrow;
 	std::vector<Texture> hoard_menu_display;
-        const std::vector<std::string> hoard_loot_menu_items = { "Challenge Rating : ", "0-4", "5-10", "11-16", "17+" };
+	const std::vector<std::string> hoard_loot_menu_items = { "Challenge Rating : ", "0-4", "5-10", "11-16", "17+" };
 	bool loot_results_ready = false;
 	Texture loot_found_header;
 	std::vector<Texture> hoard_loot_display;

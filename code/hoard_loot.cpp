@@ -836,18 +836,18 @@ Gear Hoard_Loot::TableB(){
 		return tmp;
 	} else if (roll <= 81) {
 		string loader = "Elemental Gem";
-				int quaalvar = rolld100(mgen);
-				if (quaalvar < 26) {
-					loader += "(Blue sapphire)";
-				} else if (quaalvar < 51) {
-					loader += "(Yellow Diamond)";
-				} else if (quaalvar < 76) {
-					loader += "(Red corundum)";
-				} else {
-					loader += "(Emerald)";
-				}
-				Gear tmp(1, loader);
-				return tmp;
+		int quaalvar = rolld100(mgen);
+		if (quaalvar < 26) {
+			loader += "(Blue sapphire)";
+		} else if (quaalvar < 51) {
+			loader += "(Yellow Diamond)";
+		} else if (quaalvar < 76) {
+			loader += "(Red corundum)";
+		} else {
+			loader += "(Emerald)";
+		}
+		Gear tmp(1, loader);
+		return tmp;
 	} else if (roll <= 83) {
 		Gear tmp(1, "Philter of love");
 		return tmp;
@@ -3152,41 +3152,41 @@ string Hoard_Loot::GenerateArt(const int& amount, const int& value) const {
 		bool setvalue = false;
 		auto chosenSeed = 0;
 		for (int i = 0; i < amount; i++) {  //go down into file appropriate amount and choose a proper seed
-				if (value == 25) {
-					chosenSeed = randomNumber(0, 9);
-					if (!setvalue) {
+			if (value == 25) {
+				chosenSeed = randomNumber(0, 9);
+				if (!setvalue) {
+					fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+				}
+			}
+			else if (value == 250) {
+				chosenSeed = randomNumber(0, 9);
+				if (!setvalue) {
+					for (int j = 0; j < 3; j++) {
 						fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
 					}
 				}
-				else if (value == 250) {
-					chosenSeed = randomNumber(0, 9);
-					if (!setvalue) {
-						for (int j = 0; j < 3; j++) {
-							fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
-						}
-					}
-				} else if (value == 750) {
-					chosenSeed = randomNumber(0, 9);
-					if (!setvalue) {
-						for (int j = 0; j < 5; j++) {
-							fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
-						}
-					}
-				} else if (value == 2500) {
-					chosenSeed = randomNumber(0, 9);
-					if (!setvalue) {
-						for (int j = 0; j < 7; j++) {
-							fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
-						}
-					}
-				} else if (value == 7500) {
-					chosenSeed = randomNumber(0, 7);
-					if (!setvalue) {
-						for (int j = 0; j < 9; j++) {
-							fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
-						}
+			} else if (value == 750) {
+				chosenSeed = randomNumber(0, 9);
+				if (!setvalue) {
+					for (int j = 0; j < 5; j++) {
+						fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
 					}
 				}
+			} else if (value == 2500) {
+				chosenSeed = randomNumber(0, 9);
+				if (!setvalue) {
+					for (int j = 0; j < 7; j++) {
+						fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+					}
+				}
+			} else if (value == 7500) {
+				chosenSeed = randomNumber(0, 7);
+				if (!setvalue) {
+					for (int j = 0; j < 9; j++) {
+						fileOfArt.ignore(numeric_limits<streamsize>::max(), '\n');
+					}
+				}
+			}
 			setvalue = true;
 			int len = fileOfArt.tellg();   //get current position  //snapshot of place in file
 			for (auto i = 0; i < chosenSeed; i++) { //go over to the proper Art rolled
