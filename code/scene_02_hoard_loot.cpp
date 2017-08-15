@@ -70,7 +70,7 @@ void SceneManager::scene_02_hoard_loot() {
 		} else {
 			for (int i = 0; i < 5; i++) {
 				//				hoard_menu_display[i].setAlpha(190);
-				if (i == 0) hoard_menu_display[i].draw(((ScreenWidth/2)-(hoard_menu_display[i].getWidth()/2)), 110 + i * 95);
+				if (i == 0) hoard_menu_display[i].draw(((ScreenWidth/2)-(hoard_menu_display[i].getWidth()/2)), 110);
 				else hoard_menu_display[i].draw(((ScreenWidth/2)-(hoard_menu_display[i].getWidth()/2)), 110 + i * 75);
 			}
 		}

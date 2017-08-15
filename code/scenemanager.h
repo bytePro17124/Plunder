@@ -45,6 +45,9 @@ private:
 	const int offset = 10;
 	Texture displaytext1;
 	Texture backarrow;
+
+	// Hoard Loot stuff
+
 	std::vector<Texture> hoard_menu_display;
 	const std::vector<std::string> hoard_loot_menu_items = { "Challenge Rating : ", "0-4", "5-10", "11-16", "17+" };
 	bool loot_results_ready = false;
@@ -62,4 +65,16 @@ private:
 	std::time_t now;
 	tm *ltm;
 	std::ofstream save_to_file;
+
+	// Hoard Loot stuff
+
+
+	// Scroll stuff
+
+	std::vector<Texture> scroll_menu_display;
+	const std::vector<std::string> scroll_level_menu_items = { "Scroll Level : ", " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " };
+
+	// Scroll stuff
+
+
 };

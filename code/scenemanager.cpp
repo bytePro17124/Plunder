@@ -27,16 +27,27 @@ SceneManager::SceneManager() {
 	backarrow.setRenderer(renderer);
 	backarrow.load("assets/textures/back-arrow-75x75.png");
 	hoard_menu_display.resize(5);
+	scroll_menu_display.resize(10);
+
+	hoard_menu_display.resize(5);
 	for (int i = 0; i < 5; i++) {
 		hoard_menu_display[i].setRenderer(renderer);
 		if (i == 0)	hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Orange);
 		else hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Green);
-		//		hoard_menu_display[i].setBlendMode(SDL_BLENDMODE_BLEND);
 	}
+
+	scroll_menu_display.resize(10);
+	for (int i = 0; i < 10; i++) {
+		scroll_menu_display[i].setRenderer(renderer);
+		if (i == 0)	scroll_menu_display[i].load(Vecna, scroll_level_menu_items[i], Orange);
+		else scroll_menu_display[i].load(Vecna, scroll_level_menu_items[i], Green);
+	}
+
 	loot_found_header.setRenderer(renderer);
 	loot_found_header.load(Vecna, "Treasure Pile: ", Orange);
 	save_loot_button.setRenderer(renderer);
 	save_loot_button.load("assets/textures/save.png");
+
 }
 
 SceneManager::~SceneManager() {
