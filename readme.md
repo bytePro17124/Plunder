@@ -1,5 +1,7 @@
 # Plunder
 
+<img src="img/plunder_screenshot_main_menu.png" height="180px" align="center">
+
 *written on Ubuntu 16.04 Gnome3 - start in terminal to run*
 
 #### get to lootin'
