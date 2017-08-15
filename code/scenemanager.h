@@ -19,13 +19,14 @@ private:
 	SDL_graphics Graphics_Engine;
 	SDL_Renderer *renderer;
 	int ScreenWidth, ScreenHeight;  // scene sizes
-	enum SCENE { STARTUP, MAIN_MENU, HOARD_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, EXIT };  //core scenes
+	enum SCENE { STARTUP, MAIN_MENU, HOARD_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, OTHER_TOOLS, EXIT };  //core scenes
 	SCENE scene;
 	void scene_00_startup();  //startup logo and such
 	void scene_01_main_menu();  // display main menu
 	void scene_02_hoard_loot();
 	void scene_03_spellbook();
 	void scene_04_scroll();
+	void scene_05_other_tools();
 	void scene_99_exit();  // do exit scene
 	SDL_Event e;  // key press management
 	int mouseLeftX, mouseLeftY;  // mouse movement and clicks management

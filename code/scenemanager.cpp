@@ -9,7 +9,7 @@ SceneManager::SceneManager() {
 	renderer = Graphics_Engine.getRenderer();
 	ScreenHeight = Graphics_Engine.getScreenHeight();
 	ScreenWidth = Graphics_Engine.getScreenWidth();
-	Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 22);
+	Bookman = TTF_OpenFont("assets/fonts/Bookman.ttf", 23);
 	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
 	//	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
@@ -74,6 +74,8 @@ void SceneManager::scene_selector() {
 			scene_03_spellbook(); break;
 		case SCROLL_ROLLER:
 			scene_04_scroll(); break;
+		case OTHER_TOOLS:
+			scene_05_other_tools(); break;
 		case EXIT:
 			scene_99_exit();
 			fullQuit = true;

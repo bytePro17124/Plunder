@@ -24,6 +24,8 @@ void SceneManager::process_mouse_and_keyboard() {
 					} else if ( (mouseLeftX > ScreenWidth/2 - scrollicon.getWidth() - offset && mouseLeftX < ScreenWidth/2 - offset) && (mouseLeftY > ScreenHeight/2 + offset && mouseLeftY < ScreenHeight/2 + offset + scrollicon.getHeight()) ) {  // click scroll+
 						scene = SCROLL_ROLLER;
 						//                        Sound_Engine.playmenusound();
+					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + toolsicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 + offset) && mouseLeftY < (ScreenHeight/2 + offset + toolsicon.getHeight())) ) {
+						scene = OTHER_TOOLS;
 					}
 					break;
 				case HOARD_LOOT:
@@ -125,6 +127,15 @@ void SceneManager::process_mouse_and_keyboard() {
 						}
 					}
 					break;
+				case OTHER_TOOLS:
+						if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
+						if (!loot_results_ready) scene = MAIN_MENU;
+						loot_results_ready = false;
+						//                        Sound_Engine.playcancelsound();
+					}
+					break;
+
+
 				case EXIT: break;  //disallow key clicks
 				}
 				break;
