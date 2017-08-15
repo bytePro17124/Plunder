@@ -10,6 +10,8 @@ void SceneManager::scene_01_main_menu() {
 		spellbookicon.draw( ScreenWidth/2 + offset, ScreenHeight/2 - offset - spellbookicon.getHeight() );
 		scrollicon.draw( ScreenWidth/2 - offset - scrollicon.getWidth(), ScreenHeight/2 + offset);
 
+		toolsicon.draw( ScreenWidth/2 + offset, ScreenHeight/2 + offset);
+
 		Graphics_Engine.render();  //update screen
 	}
 }

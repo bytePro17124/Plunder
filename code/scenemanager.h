@@ -41,7 +41,7 @@ private:
 	TTF_Font *Bookman, *Vecna;
 	SDL_sound Sound_Engine;
 	Texture logo1;
-	Texture hoardlooticon, spellbookicon, scrollicon;
+	Texture hoardlooticon, spellbookicon, scrollicon, toolsicon;
 	const int offset = 10;
 	Texture displaytext1;
 	Texture backarrow;

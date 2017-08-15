@@ -22,6 +22,8 @@ SceneManager::SceneManager() {
 	scrollicon.load("assets/textures/scroll_icon.png");
 	spellbookicon.setRenderer(renderer);
 	spellbookicon.load("assets/textures/spellbook_icon.png");
+	toolsicon.setRenderer(renderer);
+	toolsicon.load("assets/textures/other_tools.png");
 	displaytext1.setRenderer(renderer);
 	displaytext1.setBlendMode(SDL_BLENDMODE_BLEND);
 	backarrow.setRenderer(renderer);
