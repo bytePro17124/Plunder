@@ -28,8 +28,10 @@
 
 * runs the plunder program
 
-#### notes
+#### notes and todo
 
 * this program is still a work in progress
+	* functional : Hoard Loot, Spell Scrolls
+	* being built/not yet functional : Spellbooks, Other Tools
 
 *please notify me of any issues!*
