@@ -1,3 +1,4 @@
 *.o
 plunder
 saved_loot/
+build/

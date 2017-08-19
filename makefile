@@ -3,8 +3,9 @@ PREREQUISITES = build-essential libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev li
 SOURCE_PATH = code
 
 all:
+	mkdir -p code/build
 	+$(MAKE) -C $(SOURCE_PATH)
-	mkdir -p saved_loot
+	mkdir -p saved_loot 
 	@echo "\nUPGRADE COMPLETE"
 
 clean:
