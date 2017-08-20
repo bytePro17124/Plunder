@@ -13,7 +13,7 @@ bool SDL_graphics::init() {
 			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 			return false;
 		} else {
-			mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);   //not actually vsynced in scene_99_exit.o test !??!?
 			if (mainRenderer == NULL) {
 				printf("SDL Failed to Create Renderer! ERROR: %s. \n", SDL_GetError());
 				return false;

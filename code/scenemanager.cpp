@@ -64,22 +64,13 @@ SceneManager::~SceneManager() {
 void SceneManager::scene_selector() {
 	while (!fullQuit) {
 		switch (scene) {
-		case STARTUP:
-			scene_00_startup(); break;
-		case MAIN_MENU:
-			scene_01_main_menu(); break;
-		case HOARD_LOOT:
-			scene_02_hoard_loot(); break;
-		case SPELLBOOK_CREATE:
-			scene_03_spellbook(); break;
-		case SCROLL_ROLLER:
-			scene_04_scroll(); break;
-		case OTHER_TOOLS:
-			scene_05_other_tools(); break;
-		case EXIT:
-			scene_99_exit();
-			fullQuit = true;
-			break;
+		case STARTUP: scene_00_startup(); break;
+		case MAIN_MENU: scene_01_main_menu(); break;
+		case HOARD_LOOT: scene_02_hoard_loot(); break;
+		case SPELLBOOK_CREATE: scene_03_spellbook(); break;
+		case SCROLL_ROLLER: scene_04_scroll(); break;
+		case OTHER_TOOLS: scene_05_other_tools(); break;
+		case EXIT: scene_99_exit(); break;
 		}
 	}
 }

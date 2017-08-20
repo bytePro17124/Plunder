@@ -47,6 +47,7 @@ private:
 	Texture displaytext1;
 	Texture backarrow;
 	bool loot_results_ready = false;
+	int frame_count = 0;
 
 	// Hoard Loot stuff
 
@@ -77,6 +78,8 @@ private:
 	Texture scroll_loot_display;
 
 	// Scroll stuff
+
+
 
 
 };
