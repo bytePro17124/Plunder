@@ -4,7 +4,7 @@ LINK_ALL_SDL2 = -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 
-all: $(OBJ)
+../plunder: $(OBJ)
 	g++ -o ../plunder $(OBJ) $(LINK_ALL_SDL2) 
 
 clean:
