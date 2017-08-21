@@ -13,7 +13,7 @@ void SceneManager::scene_99_exit() {
 	//	Sound_Engine.playshutdownsound();
 
 	while (frame_count < 360) {     //if this is 60 frames per second as per the documentation of vsync and
-		Graphics_Engine.clear();    //my monitor has a 60hertz refresh...then it should be 6 seconds total
+		Graphics_Engine.clear();    //a 60hertz monitor should be be 6 seconds total
 
 		if (frame_count == 120) {     // message changing
 			displaytext = "Thanks For Using Plunder!";

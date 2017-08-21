@@ -1,10 +1,10 @@
 # Plunder
 
-<img src="plunder_screenshot_main_menu.png" height="180px" align="center">
-
-*currently this runs on linux, recommend using a VM if you are on windows, its all free*
+*currently this runs on linux on any distro that uses apt-get, its all free*
 
 #### get to lootin'
+
+<img src="plunder_screenshot_main_menu.png" height="180px" align="right">
 
 ````make && ./plunder````
 
@@ -33,5 +33,7 @@
 * this program is still a work in progress
 	* functional : Hoard Loot, Spell Scrolls
 	* being built/not yet functional : Spellbooks, Other Tools
+* there are plenty of other ways to get this running but I won't be covering them here
+* running within a virtual machine will not use vsync correctly, and some screens may fly by at an alarming rate. This is to be expected in a vm but shouldn't effect core functionality
 
 *please notify me of any issues!*
