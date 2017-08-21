@@ -13,7 +13,7 @@ void SceneManager::scene_99_exit() {
 	//	Sound_Engine.playshutdownsound();
 
 	while (frame_count < 360) {     //if this is 60 frames per second as per the documentation of vsync and
-		Graphics_Engine.clear();    //my monitor has a 60hertz refresh...then it should be 6 seconds total, but its doing it all in like .5 seconds
+		Graphics_Engine.clear();    //my monitor has a 60hertz refresh...then it should be 6 seconds total
 
 		if (frame_count == 120) {     // message changing
 			displaytext = "Thanks For Using Plunder!";
@@ -23,15 +23,19 @@ void SceneManager::scene_99_exit() {
 			displaytext1.load(Vecna, displaytext, Orange);
 		}
 
-		if (frame_count < 120) {     // alpha changing fade effects
-			if (frame_count < 15) currentalpha += 17;
-			if (frame_count > 103) currentalpha -= 17;
-		} else if (frame_count < 240) {
-			if (frame_count < 136) currentalpha += 17;
-			if (frame_count > 313) currentalpha -= 17;
+
+		if (frame_count <= 59) {     // alpha changing fade effects
+			currentalpha += 4;
+		} else if (frame_count <= 119) {
+			currentalpha -= 4;
+		} else if (frame_count <= 179) {
+			currentalpha += 4;
+		} else if (frame_count <= 239) {
+			currentalpha -= 4;
+		} else if (frame_count <= 299) {
+			currentalpha += 4;
 		} else {
-			if (frame_count < 256) currentalpha += 17;
-			if (frame_count > 344) currentalpha -= 17;
+			currentalpha -= 4;
 		}
 
 		displaytext1.setAlpha(currentalpha);
