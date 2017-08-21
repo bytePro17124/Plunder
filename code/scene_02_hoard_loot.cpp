@@ -25,6 +25,7 @@ void SceneManager::scene_02_hoard_loot() {
 			//			Sound_Engine.playlootsound();
 		}
 
+
 		if (loot_write_out) {
 			now = time(0);			//update time to now
 			ltm = localtime(&now);  //save time into struct
@@ -47,10 +48,10 @@ void SceneManager::scene_02_hoard_loot() {
 			notification_text.setRenderer(renderer);
 			notification_text.load(Bookman, "Output written to: " + fileoutputname, Green);
 			notification_text.setBlendMode(SDL_BLENDMODE_BLEND);
-			notification_alpha = 0;
+			currentalpha = 0;  //reset alpha and frame count
+			frame_count = 0;
 			loot_write_out_notification = true;
 		}
-
 		if (loot_results_ready) {
 			loot_found_header.draw(80,30);
 			for (uint i = 0; i < hoard_loot_display.size(); i++) {
@@ -58,14 +59,24 @@ void SceneManager::scene_02_hoard_loot() {
 			}
 			save_loot_button.draw(ScreenWidth - 75 - save_loot_button.getWidth(), ScreenHeight - 75 - save_loot_button.getHeight());
 			if (loot_write_out_notification) {
-				notification_alpha++;
-				notification_text.setAlpha(notification_alpha);
-				notification_text.draw(ScreenWidth/2 - notification_text.getWidth()/2, ScreenHeight - notification_text.getHeight() - 10);
-				if (notification_alpha > 254) {
-					notification_alpha = 0;
+				//display this notification for 6 seconds (or 360 frames @60fps)
+				//the first 2 seconds are a fade in, middle 2 seconds are full visibility, last 2 seconds are a fade out
+
+				//its not perfect right now but this works
+				if (frame_count <= 119) {     // alpha changing fade effects
+					currentalpha += 2;
+					notification_text.setAlpha(currentalpha);
+				} else if (frame_count == 120) {
+					currentalpha = 255;
+					notification_text.setAlpha(currentalpha);
+				} else if (frame_count > 238 && frame_count < 360) {
+					currentalpha -= 2;
+					notification_text.setAlpha(currentalpha);
+				} else if (frame_count == 360) {
 					loot_write_out_notification = false;
-					notification_text.free();
 				}
+				notification_text.draw(ScreenWidth/2 - notification_text.getWidth()/2, ScreenHeight - notification_text.getHeight() - 10);
+				frame_count++;
 			}
 		} else {
 			for (int i = 0; i < 5; i++) {

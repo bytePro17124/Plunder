@@ -6,14 +6,14 @@
 void SceneManager::scene_99_exit() {
 	std::string displaytext = "Roll For Dexterity!";
 	displaytext1.load(Vecna, displaytext, Orange);
-	Uint8 currentalpha = 0;
+	currentalpha = 0;
 	displaytext1.setAlpha(currentalpha);
 	frame_count = 0;  //reset frame count
 
 	//	Sound_Engine.playshutdownsound();
 
-	while (frame_count < 360) {     //if this is 60 frames per second as per the documentation of vsync and
-		Graphics_Engine.clear();    //a 60hertz monitor should be be 6 seconds total
+	while (frame_count < 360) {
+		Graphics_Engine.clear();
 
 		if (frame_count == 120) {     // message changing
 			displaytext = "Thanks For Using Plunder!";
@@ -47,35 +47,3 @@ void SceneManager::scene_99_exit() {
 
 	fullQuit = true;
 }
-
-
-
-// old uncapped processor speed version
-/*
-
-for (Uint8 currentalpha = 0; currentalpha < 255; currentalpha++) {
-	Graphics_Engine.clear();
-	if (currentalpha == 195) {
-		displaytext = "Thanks For Using Plunder!";
-		displaytext1.load(Vecna, displaytext, Orange);
-	}
-	displaytext1.setAlpha(currentalpha);
-	displaytext1.draw( ((ScreenWidth - displaytext1.getWidth())/2), ((ScreenHeight - displaytext1.getHeight())/2) );
-	Graphics_Engine.render();
-}
-
-
-
-
-for (Uint8 currentalpha = 255; currentalpha > 0; currentalpha--) {
-	Graphics_Engine.clear();
-	if (currentalpha == 195) {
-		displaytext = "https://github.com/bytePro17124/Plunder";
-		displaytext1.load(Vecna, displaytext, Orange);
-	}
-	displaytext1.setAlpha(currentalpha);
-	displaytext1.draw( ((ScreenWidth - displaytext1.getWidth())/2), ((ScreenHeight - displaytext1.getHeight())/2) );
-	Graphics_Engine.render();
-}
-
-*/

@@ -15,6 +15,7 @@ SceneManager::SceneManager() {
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
 	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
 	logo1.setRenderer(renderer);
+	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
 	logo1.load("assets/textures/chest-130x105.png");
 	hoardlooticon.setRenderer(renderer);
 	hoardlooticon.load("assets/textures/hoard_loot_icon.png");

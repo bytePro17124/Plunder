@@ -48,6 +48,7 @@ private:
 	Texture backarrow;
 	bool loot_results_ready = false;
 	int frame_count = 0;
+	Uint8 currentalpha = 0;
 
 	// Hoard Loot stuff
 
@@ -62,7 +63,6 @@ private:
 	bool loot_write_out_notification = false;
 	std::string fileoutputname;
 	Texture notification_text;
-	Uint8 notification_alpha = 0;
 	int loot_rolls_this_session = 0;
 	std::time_t now;
 	tm *ltm;
