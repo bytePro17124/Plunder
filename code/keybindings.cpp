@@ -74,6 +74,10 @@ void SceneManager::process_mouse_and_keyboard() {
 						scene = MAIN_MENU;
 						//                        Sound_Engine.playcancelsound();
 					}
+
+
+
+
 					break;
 				case SCROLL_ROLLER:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked

@@ -70,6 +70,15 @@ private:
 
 	// Hoard Loot stuff
 
+	// Spellbook Stuff
+
+	enum TEXTSTATE { NON, DESCRIPTION, NUMBER };
+	TEXTSTATE textState;
+	const std::string spellbook_scene_title_text = "Create a Randomized Spellbook";
+	Texture spellbook_scene_header;
+
+
+	// Spellbook Stuff
 
 	// Scroll stuff
 
