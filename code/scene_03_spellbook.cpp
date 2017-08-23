@@ -10,7 +10,7 @@ void SceneManager::scene_03_spellbook() {
 		Graphics_Engine.clear();  //reset screen
 		process_mouse_and_keyboard();  //check for any keypresses
 
-		switch (textState) {
+		switch (tomeBuildState) {
 		case NON: break;
 		case DESCRIPTION: break;
 		case NUMBER: break;

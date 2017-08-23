@@ -53,9 +53,11 @@ SceneManager::SceneManager() {
 	save_loot_button.setRenderer(renderer);
 	save_loot_button.load("assets/textures/save.png");
 
-	textState = NON;
+	tomeBuildState = NON;
 	spellbook_scene_header.setRenderer(renderer);
 	spellbook_scene_header.load(Vecna, spellbook_scene_title_text, Orange);
+	tome_description = "";
+	tome_pages = 0;
 }
 
 SceneManager::~SceneManager() {

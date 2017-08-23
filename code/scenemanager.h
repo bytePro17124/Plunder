@@ -72,10 +72,13 @@ private:
 
 	// Spellbook Stuff
 
-	enum TEXTSTATE { NON, DESCRIPTION, NUMBER };
-	TEXTSTATE textState;
+	enum TOMEBUILDSTATE { NON, DESCRIPTION, NUMBER };
+	TOMEBUILDSTATE tomeBuildState;
 	const std::string spellbook_scene_title_text = "Create a Randomized Spellbook";
 	Texture spellbook_scene_header;
+	std::string tome_description;
+	uint tome_pages;
+	Uint8 spellsPerLevel[9] = {};
 
 
 	// Spellbook Stuff

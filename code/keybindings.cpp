@@ -74,6 +74,12 @@ void SceneManager::process_mouse_and_keyboard() {
 						scene = MAIN_MENU;
 						//                        Sound_Engine.playcancelsound();
 					}
+					switch (tomeBuildState) {
+						case NON: break;
+						case DESCRIPTION: break;
+						case NUMBER: break;
+						default: break;
+					}
 
 
 
