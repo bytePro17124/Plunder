@@ -28,8 +28,8 @@ public:
 	void free();
 
 private:
-	int width = 0;
-	int height = 0;
-	SDL_Renderer *SDLrenderer = nullptr;
-	SDL_Texture *SDLtex = nullptr;
+	int width;
+	int height;
+	SDL_Renderer *SDLrenderer;
+	SDL_Texture *SDLtex;
 };

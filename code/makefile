@@ -1,8 +1,9 @@
 #BUILD_DIR = build/
-CPP_FLAGS = -std=c++11 -Wall
+CFLAGS = -std=c++11 -Wall
 LINK_ALL_SDL2 = -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 SRC = $(wildcard *.cpp)
-OBJ = $(SRC:.cpp=.o)
+O = $(addsuffix .o,$(basename $(SRC)))
+OBJ = $(addprefix build/, $(O))
 
 ../plunder: $(OBJ)
 	g++ -o ../plunder $(OBJ) $(LINK_ALL_SDL2) 
@@ -10,8 +11,7 @@ OBJ = $(SRC:.cpp=.o)
 clean:
 	-rm $(OBJ)
 	
-.cpp.o:
-	g++ -c -o $@ $< $(CPP_FLAGS) $(LINK_ALL_SDL2)
-
+build/%.o: %.cpp
+	g++ -c -o $@ $< $(CFLAGS) $(LINK_ALL_SDL2)
 
 .PHONY: clean

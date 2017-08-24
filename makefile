@@ -1,12 +1,14 @@
 TARGET = plunder
 PREREQUISITES = build-essential libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
 SOURCE_PATH = code
+BUILD_PATH = code/build
+SAVE_PATH = saved_loot
 
 all:
-	mkdir -p code/build
+	mkdir -p $(BUILD_PATH)
 	+$(MAKE) -C $(SOURCE_PATH)
-	mkdir -p saved_loot 
-	@echo "\nUPGRADE COMPLETE"
+	mkdir -p $(SAVE_PATH) 
+	@echo "\nUPGRADE COMPLETE\n"
 
 clean:
 	-rm $(TARGET)

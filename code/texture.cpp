@@ -1,6 +1,9 @@
 #include "texture.h"
 
-Texture::Texture(){}
+Texture::Texture(){
+	SDLrenderer = nullptr;
+	SDLtex = nullptr;
+}
 Texture::~Texture(){ free(); }
 
 void Texture::free() {
