@@ -1,4 +1,6 @@
 #include "scenemanager.h"
+#include <string>
+#include <stdexcept>
 #include <iostream>
 
 
@@ -55,9 +57,20 @@ SceneManager::SceneManager() {
 
 	tomeBuildState = NON;
 	spellbook_scene_header.setRenderer(renderer);
-	spellbook_scene_header.load(Vecna, spellbook_scene_title_text, Orange);
+	spellbook_scene_header.load(Vecna, SPELLBOOK_SCENE_TEXT, Orange);
+	for (int i = 0; i != 11; i++) {
+		spellbook_scene_labels[i].setRenderer(renderer);
+		spellbook_scene_labels[i].load(Bookman, SPELLBOOK_INPUT_LABELS[i], Green);
+	}
 	tome_description = "";
-	tome_pages = 0;
+	for (int i = 0; i != 11; i++) {
+		if (i < 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 140 + 50*i, 100, 40 };
+		else if (i == 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 590, 430, 40 };
+		else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
+	}
+
+	inputText = "";
+
 }
 
 SceneManager::~SceneManager() {
@@ -79,4 +92,18 @@ void SceneManager::scene_selector() {
 		case EXIT: scene_99_exit(); break;
 		}
 	}
+}
+
+
+bool SceneManager::checkTextToIntWithClamp(const std::string &input, const int &upper_limit) {
+	int tmp = 0;
+	try {
+		tmp = stoi(input);
+	} catch (std::invalid_argument) {
+		std::cout << "conversion to int failed\n";
+		return false;
+	}
+
+	std::cout << "conversion to int seems okay\n";
+	return true;
 }

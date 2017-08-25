@@ -72,14 +72,19 @@ private:
 
 	// Spellbook Stuff
 
-	enum TOMEBUILDSTATE { NON, DESCRIPTION, NUMBER };
+	enum TOMEBUILDSTATE { NON = -1, L1 = 0, L2, L3, L4, L5, L6, L7, L8, L9, DESCRIPTION, PAGES};
 	TOMEBUILDSTATE tomeBuildState;
-	const std::string spellbook_scene_title_text = "Create a Randomized Spellbook";
 	Texture spellbook_scene_header;
-	std::string tome_description;
-	uint tome_pages;
-	Uint8 spellsPerLevel[9] = {};
+	const std::string SPELLBOOK_SCENE_TEXT = "Create a Randomized Spellbook";
+	const std::string SPELLBOOK_INPUT_LABELS[11] = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Spellbook Material Description", "Pages Used / Total Pages In Tome" };
+	const Uint8 maxSpellsPerLevel[9] = { 31, 30, 27, 23, 23, 20, 15, 14, 12 };
 
+	SDL_Rect spellbook_details_input[11];
+	Texture spellbook_scene_labels[11];
+	std::string tome_description;
+	uint tomeSpells[11]; // 0-8 holds level 1 through 9 spells count and 9-10 holds pages used and pages total respectively
+	std::string inputText;
+	bool checkTextToIntWithClamp(const std::string &input, const int &upper_limit);
 
 	// Spellbook Stuff
 

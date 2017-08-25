@@ -1,5 +1,6 @@
 #include "scenemanager.h"
 #include "random_gen.h"
+#include <iostream>
 
 void SceneManager::process_mouse_and_keyboard() {
 	while (SDL_PollEvent (&e) != 0) {
@@ -74,11 +75,43 @@ void SceneManager::process_mouse_and_keyboard() {
 						scene = MAIN_MENU;
 						//                        Sound_Engine.playcancelsound();
 					}
+					for (int i = 0; i != 9; i++) {  // spellbook level key clicks
+						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + spellbook_details_input[i].h)) {
+							tomeBuildState = (TOMEBUILDSTATE)i;
+							inputText = "";
+						}
+					}
+					for (int i = 9; i != 11; i++) { // spellbook description or max pages key clicks
+						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 590 && mouseLeftY < 590 + spellbook_details_input[i].h) && i == 9) {
+							tomeBuildState = (TOMEBUILDSTATE)i;
+							inputText = "";
+						}
+						if ((mouseLeftX > ScreenWidth/2 + 150 && mouseLeftX < ScreenWidth/2 + 150 + spellbook_details_input[i].w) && (mouseLeftY > 640 && mouseLeftY < 640 + spellbook_details_input[i].h) && i == 10) {
+							tomeBuildState = (TOMEBUILDSTATE)i;
+							inputText = "";
+						}
+					}
+
+					/*
+						if (i < 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 140 + 50*i, 100, 40 };
+		else if (i == 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 590, 210, 40 };
+		else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
+		*/
+
 					switch (tomeBuildState) {
-						case NON: break;
-						case DESCRIPTION: break;
-						case NUMBER: break;
-						default: break;
+					case NON: break;
+					case L1: break;
+					case L2: break;
+					case L3: break;
+					case L4: break;
+					case L5: break;
+					case L6: break;
+					case L7: break;
+					case L8: break;
+					case L9: break;
+					case DESCRIPTION: break;
+					case PAGES: break;
+					default: break;
 					}
 
 
@@ -96,39 +129,39 @@ void SceneManager::process_mouse_and_keyboard() {
 							if ((mouseLeftX > ScreenWidth/2 - scroll_menu_display[i].getWidth()/2 && mouseLeftX < ScreenWidth/2 + scroll_menu_display[i].getWidth()/2) && ( mouseLeftY > 80 + i * 55 && mouseLeftY < 80 + i * 55 + scroll_menu_display[i].getWidth()) ) {
 								switch (i) {
 								case 1:
-									scroll_loot_display.load(Bookman, GenerateScroll(1), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(1), White);
 									loot_results_ready = true;
 									break;
 								case 2:
-									scroll_loot_display.load(Bookman, GenerateScroll(2), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(2), White);
 									loot_results_ready = true;
 									break;
 								case 3:
-									scroll_loot_display.load(Bookman, GenerateScroll(3), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(3), White);
 									loot_results_ready = true;
 									break;
 								case 4:
-									scroll_loot_display.load(Bookman, GenerateScroll(4), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(4), White);
 									loot_results_ready = true;
 									break;
 								case 5:
-									scroll_loot_display.load(Bookman, GenerateScroll(5), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(5), White);
 									loot_results_ready = true;
 									break;
 								case 6:
-									scroll_loot_display.load(Bookman, GenerateScroll(6), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(6), White);
 									loot_results_ready = true;
 									break;
 								case 7:
-									scroll_loot_display.load(Bookman, GenerateScroll(7), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(7), White);
 									loot_results_ready = true;
 									break;
 								case 8:
-									scroll_loot_display.load(Bookman, GenerateScroll(8), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(8), White);
 									loot_results_ready = true;
 									break;
 								case 9:
-									scroll_loot_display.load(Bookman, GenerateScroll(9), White);
+									scroll_loot_display.load(Vecna, GenerateScroll(9), White);
 									loot_results_ready = true;
 									break;
 								default:break;
@@ -138,7 +171,7 @@ void SceneManager::process_mouse_and_keyboard() {
 					}
 					break;
 				case OTHER_TOOLS:
-						if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
+					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
 						loot_results_ready = false;
 						//                        Sound_Engine.playcancelsound();
@@ -150,6 +183,41 @@ void SceneManager::process_mouse_and_keyboard() {
 				}
 				break;
 			}
+			break;
+		case SDL_TEXTINPUT:
+
+			switch (scene) {
+			case STARTUP: break;
+			case MAIN_MENU: break;
+			case HOARD_LOOT: break;
+			case SPELLBOOK_CREATE:
+				switch (tomeBuildState) {
+				case NON: break;
+				case L1:
+				case L2:
+				case L3:
+				case L4:
+				case L5:
+				case L6:
+				case L7:
+				case L8:
+				case L9:
+				case DESCRIPTION:
+				case PAGES:
+					inputText += e.text.text;
+					break;
+				default: break;
+
+				}
+
+			case SCROLL_ROLLER: break;
+			case OTHER_TOOLS: break;
+			default: break;
+
+			}
+
+
+
 			break;
 			//		case SDL_MOUSEMOTION:
 			//			mouseLeftX = e.button.x;
