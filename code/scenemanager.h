@@ -83,7 +83,8 @@ private:
 	Texture spellbook_scene_labels[11];
 	std::string tome_description;
 	uint tomeSpells[11]; // 0-8 holds level 1 through 9 spells count and 9-10 holds pages used and pages total respectively
-	std::string inputText;
+	std::string inputText[11];
+	Texture inputTextDisplay[11];
 	bool checkTextToIntWithClamp(const std::string &input, const int &upper_limit);
 
 	// Spellbook Stuff

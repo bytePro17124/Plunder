@@ -69,7 +69,9 @@ SceneManager::SceneManager() {
 		else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
 	}
 
-	inputText = "";
+	for (int i = 0; i != 11; i++)  {
+		inputTextDisplay[i].setRenderer(renderer);
+	}
 
 }
 
@@ -101,7 +103,7 @@ bool SceneManager::checkTextToIntWithClamp(const std::string &input, const int &
 		tmp = stoi(input);
 	} catch (std::invalid_argument) {
 		std::cout << "conversion to int failed\n";
-		return false;
+		return (bool)tmp;
 	}
 
 	std::cout << "conversion to int seems okay\n";

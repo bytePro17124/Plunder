@@ -78,17 +78,14 @@ void SceneManager::process_mouse_and_keyboard() {
 					for (int i = 0; i != 9; i++) {  // spellbook level key clicks
 						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + spellbook_details_input[i].h)) {
 							tomeBuildState = (TOMEBUILDSTATE)i;
-							inputText = "";
 						}
 					}
 					for (int i = 9; i != 11; i++) { // spellbook description or max pages key clicks
 						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 590 && mouseLeftY < 590 + spellbook_details_input[i].h) && i == 9) {
 							tomeBuildState = (TOMEBUILDSTATE)i;
-							inputText = "";
 						}
 						if ((mouseLeftX > ScreenWidth/2 + 150 && mouseLeftX < ScreenWidth/2 + 150 + spellbook_details_input[i].w) && (mouseLeftY > 640 && mouseLeftY < 640 + spellbook_details_input[i].h) && i == 10) {
 							tomeBuildState = (TOMEBUILDSTATE)i;
-							inputText = "";
 						}
 					}
 
@@ -98,21 +95,21 @@ void SceneManager::process_mouse_and_keyboard() {
 		else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
 		*/
 
-					switch (tomeBuildState) {
-					case NON: break;
-					case L1: break;
-					case L2: break;
-					case L3: break;
-					case L4: break;
-					case L5: break;
-					case L6: break;
-					case L7: break;
-					case L8: break;
-					case L9: break;
-					case DESCRIPTION: break;
-					case PAGES: break;
-					default: break;
-					}
+//					switch (tomeBuildState) {
+//					case NON: break;
+//					case L1: break;
+//					case L2: break;
+//					case L3: break;
+//					case L4: break;
+//					case L5: break;
+//					case L6: break;
+//					case L7: break;
+//					case L8: break;
+//					case L9: break;
+//					case DESCRIPTION: break;
+//					case PAGES: break;
+//					default: break;
+//					}
 
 
 
@@ -193,23 +190,19 @@ void SceneManager::process_mouse_and_keyboard() {
 			case SPELLBOOK_CREATE:
 				switch (tomeBuildState) {
 				case NON: break;
-				case L1:
-				case L2:
-				case L3:
-				case L4:
-				case L5:
-				case L6:
-				case L7:
-				case L8:
-				case L9:
-				case DESCRIPTION:
-				case PAGES:
-					inputText += e.text.text;
-					break;
+				case L1: inputText[0] += e.text.text; break;
+				case L2: inputText[1] += e.text.text; break;
+				case L3: inputText[2] += e.text.text; break;
+				case L4: inputText[3] += e.text.text; break;
+				case L5: inputText[4] += e.text.text; break;
+				case L6: inputText[5] += e.text.text; break;
+				case L7: inputText[6] += e.text.text; break;
+				case L8: inputText[7] += e.text.text; break;
+				case L9: inputText[8] += e.text.text; break;
+				case DESCRIPTION: inputText[9] += e.text.text; break;
+				case PAGES: inputText[10] += e.text.text; break;
 				default: break;
-
 				}
-
 			case SCROLL_ROLLER: break;
 			case OTHER_TOOLS: break;
 			default: break;

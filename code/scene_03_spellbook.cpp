@@ -35,6 +35,12 @@ void SceneManager::scene_03_spellbook() {
 //		}
 
 
+		for (int i = 0; i != 11; i++) {
+			if (!inputText[i].empty()) {
+				inputTextDisplay[i].load(Vecna, inputText[i], Green);
+				inputTextDisplay[i].draw(&spellbook_details_input[i]);
+			}
+		}
 
 		spellbook_scene_header.draw(((ScreenWidth/2)-(spellbook_scene_header.getWidth()/2)), 70);
 		backarrow.draw( 75, ScreenHeight - 75 - backarrow.getHeight());
