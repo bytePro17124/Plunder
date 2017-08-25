@@ -181,6 +181,35 @@ void SceneManager::process_mouse_and_keyboard() {
 				break;
 			}
 			break;
+		case SDL_KEYDOWN:
+
+			switch (scene) {
+			case STARTUP: break;
+			case MAIN_MENU: break;
+			case HOARD_LOOT: break;
+			case SPELLBOOK_CREATE:
+				if (e.key.keysym.sym == SDLK_BACKSPACE)
+				switch (tomeBuildState) {
+				case NON: break;
+				case L1: if (inputText[0].length() > 0) inputText[0].pop_back(); break;
+				case L2: if (inputText[1].length() > 0) inputText[1].pop_back(); break;
+				case L3: if (inputText[2].length() > 0) inputText[2].pop_back(); break;
+				case L4: if (inputText[3].length() > 0) inputText[3].pop_back(); break;
+				case L5: if (inputText[4].length() > 0) inputText[4].pop_back(); break;
+				case L6: if (inputText[5].length() > 0) inputText[5].pop_back(); break;
+				case L7: if (inputText[6].length() > 0) inputText[6].pop_back(); break;
+				case L8: if (inputText[7].length() > 0) inputText[7].pop_back(); break;
+				case L9: if (inputText[8].length() > 0) inputText[8].pop_back(); break;
+				case DESCRIPTION: if (inputText[9].length() > 0) inputText[9].pop_back(); break;
+				case PAGES: if (inputText[10].length() > 0) inputText[10].pop_back(); break;
+				default: break;
+				}
+			case SCROLL_ROLLER: break;
+			case OTHER_TOOLS: break;
+			default: break;
+			}
+			break;
+
 		case SDL_TEXTINPUT:
 
 			switch (scene) {
@@ -206,11 +235,7 @@ void SceneManager::process_mouse_and_keyboard() {
 			case SCROLL_ROLLER: break;
 			case OTHER_TOOLS: break;
 			default: break;
-
 			}
-
-
-
 			break;
 			//		case SDL_MOUSEMOTION:
 			//			mouseLeftX = e.button.x;

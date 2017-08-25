@@ -99,6 +99,13 @@ void SceneManager::scene_selector() {
 
 bool SceneManager::checkTextToIntWithClamp(const std::string &input, const int &upper_limit) {
 	int tmp = 0;
+	//make sure string is only numeric digits
+	if (input.find_first_not_of("0123456789") == std::string::npos) {
+
+	} else {
+		std::cout << "string has non-numeric digits in it - blasting\n";
+		return false;
+	}
 	try {
 		tmp = stoi(input);
 	} catch (std::invalid_argument) {
@@ -107,5 +114,11 @@ bool SceneManager::checkTextToIntWithClamp(const std::string &input, const int &
 	}
 
 	std::cout << "conversion to int seems okay\n";
-	return true;
+
+	if (tmp <= upper_limit && tmp != 0)
+		return true;
+	else {
+		std::cout << "but my spoon is too big\n";
+		return false;
+	}
 }
