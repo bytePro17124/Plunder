@@ -6,7 +6,6 @@ using namespace std;
 
 void SceneManager::scene_04_scroll() {
 	// reset scene defaults here
-
 	while (scene == SCROLL_ROLLER) {  	// scene loop
 		Graphics_Engine.clear();  //reset screen
 		process_mouse_and_keyboard();  //check for any keypresses
@@ -19,7 +18,6 @@ void SceneManager::scene_04_scroll() {
 				else scroll_menu_display[i].draw(((ScreenWidth/2)-(scroll_menu_display[i].getWidth()/2)), 80 + i * 55);
 			}
 		}
-
 		backarrow.draw( 75, ScreenHeight - 75 - backarrow.getHeight());
 		Graphics_Engine.render();  //update screen
 	}

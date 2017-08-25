@@ -16,7 +16,7 @@
 
 * installs all dependencies using apt-get
 
-#### fook it just do this the first time:
+#### if you want to get this program and run it right away, do this. don't do it more than once (obviously right?).
 
 ````git clone https://github.com/bytePro17124/Plunder.git && cd Plunder && make dep && make && ./plunder```` 
 
