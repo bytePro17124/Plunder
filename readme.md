@@ -1,32 +1,16 @@
 # Plunder
 
-*currently this runs on linux on any distro that uses apt-get, its all free*
---
+*A D&D loot and planning helper program for Dungeon Masters*
+
 #### get to lootin'
 
 <img src="plunder_screenshot_main_menu.png" height="180px" align="right">
 
-````make && ./plunder````
-
-* builds the program, then runs it
-
-#### need dependencies to compile this?
-
-````make dep````
-
-* installs all dependencies using apt-get
-
-#### if you want to get this program and run it right away, do this. don't do it more than once (obviously right?).
-
-````git clone https://github.com/bytePro17124/Plunder.git && cd Plunder && make dep && make && ./plunder```` 
-
-* clones this program, moves to directory, installs all dependencies, builds the program, runs the program
-
-#### after you have built it
-
-````./plunder```` 
-
-* runs the plunder program
+1. ````git clone https://github.com/bytePro17124/Plunder.git```` downloads this program
+2. ````cd plunder```` moves to directory
+3. ````make dep```` installs all dependencies using apt-get
+4. ````make```` builds the program
+5. ````./plunder```` runs the program
 
 #### notes and todo
 
