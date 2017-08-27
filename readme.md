@@ -8,7 +8,7 @@
 
 1. ````git clone https://github.com/bytePro17124/Plunder.git```` downloads this program
 2. ````cd plunder```` moves to directory
-3. ````make dep```` installs all dependencies using apt-get
+3. ````make dep```` installs all dependencies using apt-get (in general you will need the sdl2 libraries to work with this program)
 4. ````make```` builds the program
 5. ````./plunder```` runs the program
 
