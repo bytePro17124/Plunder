@@ -18,13 +18,13 @@ void SceneManager::process_mouse_and_keyboard() {
 				case MAIN_MENU:
 					if ( (mouseLeftX > (ScreenWidth/2 - hoardlooticon.getWidth() - offset) && mouseLeftX < (ScreenWidth/2 - offset)) && (mouseLeftY > (ScreenHeight/2 - hoardlooticon.getHeight() - offset) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click hoard loot
 						scene = HOARD_LOOT;
-						//                        Sound_Engine.playmenusound();
+						Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + spellbookicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 - offset - spellbookicon.getHeight()) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click spellbook
 						scene = SPELLBOOK_CREATE;
-						//                        Sound_Engine.playmenusound();
+						Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 - scrollicon.getWidth() - offset && mouseLeftX < ScreenWidth/2 - offset) && (mouseLeftY > ScreenHeight/2 + offset && mouseLeftY < ScreenHeight/2 + offset + scrollicon.getHeight()) ) {  // click scroll+
 						scene = SCROLL_ROLLER;
-						//                        Sound_Engine.playmenusound();
+						Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + toolsicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 + offset) && mouseLeftY < (ScreenHeight/2 + offset + toolsicon.getHeight())) ) {
 						scene = OTHER_TOOLS;
 					}
@@ -32,7 +32,7 @@ void SceneManager::process_mouse_and_keyboard() {
 				case HOARD_LOOT:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
-						//                        if (!loot_results_ready) Sound_Engine.playcancelsound();
+						if (!loot_results_ready) Sound_Engine.playcancelsound();
 						loot_results_ready = false;
 						hoard_loot_display.clear();
 						treasure_pile.full_gear_list.clear();
@@ -73,7 +73,7 @@ void SceneManager::process_mouse_and_keyboard() {
 				case SPELLBOOK_CREATE:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						scene = MAIN_MENU;
-						//                        Sound_Engine.playcancelsound();
+						Sound_Engine.playcancelsound();
 					}
 					for (int i = 0; i != 9; i++) {  // spellbook level key clicks
 						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + spellbook_details_input[i].h)) {
@@ -95,21 +95,21 @@ void SceneManager::process_mouse_and_keyboard() {
 		else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
 		*/
 
-//					switch (tomeBuildState) {
-//					case NON: break;
-//					case L1: break;
-//					case L2: break;
-//					case L3: break;
-//					case L4: break;
-//					case L5: break;
-//					case L6: break;
-//					case L7: break;
-//					case L8: break;
-//					case L9: break;
-//					case DESCRIPTION: break;
-//					case PAGES: break;
-//					default: break;
-//					}
+					//					switch (tomeBuildState) {
+					//					case NON: break;
+					//					case L1: break;
+					//					case L2: break;
+					//					case L3: break;
+					//					case L4: break;
+					//					case L5: break;
+					//					case L6: break;
+					//					case L7: break;
+					//					case L8: break;
+					//					case L9: break;
+					//					case DESCRIPTION: break;
+					//					case PAGES: break;
+					//					default: break;
+					//					}
 
 
 
@@ -119,7 +119,7 @@ void SceneManager::process_mouse_and_keyboard() {
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
 						loot_results_ready = false;
-						//                        Sound_Engine.playcancelsound();
+						Sound_Engine.playcancelsound();
 					}
 					if (!loot_results_ready) {
 						for (int i = 1; i < 10; i++) {
@@ -171,7 +171,7 @@ void SceneManager::process_mouse_and_keyboard() {
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
 						loot_results_ready = false;
-						//                        Sound_Engine.playcancelsound();
+						Sound_Engine.playcancelsound();
 					}
 					break;
 
@@ -189,21 +189,21 @@ void SceneManager::process_mouse_and_keyboard() {
 			case HOARD_LOOT: break;
 			case SPELLBOOK_CREATE:
 				if (e.key.keysym.sym == SDLK_BACKSPACE)
-				switch (tomeBuildState) {
-				case NON: break;
-				case L1: if (inputText[0].length() > 0) inputText[0].pop_back(); break;
-				case L2: if (inputText[1].length() > 0) inputText[1].pop_back(); break;
-				case L3: if (inputText[2].length() > 0) inputText[2].pop_back(); break;
-				case L4: if (inputText[3].length() > 0) inputText[3].pop_back(); break;
-				case L5: if (inputText[4].length() > 0) inputText[4].pop_back(); break;
-				case L6: if (inputText[5].length() > 0) inputText[5].pop_back(); break;
-				case L7: if (inputText[6].length() > 0) inputText[6].pop_back(); break;
-				case L8: if (inputText[7].length() > 0) inputText[7].pop_back(); break;
-				case L9: if (inputText[8].length() > 0) inputText[8].pop_back(); break;
-				case DESCRIPTION: if (inputText[9].length() > 0) inputText[9].pop_back(); break;
-				case PAGES: if (inputText[10].length() > 0) inputText[10].pop_back(); break;
-				default: break;
-				}
+					switch (tomeBuildState) {
+					case NON: break;
+					case L1: if (inputText[0].length() > 0) inputText[0].pop_back(); break;
+					case L2: if (inputText[1].length() > 0) inputText[1].pop_back(); break;
+					case L3: if (inputText[2].length() > 0) inputText[2].pop_back(); break;
+					case L4: if (inputText[3].length() > 0) inputText[3].pop_back(); break;
+					case L5: if (inputText[4].length() > 0) inputText[4].pop_back(); break;
+					case L6: if (inputText[5].length() > 0) inputText[5].pop_back(); break;
+					case L7: if (inputText[6].length() > 0) inputText[6].pop_back(); break;
+					case L8: if (inputText[7].length() > 0) inputText[7].pop_back(); break;
+					case L9: if (inputText[8].length() > 0) inputText[8].pop_back(); break;
+					case DESCRIPTION: if (inputText[9].length() > 0) inputText[9].pop_back(); break;
+					case PAGES: if (inputText[10].length() > 0) inputText[10].pop_back(); break;
+					default: break;
+					}
 			case SCROLL_ROLLER: break;
 			case OTHER_TOOLS: break;
 			default: break;
