@@ -41,7 +41,7 @@ private:
 	SDL_Color Green = {0,255,127,0};
 	TTF_Font *Bookman, *Vecna;
 	SDL_sound Sound_Engine;
-	Texture logo1;
+//	Texture logo1;
 	Texture hoardlooticon, spellbookicon, scrollicon, toolsicon;
 	const int offset = 10;
 	Texture displaytext1;
@@ -74,7 +74,7 @@ private:
 
 	enum TOMEBUILDSTATE { NON = -1, L1 = 0, L2, L3, L4, L5, L6, L7, L8, L9, DESCRIPTION, PAGES};
 	TOMEBUILDSTATE tomeBuildState;
-	Texture spellbook_scene_header;
+	Texture spellbook_scene_header, create_spellbook_button;
 	const std::string SPELLBOOK_SCENE_TEXT = "Create a Randomized Spellbook";
 	const std::string SPELLBOOK_INPUT_LABELS[11] = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Spellbook Material Description", "Pages Used / Total Pages In Tome" };
 	const int maxSpellsPerLevel[11] = { 31, 30, 27, 23, 23, 20, 15, 14, 12, 0, 10000 };  //[0-8] are max wizard spells per level possible, [9] is unused, [10] is the max pages allowed in a spellbook
