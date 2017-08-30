@@ -143,7 +143,7 @@ void SceneManager::doValidCheck() {
 	
 	updatePagesUsed();
 	
-	if (!inputText[9].empty() && !inputText[10].empty() && stoi(inputText[10]) > stoi(pagesUsed)) {
+	if (!inputText[9].empty() && !inputText[10].empty() && stoi(inputText[10]) >= stoi(pagesUsed)) {
 		hasDescription = true;
 	}
 

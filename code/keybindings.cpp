@@ -78,7 +78,8 @@ void SceneManager::process_mouse_and_keyboard() {
 					break;
 				case SPELLBOOK_CREATE:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
-						scene = MAIN_MENU;
+						if (spellbook_results_ready) spellbook_results_ready = false;
+						else scene = MAIN_MENU;
 						if (isSoundOn) Sound_Engine.playcancelsound();
 					}
 					for (int i = 0; i != 9; i++) {  // spellbook level key clicks
