@@ -17,6 +17,7 @@ SceneManager::SceneManager() {
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
 	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
 	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
+	backarrow.load("assets/textures/button_back_arrow_75x75.png");
 	logo1.load("assets/textures/getdatloot-322x256.png");
 	toolsicon.load("assets/textures/main_menu_other_tools.png");
 	soundbutton_off.load("assets/textures/checkbox_sound_off_100x50.png");
