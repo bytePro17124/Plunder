@@ -94,6 +94,11 @@ void SceneManager::process_mouse_and_keyboard() {
 							tomeBuildState = (TOMEBUILDSTATE)i;
 						}
 					}
+					if (hasSpells && hasDescription && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
+						//makespellbook function here
+						spellbook_results_ready = true;
+					}
+					
 
 					/*
 						if (i < 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 140 + 50*i, 100, 40 };

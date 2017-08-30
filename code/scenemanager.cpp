@@ -5,7 +5,6 @@
 
 
 SceneManager::SceneManager() {
-	fullQuit = false;
 	isSoundOn = true;
 	mouseLeftX = mouseLeftY = 0;
 	scene = STARTUP;
@@ -65,8 +64,6 @@ SceneManager::SceneManager() {
 	pages_used_display.load(Bookman, pagesUsed, White);
 
 	create_spellbook_button.load("assets/textures/button_make_spellbook_75x75.png");
-	hasSpells = hasDescription = false;
-
 }
 
 SceneManager::~SceneManager() {
@@ -143,6 +140,9 @@ void SceneManager::doValidCheck() {
 			}
 		}
 	}
+	
+	updatePagesUsed();
+	
 	if (!inputText[9].empty() && !inputText[10].empty() && stoi(inputText[10]) > stoi(pagesUsed)) {
 		hasDescription = true;
 	}

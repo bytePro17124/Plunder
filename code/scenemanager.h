@@ -74,12 +74,13 @@ private:
 
 	// Spellbook Stuff
 
-	enum TOMEBUILDSTATE { NON = -1, L1 = 0, L2, L3, L4, L5, L6, L7, L8, L9, DESCRIPTION, PAGES};
+	enum TOMEBUILDSTATE { NON = -1, L1 = 0, L2, L3, L4, L5, L6, L7, L8, L9, DESCRIPTION, PAGES };
 	TOMEBUILDSTATE tomeBuildState;
 	bool hasSpells, hasDescription;
 	bool needsValidityCheckUpdate;
 	void doValidCheck();
 	Texture spellbook_scene_header, create_spellbook_button;
+	bool spellbook_results_ready;
 	const std::string SPELLBOOK_SCENE_TEXT = "Create a Randomized Spellbook";
 	const std::string SPELLBOOK_INPUT_LABELS[11] = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Spellbook Material Description", "Pages Used / Total Pages In Tome" };
 	const int maxSpellsPerLevel[11] = { 31, 30, 27, 23, 23, 20, 15, 14, 12, 0, 10000 };  //[0-8] are max wizard spells per level possible, [9] is unused, [10] is the max pages allowed in a spellbook
