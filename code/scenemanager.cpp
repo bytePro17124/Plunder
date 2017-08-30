@@ -16,21 +16,21 @@ SceneManager::SceneManager() {
 	//	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
 	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
-	logo1.setRenderer(renderer);
-	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
-	logo1.load("assets/textures/chest-130x105.png");
+//	logo1.setRenderer(renderer);
+//	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
+//	logo1.load("assets/textures/chest-130x105.png");
 	hoardlooticon.setRenderer(renderer);
-	hoardlooticon.load("assets/textures/hoard_loot_icon.png");
+	hoardlooticon.load("assets/textures/main_menu_hoard_loot.png");
 	scrollicon.setRenderer(renderer);
-	scrollicon.load("assets/textures/scroll_icon.png");
+	scrollicon.load("assets/textures/main_menu_scroll.png");
 	spellbookicon.setRenderer(renderer);
-	spellbookicon.load("assets/textures/spellbook_icon.png");
+	spellbookicon.load("assets/textures/main_menu_spellbook.png");
 	toolsicon.setRenderer(renderer);
-	toolsicon.load("assets/textures/other_tools.png");
+	toolsicon.load("assets/textures/main_menu_other_tools.png");
 	displaytext1.setRenderer(renderer);
 	displaytext1.setBlendMode(SDL_BLENDMODE_BLEND);
 	backarrow.setRenderer(renderer);
-	backarrow.load("assets/textures/back-arrow-75x75.png");
+	backarrow.load("assets/textures/button_back_arrow_75x75.png");
 	hoard_menu_display.resize(5);
 	scroll_menu_display.resize(10);
 
@@ -53,8 +53,10 @@ SceneManager::SceneManager() {
 	loot_found_header.setRenderer(renderer);
 	loot_found_header.load(Vecna, "Treasure Pile: ", Orange);
 	save_loot_button.setRenderer(renderer);
-	save_loot_button.load("assets/textures/save.png");
+	save_loot_button.load("assets/textures/button_save_100x75.png");
 
+
+	//tome
 	tomeBuildState = NON;
 	spellbook_scene_header.setRenderer(renderer);
 	spellbook_scene_header.load(Vecna, SPELLBOOK_SCENE_TEXT, Orange);
