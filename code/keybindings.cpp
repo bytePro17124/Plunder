@@ -18,21 +18,27 @@ void SceneManager::process_mouse_and_keyboard() {
 				case MAIN_MENU:
 					if ( (mouseLeftX > (ScreenWidth/2 - hoardlooticon.getWidth() - offset) && mouseLeftX < (ScreenWidth/2 - offset)) && (mouseLeftY > (ScreenHeight/2 - hoardlooticon.getHeight() - offset) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click hoard loot
 						scene = HOARD_LOOT;
-						Sound_Engine.playmenusound();
+						if (isSoundOn) Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + spellbookicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 - offset - spellbookicon.getHeight()) && mouseLeftY < (ScreenHeight/2 - offset)) ) {  // click spellbook
 						scene = SPELLBOOK_CREATE;
-						Sound_Engine.playmenusound();
+						if (isSoundOn) Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 - scrollicon.getWidth() - offset && mouseLeftX < ScreenWidth/2 - offset) && (mouseLeftY > ScreenHeight/2 + offset && mouseLeftY < ScreenHeight/2 + offset + scrollicon.getHeight()) ) {  // click scroll+
 						scene = SCROLL_ROLLER;
-						Sound_Engine.playmenusound();
+						if (isSoundOn) Sound_Engine.playmenusound();
 					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + toolsicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 + offset) && mouseLeftY < (ScreenHeight/2 + offset + toolsicon.getHeight())) ) {
 						scene = OTHER_TOOLS;
+					} else if ( mouseLeftX > (ScreenWidth - soundbutton_off.getWidth()) && mouseLeftY > (ScreenHeight - soundbutton_off.getHeight()) ) {
+						if (isSoundOn) isSoundOn = false;
+						else isSoundOn = true;
 					}
+
+					//click sound on/off
+
 					break;
 				case HOARD_LOOT:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
-						if (!loot_results_ready) Sound_Engine.playcancelsound();
+						if (!loot_results_ready) if (isSoundOn) Sound_Engine.playcancelsound();
 						loot_results_ready = false;
 						hoard_loot_display.clear();
 						treasure_pile.full_gear_list.clear();
@@ -73,7 +79,7 @@ void SceneManager::process_mouse_and_keyboard() {
 				case SPELLBOOK_CREATE:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						scene = MAIN_MENU;
-						Sound_Engine.playcancelsound();
+						if (isSoundOn) Sound_Engine.playcancelsound();
 					}
 					for (int i = 0; i != 9; i++) {  // spellbook level key clicks
 						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + spellbook_details_input[i].h)) {
@@ -119,7 +125,7 @@ void SceneManager::process_mouse_and_keyboard() {
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
 						loot_results_ready = false;
-						Sound_Engine.playcancelsound();
+						if (isSoundOn) Sound_Engine.playcancelsound();
 					}
 					if (!loot_results_ready) {
 						for (int i = 1; i < 10; i++) {
@@ -171,7 +177,7 @@ void SceneManager::process_mouse_and_keyboard() {
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						if (!loot_results_ready) scene = MAIN_MENU;
 						loot_results_ready = false;
-						Sound_Engine.playcancelsound();
+						if (isSoundOn) Sound_Engine.playcancelsound();
 					}
 					break;
 

@@ -16,6 +16,6 @@ void SceneManager::scene_00_startup() {
 		frame_count++;
 	}
 
-	Sound_Engine.playstartupsound();
+//	if (isSoundOn) Sound_Engine.playstartupsound();
 	scene = MAIN_MENU;
 }

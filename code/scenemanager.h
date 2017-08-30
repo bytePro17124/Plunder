@@ -41,6 +41,8 @@ private:
 	SDL_Color Green = {0,255,127,0};
 	TTF_Font *Bookman, *Vecna;
 	SDL_sound Sound_Engine;
+	Texture soundbutton_on, soundbutton_off;
+	bool isSoundOn;
 	Texture logo1;
 	Texture hoardlooticon, spellbookicon, scrollicon, toolsicon;
 	const int offset = 10;

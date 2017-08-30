@@ -6,6 +6,7 @@
 
 SceneManager::SceneManager() {
 	fullQuit = false;
+	isSoundOn = true;
 	mouseLeftX = mouseLeftY = 0;
 	scene = STARTUP;
 	renderer = Graphics_Engine.getRenderer();
@@ -19,18 +20,20 @@ SceneManager::SceneManager() {
 	logo1.setRenderer(renderer);
 	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
 	logo1.load("assets/textures/getdatloot-322x256.png");
-	hoardlooticon.setRenderer(renderer);
-	hoardlooticon.load("assets/textures/main_menu_hoard_loot.png");
-	scrollicon.setRenderer(renderer);
-	scrollicon.load("assets/textures/main_menu_scroll.png");
-	spellbookicon.setRenderer(renderer);
-	spellbookicon.load("assets/textures/main_menu_spellbook.png");
 	toolsicon.setRenderer(renderer);
 	toolsicon.load("assets/textures/main_menu_other_tools.png");
-	displaytext1.setRenderer(renderer);
-	displaytext1.setBlendMode(SDL_BLENDMODE_BLEND);
 	backarrow.setRenderer(renderer);
 	backarrow.load("assets/textures/button_back_arrow_75x75.png");
+	soundbutton_off.setRenderer(renderer);
+	soundbutton_on.setRenderer(renderer);
+	soundbutton_off.load("assets/textures/checkbox_sound_off_100x50.png");
+	soundbutton_on.load("assets/textures/checkbox_sound_on_100x50.png");
+
+	//hoard loot
+	hoardlooticon.setRenderer(renderer);
+	hoardlooticon.load("assets/textures/main_menu_hoard_loot.png");
+	displaytext1.setRenderer(renderer);
+	displaytext1.setBlendMode(SDL_BLENDMODE_BLEND);
 	hoard_menu_display.resize(5);
 	scroll_menu_display.resize(10);
 
@@ -41,6 +44,9 @@ SceneManager::SceneManager() {
 		else hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Green);
 	}
 
+	//scroll
+	scrollicon.setRenderer(renderer);
+	scrollicon.load("assets/textures/main_menu_scroll.png");
 	scroll_menu_display.resize(10);
 	for (int i = 0; i < 10; i++) {
 		scroll_menu_display[i].setRenderer(renderer);
@@ -57,6 +63,8 @@ SceneManager::SceneManager() {
 
 
 	//tome
+	spellbookicon.setRenderer(renderer);
+	spellbookicon.load("assets/textures/main_menu_spellbook.png");
 	tomeBuildState = NON;
 	spellbook_scene_header.setRenderer(renderer);
 	spellbook_scene_header.load(Vecna, SPELLBOOK_SCENE_TEXT, Orange);

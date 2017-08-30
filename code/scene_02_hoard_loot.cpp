@@ -22,7 +22,7 @@ void SceneManager::scene_02_hoard_loot() {
 			}
 			update_hoard_display = false;
 			loot_rolls_this_session++;
-			Sound_Engine.playlootsound();
+			if (isSoundOn) Sound_Engine.playlootsound();
 		}
 
 

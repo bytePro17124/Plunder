@@ -12,6 +12,9 @@ void SceneManager::scene_01_main_menu() {
 
 		toolsicon.draw( ScreenWidth/2 + offset, ScreenHeight/2 + offset);
 
+		if (isSoundOn) soundbutton_on.draw(ScreenWidth - soundbutton_on.getWidth(), ScreenHeight - soundbutton_on.getHeight());
+		else soundbutton_off.draw(ScreenWidth - soundbutton_off.getWidth(), ScreenHeight - soundbutton_off.getHeight());
+
 		Graphics_Engine.render();  //update screen
 	}
 }
