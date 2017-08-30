@@ -16,9 +16,9 @@ SceneManager::SceneManager() {
 	//	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 	Vecna = TTF_OpenFont("assets/fonts/Vecna.otf", 55);
 	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
-//	logo1.setRenderer(renderer);
-//	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
-//	logo1.load("assets/textures/chest-130x105.png");
+	logo1.setRenderer(renderer);
+	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
+	logo1.load("assets/textures/getdatloot-322x256.png");
 	hoardlooticon.setRenderer(renderer);
 	hoardlooticon.load("assets/textures/main_menu_hoard_loot.png");
 	scrollicon.setRenderer(renderer);
@@ -74,6 +74,9 @@ SceneManager::SceneManager() {
 	for (int i = 0; i != 11; i++)  {
 		inputTextDisplay[i].setRenderer(renderer);
 	}
+	create_spellbook_button.setRenderer(renderer);
+	create_spellbook_button.load("assets/textures/button_make_spellbook_75x75.png");
+	hasSpells = hasDescription = false;
 
 }
 
@@ -123,4 +126,37 @@ bool SceneManager::checkTextToIntWithClamp(const std::string &input, const int &
 		std::cout << "but my spoon is too big\n";
 		return false;
 	}
+}
+
+void SceneManager::doValidCheck() {
+	hasDescription = hasSpells = false;  //reset both
+	int i = 0;  //single declare for the loops
+
+	for (; i < 11; i++) {  //check clamping and valid input
+		if (!inputText[i].empty()) {
+			if (i < 9 || i == 10) {
+				if (checkTextToIntWithClamp(inputText[i], maxSpellsPerLevel[i])) {
+					if (i < 9) std::cout << "success clamping on level " << i+1 << " spells\n";
+					else std::cout << "success clamping on setting pages\n";
+				} else {
+					std::cout << "invalid entry on " << i+1 << "\n";
+					inputText[i] = "";
+				}
+			}
+		}
+	}
+
+	//check if areas are ready for creating the spellbook
+	for (i = 0; i < 11; i++) {
+		if (i < 9) {
+			if (!inputText[i].empty()) {
+				hasSpells = true;
+			}
+		}
+	}
+	if (!inputText[9].empty() && !inputText[10].empty()) {
+		hasDescription = true;
+	}
+
+	needsValidityCheckUpdate = false;
 }

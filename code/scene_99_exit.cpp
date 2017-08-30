@@ -10,7 +10,7 @@ void SceneManager::scene_99_exit() {
 	displaytext1.setAlpha(currentalpha);
 	frame_count = 0;  //reset frame count
 
-	//	Sound_Engine.playshutdownsound();
+	Sound_Engine.playshutdownsound();
 
 	while (frame_count < 360) {
 		Graphics_Engine.clear();

@@ -191,17 +191,17 @@ void SceneManager::process_mouse_and_keyboard() {
 				if (e.key.keysym.sym == SDLK_BACKSPACE)
 					switch (tomeBuildState) {
 					case NON: break;
-					case L1: if (inputText[0].length() > 0) inputText[0].pop_back(); break;
-					case L2: if (inputText[1].length() > 0) inputText[1].pop_back(); break;
-					case L3: if (inputText[2].length() > 0) inputText[2].pop_back(); break;
-					case L4: if (inputText[3].length() > 0) inputText[3].pop_back(); break;
-					case L5: if (inputText[4].length() > 0) inputText[4].pop_back(); break;
-					case L6: if (inputText[5].length() > 0) inputText[5].pop_back(); break;
-					case L7: if (inputText[6].length() > 0) inputText[6].pop_back(); break;
-					case L8: if (inputText[7].length() > 0) inputText[7].pop_back(); break;
-					case L9: if (inputText[8].length() > 0) inputText[8].pop_back(); break;
-					case DESCRIPTION: if (inputText[9].length() > 0) inputText[9].pop_back(); break;
-					case PAGES: if (inputText[10].length() > 0) inputText[10].pop_back(); break;
+					case L1: if (inputText[0].length() > 0) inputText[0].pop_back(); needsValidityCheckUpdate = true; break;
+					case L2: if (inputText[1].length() > 0) inputText[1].pop_back(); needsValidityCheckUpdate = true; break;
+					case L3: if (inputText[2].length() > 0) inputText[2].pop_back(); needsValidityCheckUpdate = true; break;
+					case L4: if (inputText[3].length() > 0) inputText[3].pop_back(); needsValidityCheckUpdate = true; break;
+					case L5: if (inputText[4].length() > 0) inputText[4].pop_back(); needsValidityCheckUpdate = true; break;
+					case L6: if (inputText[5].length() > 0) inputText[5].pop_back(); needsValidityCheckUpdate = true; break;
+					case L7: if (inputText[6].length() > 0) inputText[6].pop_back(); needsValidityCheckUpdate = true; break;
+					case L8: if (inputText[7].length() > 0) inputText[7].pop_back(); needsValidityCheckUpdate = true; break;
+					case L9: if (inputText[8].length() > 0) inputText[8].pop_back(); needsValidityCheckUpdate = true; break;
+					case DESCRIPTION: if (inputText[9].length() > 0) inputText[9].pop_back(); needsValidityCheckUpdate = true; break;
+					case PAGES: if (inputText[10].length() > 0) inputText[10].pop_back(); needsValidityCheckUpdate = true; break;
 					default: break;
 					}
 			case SCROLL_ROLLER: break;
@@ -219,17 +219,17 @@ void SceneManager::process_mouse_and_keyboard() {
 			case SPELLBOOK_CREATE:
 				switch (tomeBuildState) {
 				case NON: break;
-				case L1: inputText[0] += e.text.text; break;
-				case L2: inputText[1] += e.text.text; break;
-				case L3: inputText[2] += e.text.text; break;
-				case L4: inputText[3] += e.text.text; break;
-				case L5: inputText[4] += e.text.text; break;
-				case L6: inputText[5] += e.text.text; break;
-				case L7: inputText[6] += e.text.text; break;
-				case L8: inputText[7] += e.text.text; break;
-				case L9: inputText[8] += e.text.text; break;
-				case DESCRIPTION: inputText[9] += e.text.text; break;
-				case PAGES: inputText[10] += e.text.text; break;
+				case L1: inputText[0] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L2: inputText[1] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L3: inputText[2] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L4: inputText[3] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L5: inputText[4] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L6: inputText[5] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L7: inputText[6] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L8: inputText[7] += e.text.text; needsValidityCheckUpdate = true; break;
+				case L9: inputText[8] += e.text.text; needsValidityCheckUpdate = true; break;
+				case DESCRIPTION: inputText[9] += e.text.text; needsValidityCheckUpdate = true; break;
+				case PAGES: inputText[10] += e.text.text; needsValidityCheckUpdate = true; break;
 				default: break;
 				}
 			case SCROLL_ROLLER: break;

@@ -35,23 +35,20 @@ void SceneManager::scene_03_spellbook() {
 		//		default: break;
 		//		}
 
-		for (int i = 0; i != 11; i++) {
-			if (!inputText[i].empty()) {
-				if (i < 9 || i == 10) {
-					if (checkTextToIntWithClamp(inputText[i], maxSpellsPerLevel[i])) {
-						if (i < 9) std::cout << "success clamping on level " << i+1 << " spells\n";
-						else std::cout << "success clamping on setting pages\n";
-					} else {
-						std::cout << "invalid entry on " << i+1 << "\n";
-						inputText[i] = "";
-					}
-				}
-			}
+		if (needsValidityCheckUpdate) doValidCheck();  //gets rid of bad input and decides if the create spellbook button is ready to draw
+
+
+		for (int i = 0; i != 11; i++) {   //load and draw all the text that is ready
 			if (!inputText[i].empty()) {
 				inputTextDisplay[i].load(Vecna, inputText[i], Green);
 				inputTextDisplay[i].draw(&spellbook_details_input[i]);
 			}
 		}
+
+		if (hasSpells && hasDescription)
+			create_spellbook_button.draw( \
+						ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth(),\
+						ScreenHeight/2 - create_spellbook_button.getHeight());
 
 		spellbook_scene_header.draw(((ScreenWidth/2)-(spellbook_scene_header.getWidth()/2)), 70);
 		backarrow.draw( 75, ScreenHeight - 75 - backarrow.getHeight());
