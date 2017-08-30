@@ -1,7 +1,6 @@
 #include "texture.h"
 
 Texture::Texture(){
-	SDLrenderer = nullptr;
 	SDLtex = nullptr;
 }
 Texture::~Texture(){ free(); }
@@ -23,7 +22,7 @@ bool Texture::load(const std::string &path) {
 		printf("failed to load surface in Texture::load function path: %s\n", path.c_str());
 	} else {
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
-		newTexture = SDL_CreateTextureFromSurface(SDLrenderer, loadedSurface);
+		newTexture = SDL_CreateTextureFromSurface(SDL_graphics::renderer, loadedSurface);
 		if (newTexture == nullptr) {
 			printf("failed to load newTexture in Texture::load function path %s\n", path.c_str());
 		} else {
@@ -33,6 +32,7 @@ bool Texture::load(const std::string &path) {
 		SDL_FreeSurface(loadedSurface);
 	}
 	SDLtex = newTexture;
+		
 	return SDLtex != nullptr;
 }
 
@@ -40,7 +40,7 @@ bool Texture::load(TTF_Font *font, std::string text, SDL_Color text_color) {
 	free();
 	SDL_Surface *textSurface = TTF_RenderText_Solid(font, text.c_str(), text_color);
 	if (textSurface != NULL) {
-		SDLtex = SDL_CreateTextureFromSurface(SDLrenderer, textSurface);
+		SDLtex = SDL_CreateTextureFromSurface(SDL_graphics::renderer, textSurface);
 		if (SDLtex == NULL) {
 			printf("SDL Failed to Create Texture from text! ERROR: %s. \n", SDL_GetError());
 		}
@@ -52,6 +52,7 @@ bool Texture::load(TTF_Font *font, std::string text, SDL_Color text_color) {
 	} else {
 		printf("SDL Failed to Render Texture from text! ERROR: %s. \n", TTF_GetError());
 	}
+		
 	return SDLtex != NULL;
 }
 
@@ -68,10 +69,10 @@ void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double 
 		renderQuad.w = dst_rect->w;
 		renderQuad.h = dst_rect->h;
 	}
-	SDL_RenderCopyEx(SDLrenderer, SDLtex, &srcClip, &renderQuad, angle, center, render_flip);
+	SDL_RenderCopyEx(SDL_graphics::renderer, SDLtex, &srcClip, &renderQuad, angle, center, render_flip);
 }
 
 void Texture::draw(SDL_Rect *destination) {
-	SDL_RenderCopy(SDLrenderer, SDLtex, nullptr, destination);
+	SDL_RenderCopy(SDL_graphics::renderer, SDLtex, nullptr, destination);
 }
 

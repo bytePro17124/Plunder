@@ -17,7 +17,6 @@ void SceneManager::scene_02_hoard_loot() {
 		if (update_hoard_display) {
 			hoard_loot_display.resize(treasure_pile.full_gear_list.size());
 			for (uint i = 0; i < hoard_loot_display.size(); i++) {
-				hoard_loot_display[i].setRenderer(renderer);
 				hoard_loot_display[i].load(Bookman, treasure_pile.full_gear_list[i].retrieveItemString(), White);
 			}
 			update_hoard_display = false;
@@ -45,7 +44,6 @@ void SceneManager::scene_02_hoard_loot() {
 				save_to_file.close();
 			}
 			loot_write_out = false;
-			notification_text.setRenderer(renderer);
 			notification_text.load(Bookman, "Output written to: " + fileoutputname, Green);
 			notification_text.setBlendMode(SDL_BLENDMODE_BLEND);
 			currentalpha = 0;  //reset alpha and frame count

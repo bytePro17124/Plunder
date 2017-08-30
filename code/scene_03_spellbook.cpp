@@ -11,12 +11,12 @@ void SceneManager::scene_03_spellbook() {
 		Graphics_Engine.clear();  //reset screen
 		process_mouse_and_keyboard();  //check for any keypresses
 
-		SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); //yellow input boxes
+		SDL_SetRenderDrawColor(SDL_graphics::renderer, 255, 255, 0, 255); //yellow input boxes
 		for (int i = 0; i != 11; i++) {
 			//draw labels
 			spellbook_scene_labels[i].draw(ScreenWidth/2 - spellbook_scene_labels[i].getWidth(), 148 + 50*i);
 			//draw input boxes
-			SDL_RenderDrawRect(renderer, &spellbook_details_input[i]);
+			SDL_RenderDrawRect(SDL_graphics::renderer, &spellbook_details_input[i]);
 		}
 
 		//		switch (tomeBuildState) {
@@ -52,7 +52,7 @@ void SceneManager::scene_03_spellbook() {
 
 		spellbook_scene_header.draw(((ScreenWidth/2)-(spellbook_scene_header.getWidth()/2)), 70);
 		backarrow.draw( 75, ScreenHeight - 75 - backarrow.getHeight());
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); //black background
+		SDL_SetRenderDrawColor(SDL_graphics::renderer, 0, 0, 0, 255); //black background
 		Graphics_Engine.render();  //update screen
 	}
 

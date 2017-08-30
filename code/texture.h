@@ -3,6 +3,9 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <string>
+#include "graphics.h"
+
+class SDL_graphics;
 
 class Texture {
 public:
@@ -10,10 +13,8 @@ public:
 	~Texture(void);
 
 	bool is_null(void) { return (SDLtex == nullptr); }
-	void setRenderer(SDL_Renderer *renderer) { SDLrenderer = renderer; }
 	bool load(const std::string &path);  //loading up pictures
 	bool load(TTF_Font *font, std::string text, SDL_Color text_color);  //loading up text
-
 	void setColor(Uint8 red, Uint8 green, Uint8 blue) { SDL_SetTextureColorMod(SDLtex, red, green, blue); }
 	void setBlendMode(SDL_BlendMode blend_mode) { SDL_SetTextureBlendMode(SDLtex, blend_mode); }
 	void setAlpha(Uint8 alpha) { SDL_SetTextureAlphaMod(SDLtex, alpha); }
@@ -30,6 +31,5 @@ public:
 private:
 	int width;
 	int height;
-	SDL_Renderer *SDLrenderer;
 	SDL_Texture *SDLtex;
 };

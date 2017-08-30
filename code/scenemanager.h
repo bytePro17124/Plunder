@@ -17,7 +17,7 @@ private:
 	bool fullQuit;  // application management
 	// SCENE MANAGEMENT
 	SDL_graphics Graphics_Engine;
-	SDL_Renderer *renderer;
+//	SDL_Renderer *renderer;
 	int ScreenWidth, ScreenHeight;  // scene sizes
 	enum SCENE { STARTUP, MAIN_MENU, HOARD_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, OTHER_TOOLS, EXIT };  //core scenes
 	SCENE scene;
