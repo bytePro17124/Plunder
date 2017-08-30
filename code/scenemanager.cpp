@@ -60,6 +60,9 @@ SceneManager::SceneManager() {
 		else if (i == 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 590, 430, 40 };
 		else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
 	}
+	spellbook_pages_used_area = { ScreenWidth/2 + 40, 640, 100, 40 };
+	pagesUsed = "0";
+	pages_used_display.load(Bookman, pagesUsed, White);
 
 	create_spellbook_button.load("assets/textures/button_make_spellbook_75x75.png");
 	hasSpells = hasDescription = false;
@@ -116,7 +119,7 @@ bool SceneManager::checkTextToIntWithClamp(const std::string &input, const int &
 
 void SceneManager::doValidCheck() {
 	hasDescription = hasSpells = false;  //reset both
-	int i = 0;  //single declare for the loops
+	int i = 0;  //single iterator declare for the loops
 
 	for (; i < 11; i++) {  //check clamping and valid input
 		if (!inputText[i].empty()) {
@@ -140,9 +143,25 @@ void SceneManager::doValidCheck() {
 			}
 		}
 	}
-	if (!inputText[9].empty() && !inputText[10].empty()) {
+	if (!inputText[9].empty() && !inputText[10].empty() && stoi(inputText[10]) > stoi(pagesUsed)) {
 		hasDescription = true;
 	}
 
 	needsValidityCheckUpdate = false;
+}
+
+void SceneManager::updatePagesUsed() {
+	if (hasSpells) {
+		int tmp = 0;
+		for (int i = 0; i != 9; i++) {
+			if (!inputText[i].empty()) {
+				tmp += stoi(inputText[i]) * (i + 1) + 1;
+			}
+		}
+		pagesUsed = std::to_string(tmp);
+	} else {
+		pagesUsed = "0";
+	}
+	pages_used_display.load(Bookman, pagesUsed, White);
+
 }

@@ -35,7 +35,10 @@ void SceneManager::scene_03_spellbook() {
 		//		default: break;
 		//		}
 
-		if (needsValidityCheckUpdate) doValidCheck();  //gets rid of bad input and decides if the create spellbook button is ready to draw
+		if (needsValidityCheckUpdate) {
+			doValidCheck();  //gets rid of bad input and decides if the create spellbook button is ready to draw
+			updatePagesUsed();
+		}
 
 
 		for (int i = 0; i != 11; i++) {   //load and draw all the text that is ready
@@ -45,11 +48,15 @@ void SceneManager::scene_03_spellbook() {
 			}
 		}
 
-		if (hasSpells && hasDescription)
+		if (hasSpells && hasDescription) {
 			create_spellbook_button.draw( \
 						ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth(),\
 						ScreenHeight/2 - create_spellbook_button.getHeight());
-
+		}
+		
+		
+		if (hasSpells) pages_used_display.draw(&spellbook_pages_used_area);
+		
 		spellbook_scene_header.draw(((ScreenWidth/2)-(spellbook_scene_header.getWidth()/2)), 70);
 		backarrow.draw( 75, ScreenHeight - 75 - backarrow.getHeight());
 		SDL_SetRenderDrawColor(SDL_graphics::renderer, 0, 0, 0, 255); //black background

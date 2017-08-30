@@ -85,6 +85,12 @@ private:
 	const int maxSpellsPerLevel[11] = { 31, 30, 27, 23, 23, 20, 15, 14, 12, 0, 10000 };  //[0-8] are max wizard spells per level possible, [9] is unused, [10] is the max pages allowed in a spellbook
 
 	SDL_Rect spellbook_details_input[11];
+	
+	SDL_Rect spellbook_pages_used_area;
+	Texture pages_used_display;
+	void updatePagesUsed();
+	std::string pagesUsed;
+	
 	Texture spellbook_scene_labels[11];
 	std::string tome_description;
 	uint tomeSpells[11]; // 0-8 holds level 1 through 9 spells count and 9-10 holds pages used and pages total respectively
