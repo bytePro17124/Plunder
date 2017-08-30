@@ -155,14 +155,14 @@ void SceneManager::updatePagesUsed() {
 		int tmp = 0;
 		for (int i = 0; i != 9; i++) {
 			if (!inputText[i].empty()) {
-				tmp += stoi(inputText[i]) * (i + 1) + 1;
+				tmp += stoi(inputText[i]) * (i + 1);
 			}
 		}
 		pagesUsed = std::to_string(tmp);
 	} else {
 		pagesUsed = "0";
 	}
-	pages_used_display.load(Bookman, pagesUsed, White);
+	pages_used_display.load(Bookman, pagesUsed, Green);
 
 }
 
