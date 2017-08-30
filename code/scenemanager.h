@@ -79,6 +79,7 @@ private:
 	bool hasSpells, hasDescription;
 	bool needsValidityCheckUpdate;
 	void doValidCheck();
+	void makeSpellbook();
 	Texture spellbook_scene_header, create_spellbook_button;
 	bool spellbook_results_ready;
 	const std::string SPELLBOOK_SCENE_TEXT = "Create a Randomized Spellbook";

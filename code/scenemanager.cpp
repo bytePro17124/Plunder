@@ -165,3 +165,5 @@ void SceneManager::updatePagesUsed() {
 	pages_used_display.load(Bookman, pagesUsed, White);
 
 }
+
+
