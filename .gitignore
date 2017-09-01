@@ -3,3 +3,5 @@ plunder
 saved_loot/
 build/
 .directory
+*.pro
+*.user
