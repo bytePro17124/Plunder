@@ -5,5 +5,5 @@ LIBS ++ -L/usr/lib \
 -lSDL2_ttf \
 -lSDL2_mixer
 
-INCLUDES += /usr/include /usr/include/SDL2
+INCLUDES += /usr/include /usr/local/include
 
