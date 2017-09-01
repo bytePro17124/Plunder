@@ -5,7 +5,7 @@
 
 
 SceneManager::SceneManager() {
-    isSoundOn = true;
+    isSoundOn = false;
     mouseLeftX = mouseLeftY = 0;
     scene = STARTUP;
     ScreenHeight = Graphics_Engine.getScreenHeight();
@@ -64,7 +64,7 @@ SceneManager::SceneManager() {
     pages_used_display.load(Bookman, pagesUsed, White);
 
     create_spellbook_button.load("assets/textures/button_make_spellbook_75x75.png");
-
+    spellbook_results_ready = false;
 }
 
 SceneManager::~SceneManager() {
@@ -135,11 +135,14 @@ void SceneManager::doValidCheck() {
 
     //check if areas are ready for creating the spellbook
     for (i = 0; i < 11; i++) {
-        if (i < 9) {
-            if (!inputText[i].empty()) {
-                hasSpells = true;
+        if (!hasSpells) {
+            if (i < 9) {
+                if (tomeSpells[i] > 0) {
+                    hasSpells = true;
+                }
             }
         }
+
     }
 
     updatePagesUsed();
@@ -151,13 +154,16 @@ void SceneManager::doValidCheck() {
     needsValidityCheckUpdate = false;
 }
 
-void SceneManager::updatePagesUsed() {
+void SceneManager::updatePagesUsed() {  //input must have been error checked before calling this function
     if (hasSpells) {
         int tmp = 0;
         for (int i = 0; i != 9; i++) {
             if (!inputText[i].empty()) {
                 tmp += stoi(inputText[i]) * (i + 1);
+                tomeSpells[i] = tmp;  //updates the per level count for final calculations
             }
+            else tomeSpells[i] = 0;
+
         }
         pagesUsed = std::to_string(tmp);
     } else {
@@ -168,14 +174,10 @@ void SceneManager::updatePagesUsed() {
 }
 
 void SceneManager::displayBuiltSpellbook() {
-    int i = 0;
-    int y;
     int n = built_spellbook_textures.size();
-    for (auto& it : built_spellbook_textures) {
-        if (i < n/2) y = 40;
-        else y = 380;
-        it.draw(offset + (i*it.getHeight()), y);
-        i++;
+    for (int i = 0; i < n; i++) {
+        if (i < n/2) built_spellbook_textures[i].draw(offset, offset + i*built_spellbook_textures[i].getHeight());
+        else built_spellbook_textures[i].draw(offset+ScreenWidth/2, offset + (i - n/2) * built_spellbook_textures[i].getHeight());
     }
 }
 

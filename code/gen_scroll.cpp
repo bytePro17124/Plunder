@@ -1,4 +1,5 @@
 #include "scenemanager.h"
+#include "random_gen.h"
 
 using std::string;
 
