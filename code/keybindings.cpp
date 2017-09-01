@@ -99,32 +99,6 @@ void SceneManager::process_mouse_and_keyboard() {
 						makeSpellbook();
 						spellbook_results_ready = true;
 					}
-					
-
-					/*
-						if (i < 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 140 + 50*i, 100, 40 };
-		else if (i == 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 590, 210, 40 };
-		else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
-		*/
-
-					//					switch (tomeBuildState) {
-					//					case NON: break;
-					//					case L1: break;
-					//					case L2: break;
-					//					case L3: break;
-					//					case L4: break;
-					//					case L5: break;
-					//					case L6: break;
-					//					case L7: break;
-					//					case L8: break;
-					//					case L9: break;
-					//					case DESCRIPTION: break;
-					//					case PAGES: break;
-					//					default: break;
-					//					}
-
-
-
 
 					break;
 				case SCROLL_ROLLER:
