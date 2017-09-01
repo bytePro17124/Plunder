@@ -1,9 +1,6 @@
 #pragma once
 
 #include <random>
-#include <type_traits>
-#include <sstream>
-#include <string>
 
 static std::random_device rgen;
 static std::mt19937 mgen(rgen());
@@ -16,5 +13,3 @@ static std::uniform_int_distribution<int> rolld20(1, 20);
 static std::uniform_int_distribution<int> rolld100(1, 100);
 
 int randomNumber(const int&, const int&);
-
-std::string GenerateScroll(const int& lvl);

@@ -1,8 +1,8 @@
-#include "random_gen.h"
+#include "scenemanager.h"
 
 using std::string;
 
-string GenerateScroll(const int& lvl) {
+string SceneManager::GenerateScroll(const int& lvl) {
 	int ss = 0;
 	string scroll;
 	switch (lvl) {

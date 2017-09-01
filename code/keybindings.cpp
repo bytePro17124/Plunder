@@ -96,7 +96,6 @@ void SceneManager::process_mouse_and_keyboard() {
 						}
 					}
 					if (hasSpells && hasDescription && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
-						//makespellbook function here
 						makeSpellbook();
 						spellbook_results_ready = true;
 					}

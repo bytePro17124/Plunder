@@ -75,31 +75,35 @@ private:
 	// Spellbook Stuff
 
 	enum TOMEBUILDSTATE { NON = -1, L1 = 0, L2, L3, L4, L5, L6, L7, L8, L9, DESCRIPTION, PAGES };
-	TOMEBUILDSTATE tomeBuildState;
-	bool hasSpells, hasDescription;
-	bool needsValidityCheckUpdate;
-	void doValidCheck();
-	void makeSpellbook();
-	Texture spellbook_scene_header, create_spellbook_button;
+        TOMEBUILDSTATE tomeBuildState;  //entry cell management
+        void makeSpellbook();  //final function to build the spellbook once all entries are valid and sufficient
+
+        Texture spellbook_scene_header, create_spellbook_button;  //basic display handler assets
 	bool spellbook_results_ready;
 	const std::string SPELLBOOK_SCENE_TEXT = "Create a Randomized Spellbook";
 	const std::string SPELLBOOK_INPUT_LABELS[11] = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Spellbook Material Description", "Pages Used / Total Pages In Tome" };
 	const int maxSpellsPerLevel[11] = { 31, 30, 27, 23, 23, 20, 15, 14, 12, 0, 10000 };  //[0-8] are max wizard spells per level possible, [9] is unused, [10] is the max pages allowed in a spellbook
+        Texture spellbook_scene_labels[11];
 
-	SDL_Rect spellbook_details_input[11];
-	
-	SDL_Rect spellbook_pages_used_area;
-	Texture pages_used_display;
-	void updatePagesUsed();
-	std::string pagesUsed;
-	
-	Texture spellbook_scene_labels[11];
-	std::string tome_description;
-	uint tomeSpells[11]; // 0-8 holds level 1 through 9 spells count and 9-10 holds pages used and pages total respectively
-	std::string inputText[11];
-	Texture inputTextDisplay[11];
-	bool checkTextToIntWithClamp(const std::string &input, const int &upper_limit);
+        SDL_Rect spellbook_details_input[11];  //the fill out section of the spellbook
+        std::string tome_description;
+        uint tomeSpells[11]; // 0-8 holds level 1 through 9 spells count and 9-10 holds pages used and pages total respectively
+        std::string inputText[11];
+        Texture inputTextDisplay[11];
+        bool checkTextToIntWithClamp(const std::string &input, const int &upper_limit);
+        SDL_Rect spellbook_pages_used_area;
+        Texture pages_used_display;
+        std::string pagesUsed;  // to draw
+        bool hasSpells, hasDescription;  //validity status management
+        bool needsValidityCheckUpdate;  //after every new entry
+        void updatePagesUsed();  // updates pagesUsed
+        void doValidCheck();  //updates the the pagesUsed + bools hasDescription, hasSpells + resets needsValidityCheckUpdate to false
 
+        void displayBuiltSpellbook();  //function to display the generated spells split across the pages
+        std::vector<Texture> built_spellbook_textures;  //tmp texture for displaying the final list of spells
+
+
+	
 	// Spellbook Stuff
 
 	// Scroll stuff
@@ -107,6 +111,7 @@ private:
 	std::vector<Texture> scroll_menu_display;
 	const std::vector<std::string> scroll_level_menu_items = { "Scroll Level : ", "  1  ", "  2  ", "  3  ", "  4  ", "  5  ", "  6  ", "  7  ", "  8  ", "  9  " };
 	Texture scroll_loot_display;
+        std::string GenerateScroll(const int& lvl); //also used in the makeSpellbook function
 
 	// Scroll stuff
 

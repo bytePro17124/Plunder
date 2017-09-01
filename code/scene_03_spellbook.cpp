@@ -11,7 +11,8 @@ void SceneManager::scene_03_spellbook() {
 		process_mouse_and_keyboard();  //check for any keypresses
 
 		if (spellbook_results_ready) {
-			//display resulsts
+			
+                        displayBuiltSpellbook();
 			//draw save button
 			//create save function (should be close to hoard loot save)
 		} else {
