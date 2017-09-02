@@ -65,8 +65,8 @@ void SDL_sound::playlootsound() {
 }
 
 void SDL_sound::playcancelsound() {
-    // THIS SOUND IS BROKEN ON OPENSUSE ON MY LAPTOP, LOUD DISTORTION SOUND
-//	Mix_PlayChannel( -1, cancelSound, 0);
+	// THIS SOUND IS BROKEN ON OPENSUSE ON MY LAPTOP, LOUD DISTORTION SOUND
+	//	Mix_PlayChannel( -1, cancelSound, 0);
 }
 
 void SDL_sound::playmenusound() {

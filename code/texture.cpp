@@ -32,7 +32,7 @@ bool Texture::load(const std::string &path) {
 		SDL_FreeSurface(loadedSurface);
 	}
 	SDLtex = newTexture;
-		
+
 	return SDLtex != nullptr;
 }
 
@@ -52,7 +52,7 @@ bool Texture::load(TTF_Font *font, std::string text, SDL_Color text_color) {
 	} else {
 		printf("SDL Failed to Render Texture from text! ERROR: %s. \n", TTF_GetError());
 	}
-		
+
 	return SDLtex != NULL;
 }
 
