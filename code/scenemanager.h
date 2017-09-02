@@ -84,19 +84,9 @@ private:
     void spellbookInputValidator();  //validates or removes entriesText data, updates pagesNeededForCurrentSpells, updates has bools
     int pagesNeededForCurrentSpells = 0;
     bool hasValidPages = false, hasSpells = false, hasDescription = false;  //has variables to decide things
-    void updateSpellbookPagesUsed();
     Texture entryDisplay[11], pagesUsedDisplay;  //used to display valid entriesText
     void makeSpellbook();  //final function to build the spellbook once all entries are valid and sufficient
     bool readyToDisplay = false;
-
-
-
-
-
-
-
-
-
 
     void displayBuiltSpellbook();  //function to display the generated spells split across the pages
     std::vector<Texture> completedSpellbookTextures;  //mallable texture for displaying the final list of spells

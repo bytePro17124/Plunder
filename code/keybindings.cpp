@@ -96,7 +96,7 @@ void SceneManager::process_mouse_and_keyboard() {
                             tomeClickEntries = (TOMECLICKENTRIES)i;
                         }
                     }
-                    if (hasSpells && hasDescription && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
+                    if (hasSpells && hasDescription && hasValidPages && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
                         makeSpellbook();
                     }
 
@@ -160,8 +160,6 @@ void SceneManager::process_mouse_and_keyboard() {
                         if (isSoundOn) Sound_Engine.playcancelsound();
                     }
                     break;
-
-
                 case EXIT: break;  //disallow key clicks
                 }
                 break;

@@ -8,6 +8,7 @@ using namespace std;
 //post: strings for text entries on the spellbook will be removed if invalid
 //        and the variables will be reset
 //post: hasSpells and hasValidPages will be updated properly after this function
+//post: pages of the spellbook variable will be updated correctly after this function
 void SceneManager::spellbookInputValidator() {
     int numberCheckerVar = 0;
 
@@ -19,7 +20,6 @@ void SceneManager::spellbookInputValidator() {
                 numberCheckerVar = stoi(entriesText[i]);
                 if (numberCheckerVar <= SPELLBOOK_LIMITS[i]) {
                     hasSpells = true;
-                    updateSpellbookPagesUsed();
                     entryDisplay[i].load(Vecna, entriesText[i], Green);
                 }
             } else {
@@ -27,6 +27,16 @@ void SceneManager::spellbookInputValidator() {
             }
         }
     }
+
+    //UPDATE THE SPELL PAGES CURRENTLY IN USE
+    pagesNeededForCurrentSpells = 0; //assume 0 since we are about to start a new check
+    if (hasSpells) {
+        for (int i = 0; i != 9; i++) {
+            if (!entriesText[i].empty()) pagesNeededForCurrentSpells += stoi(entriesText[i]) * (i+1);
+        }
+        pagesUsedDisplay.load(Vecna, std::to_string(pagesNeededForCurrentSpells), Orange);
+    }
+
 
     hasDescription = false;  //assume false since we are about to recheck
     if (!entriesText[9].empty()) {
@@ -41,14 +51,6 @@ void SceneManager::spellbookInputValidator() {
     }
 
     /* ONLY GOOD ENTRIES BEYOND THIS POINT */
-}
-
-//post: pages of the spellbook variable will be updated correctly after this function
-void SceneManager::updateSpellbookPagesUsed() {
-    pagesNeededForCurrentSpells = 0; //assume 0 since we are about to start a new check
-    for (int i = 0; i != 9; i++) {
-        if (!entriesText[i].empty()) pagesNeededForCurrentSpells += stoi(entriesText[i]) * (i+1);
-    }
 }
 
 void SceneManager::makeSpellbook() {  //the big kahuhna

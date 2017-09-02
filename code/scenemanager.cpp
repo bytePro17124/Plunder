@@ -62,8 +62,6 @@ SceneManager::SceneManager() {
         else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
     }
     spellbook_pages_used_draw = { ScreenWidth/2 + 40, 640, 100, 40 }; //hidden box where current pages used is displayed
-    pagesUsedDisplay.load(Vecna, std::to_string(pagesNeededForCurrentSpells), Orange);
-
 
     //todo
 //    spellbook_results_ready = false;
