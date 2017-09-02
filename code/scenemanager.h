@@ -73,33 +73,40 @@ private:
 
     // gen_spellbook Stuff
     // Spellbook Stuff
-    enum TOMEBUILDSTATE { NON = -1, L1 = 0, L2, L3, L4, L5, L6, L7, L8, L9, DESCRIPTION, PAGES };
-    TOMEBUILDSTATE tomeBuildState;  //entry cell management
-    void makeSpellbook();  //final function to build the spellbook once all entries are valid and sufficient
-    void displayBuiltSpellbook();  //function to display the generated spells split across the pages
-    std::vector<Texture> built_spellbook_textures;  //mallable texture for displaying the final list of spells
-
-    Texture spellbook_scene_header, create_spellbook_button;  //basic display handler assets
+    enum TOMECLICKENTRIES { NON = -1, L1 = 0, L2, L3, L4, L5, L6, L7, L8, L9, DESCRIPTION, PAGES };
+    TOMECLICKENTRIES tomeClickEntries;  //entry cell management
     const std::string SPELLBOOK_SCENE_TEXT = "Create a Randomized Spellbook";
     const std::string SPELLBOOK_INPUT_LABELS[11] = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Spellbook Material Description", "Pages Used / Total Pages In Tome" };
-    Texture spellbook_scene_labels[11];  //to render the input labels
-    const int maxSpellsPerLevel[11] = { 31, 30, 27, 23, 23, 20, 15, 14, 12, 0, 10000 };  //[0-8] are max wizard spells per level possible, [9] is unused, [10] is the max pages allowed in a spellbook
-    int currentSpellsInBook[11] = {0,0,0,0,0,0,0,0,0,0,0,}; // 0-8 holds level 1 through 9 spells count and 9-10 holds pages used and pages total respectively
+    const int SPELLBOOK_LIMITS[11] = { 31, 30, 27, 23, 23, 20, 15, 14, 12, 40, 10000 };  //[0-8] are max wizard spells per level possible, [9] is max description length, [10] is the max pages allowed in a spellbook
+    Texture spellbook_scene_header, spellbook_scene_labels[11], create_spellbook_button;  //basic display handler assets
+    SDL_Rect spellbook_pages_used_draw, spellbook_details_input[11];  //the fill out section of the spellbook
+    std::string entriesText[11];  //entries 0-8 are the spells per level entries, 9 is the description, 10 is the pages total
+    void spellbookInputValidator();  //validates or removes entriesText data, updates pagesNeededForCurrentSpells, updates has bools
+    int pagesNeededForCurrentSpells = 0;
+    bool hasValidPages = false, hasSpells = false, hasDescription = false;  //has variables to decide things
+    void updateSpellbookPagesUsed();
+    Texture entryDisplay[11], pagesUsedDisplay;  //used to display valid entriesText
+    void makeSpellbook();  //final function to build the spellbook once all entries are valid and sufficient
+    bool readyToDisplay = false;
 
-    SDL_Rect spellbook_details_input[11];  //the fill out section of the spellbook
-    std::string inputText[11];  //0-8 are the spells per level entries, 9 is the description, 10 is the pages total
 
-    Texture inputTextDisplay[11];  //loaded with inputText[] and rendered to the screen
-    std::string pagesUsed;  // to draw
-    SDL_Rect spellbook_pages_used_area;  //auto calculating area for spell book pages in use for sure
-    Texture pages_used_display;  //to display then number of pages in use
 
-    void doValidCheck();  //updates the the pagesUsed + bools hasDescription, hasSpells + resets needsValidityCheckUpdate to false
-    bool checkTextToIntWithClamp(const std::string &input, const int &upper_limit);  //makes sure inputs are correct
-    bool hasSpells, hasDescription;  //validity status management
-    bool needsValidityCheckUpdate;  //after every new entry
-    void updatePagesUsed();  // updates pagesUsed using stoi
-    bool spellbook_results_ready;
+
+
+
+
+
+
+
+    void displayBuiltSpellbook();  //function to display the generated spells split across the pages
+    std::vector<Texture> completedSpellbookTextures;  //mallable texture for displaying the final list of spells
+
+
+//    bool checkTextToIntWithClamp(const std::string &input, const int &upper_limit);  //makes sure inputs are correct
+//    bool hasSpells, hasDescription;  //validity status management
+//    bool needsValidityCheckUpdate;  //after every new entry
+//    void updatePagesUsed();  // updates pagesUsed using stoi
+//    bool spellbook_results_ready;
 
 
 

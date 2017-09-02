@@ -50,22 +50,23 @@ SceneManager::SceneManager() {
 
     //load spellbook generator assets
     spellbookicon.load("assets/textures/main_menu_spellbook.png");
-    tomeBuildState = NON;
+    create_spellbook_button.load("assets/textures/button_make_spellbook_75x75.png");
+    tomeClickEntries = NON;
     spellbook_scene_header.load(Vecna, SPELLBOOK_SCENE_TEXT, Orange);
     for (int i = 0; i != 11; i++) {
-        spellbook_scene_labels[i].load(Bookman, SPELLBOOK_INPUT_LABELS[i], Green);
+        spellbook_scene_labels[i].load(Bookman, SPELLBOOK_INPUT_LABELS[i], Orange);
     }
-    for (int i = 0; i != 11; i++) {
+    for (int i = 0; i != 11; i++) {  //init the rectangles that are clickable to enter in spellbook creation details
         if (i < 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 140 + 50*i, 90, 40 };
         else if (i == 9) spellbook_details_input[i] = { ScreenWidth/2 + 40, 590, 430, 40 };
         else spellbook_details_input[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
     }
-    spellbook_pages_used_area = { ScreenWidth/2 + 40, 640, 100, 40 };
-    pagesUsed = "0";
-    pages_used_display.load(Bookman, pagesUsed, White);
-    hasDescription = hasSpells = false;  //reset both
-    create_spellbook_button.load("assets/textures/button_make_spellbook_75x75.png");
-    spellbook_results_ready = false;
+    spellbook_pages_used_draw = { ScreenWidth/2 + 40, 640, 100, 40 }; //hidden box where current pages used is displayed
+    pagesUsedDisplay.load(Vecna, std::to_string(pagesNeededForCurrentSpells), Orange);
+
+
+    //todo
+//    spellbook_results_ready = false;
 }
 
 SceneManager::~SceneManager() {
