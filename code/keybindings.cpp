@@ -79,24 +79,24 @@ void SceneManager::process_mouse_and_keyboard() {
 				case SPELLBOOK_CREATE:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
 						//BACK BUTTON CLICKED
-						if (readyToDisplay) readyToDisplay = false;
+						if (spellbookReadyToDisplay) spellbookReadyToDisplay = false;
 						else scene = MAIN_MENU;
 						if (isSoundOn) Sound_Engine.playcancelsound();
 					}
 					for (int i = 0; i != 9; i++) {  // spellbook level key clicks
-						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + spellbook_details_input[i].h)) {
+						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + SPELLBOOK_ENTRY_RECTANGLES[i].h)) {
 							tomeClickEntries = (TOMECLICKENTRIES)i;
 						}
 					}
 					for (int i = 9; i != 11; i++) { // spellbook description or max pages key clicks
-						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + spellbook_details_input[i].w) && (mouseLeftY > 590 && mouseLeftY < 590 + spellbook_details_input[i].h) && i == 9) {
+						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 590 && mouseLeftY < 590 + SPELLBOOK_ENTRY_RECTANGLES[i].h) && i == 9) {
 							tomeClickEntries = (TOMECLICKENTRIES)i;
 						}
-						if ((mouseLeftX > ScreenWidth/2 + 150 && mouseLeftX < ScreenWidth/2 + 150 + spellbook_details_input[i].w) && (mouseLeftY > 640 && mouseLeftY < 640 + spellbook_details_input[i].h) && i == 10) {
+						if ((mouseLeftX > ScreenWidth/2 + 150 && mouseLeftX < ScreenWidth/2 + 150 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 640 && mouseLeftY < 640 + SPELLBOOK_ENTRY_RECTANGLES[i].h) && i == 10) {
 							tomeClickEntries = (TOMECLICKENTRIES)i;
 						}
 					}
-					if (hasSpells && hasDescription && hasValidPages && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
+					if (hasSpells && hasDescription && hasValidTotalPages && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
 						makeSpellbook();
 					}
 
@@ -175,17 +175,17 @@ void SceneManager::process_mouse_and_keyboard() {
 				if (e.key.keysym.sym == SDLK_BACKSPACE)
 					switch (tomeClickEntries) {
 					case NON: break;
-					case L1: if (entriesText[0].length() > 0) entriesText[0].pop_back(); spellbookInputValidator(); break;
-					case L2: if (entriesText[1].length() > 0) entriesText[1].pop_back(); spellbookInputValidator(); break;
-					case L3: if (entriesText[2].length() > 0) entriesText[2].pop_back(); spellbookInputValidator(); break;
-					case L4: if (entriesText[3].length() > 0) entriesText[3].pop_back(); spellbookInputValidator(); break;
-					case L5: if (entriesText[4].length() > 0) entriesText[4].pop_back(); spellbookInputValidator(); break;
-					case L6: if (entriesText[5].length() > 0) entriesText[5].pop_back(); spellbookInputValidator(); break;
-					case L7: if (entriesText[6].length() > 0) entriesText[6].pop_back(); spellbookInputValidator(); break;
-					case L8: if (entriesText[7].length() > 0) entriesText[7].pop_back(); spellbookInputValidator(); break;
-					case L9: if (entriesText[8].length() > 0) entriesText[8].pop_back(); spellbookInputValidator(); break;
-					case DESCRIPTION: if (entriesText[9].length() > 0) entriesText[9].pop_back(); spellbookInputValidator(); break;
-					case PAGES: if (entriesText[10].length() > 0) entriesText[10].pop_back(); spellbookInputValidator(); break;
+					case L1: if (entriesText[0].length() > 0) entriesText[0].pop_back(); entryCellsNeedChecked = true; break;
+					case L2: if (entriesText[1].length() > 0) entriesText[1].pop_back(); entryCellsNeedChecked = true; break;
+					case L3: if (entriesText[2].length() > 0) entriesText[2].pop_back(); entryCellsNeedChecked = true; break;
+					case L4: if (entriesText[3].length() > 0) entriesText[3].pop_back(); entryCellsNeedChecked = true; break;
+					case L5: if (entriesText[4].length() > 0) entriesText[4].pop_back(); entryCellsNeedChecked = true; break;
+					case L6: if (entriesText[5].length() > 0) entriesText[5].pop_back(); entryCellsNeedChecked = true; break;
+					case L7: if (entriesText[6].length() > 0) entriesText[6].pop_back(); entryCellsNeedChecked = true; break;
+					case L8: if (entriesText[7].length() > 0) entriesText[7].pop_back(); entryCellsNeedChecked = true; break;
+					case L9: if (entriesText[8].length() > 0) entriesText[8].pop_back(); entryCellsNeedChecked = true; break;
+					case DESCRIPTION: if (entriesText[9].length() > 0) entriesText[9].pop_back(); entryCellsNeedChecked = true; break;
+					case PAGES: if (entriesText[10].length() > 0) entriesText[10].pop_back(); entryCellsNeedChecked = true; break;
 					default: break;
 					}
 			case SCROLL_ROLLER: break;
@@ -203,21 +203,19 @@ void SceneManager::process_mouse_and_keyboard() {
 			case SPELLBOOK_CREATE:
 				switch (tomeClickEntries) {
 				case NON: break;
-				case L1: entriesText[0] += e.text.text; spellbookInputValidator(); break;
-				case L2: entriesText[1] += e.text.text; spellbookInputValidator(); break;
-				case L3: entriesText[2] += e.text.text; spellbookInputValidator(); break;
-				case L4: entriesText[3] += e.text.text; spellbookInputValidator(); break;
-				case L5: entriesText[4] += e.text.text; spellbookInputValidator(); break;
-				case L6: entriesText[5] += e.text.text; spellbookInputValidator(); break;
-				case L7: entriesText[6] += e.text.text; spellbookInputValidator(); break;
-				case L8: entriesText[7] += e.text.text; spellbookInputValidator(); break;
-				case L9: entriesText[8] += e.text.text; spellbookInputValidator(); break;
+				case L1: entriesText[0] += e.text.text; entryCellsNeedChecked = true; break;
+				case L2: entriesText[1] += e.text.text; entryCellsNeedChecked = true; break;
+				case L3: entriesText[2] += e.text.text; entryCellsNeedChecked = true; break;
+				case L4: entriesText[3] += e.text.text; entryCellsNeedChecked = true; break;
+				case L5: entriesText[4] += e.text.text; entryCellsNeedChecked = true; break;
+				case L6: entriesText[5] += e.text.text; entryCellsNeedChecked = true; break;
+				case L7: entriesText[6] += e.text.text; entryCellsNeedChecked = true; break;
+				case L8: entriesText[7] += e.text.text; entryCellsNeedChecked = true; break;
+				case L9: entriesText[8] += e.text.text; entryCellsNeedChecked = true; break;
 				case DESCRIPTION: entriesText[9] += e.text.text;
-					if ((int)entriesText[9].size() > SPELLBOOK_LIMITS[9]) {
-						entriesText[9].pop_back();  ///GET WRECKED BY THE LIMITS FOOL
-					}
+					entryCellsNeedChecked = true;
 					break;
-				case PAGES: entriesText[10] += e.text.text; spellbookInputValidator(); break;
+				case PAGES: entriesText[10] += e.text.text; entryCellsNeedChecked = true; break;
 				default: break;
 				}
 			case SCROLL_ROLLER: break;
