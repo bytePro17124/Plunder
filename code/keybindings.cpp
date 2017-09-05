@@ -1,4 +1,4 @@
- #include "scenemanager.h"
+#include "scenemanager.h"
 #include "random_gen.h"
 #include <iostream>
 
@@ -28,11 +28,12 @@ void SceneManager::process_mouse_and_keyboard() {
 					} else if ( (mouseLeftX > ScreenWidth/2 + offset && mouseLeftX < ScreenWidth/2 + offset + toolsicon.getWidth()) && (mouseLeftY > (ScreenHeight/2 + offset) && mouseLeftY < (ScreenHeight/2 + offset + toolsicon.getHeight())) ) {
 						scene = OTHER_TOOLS;
 					} else if ( mouseLeftX > (ScreenWidth - soundbutton_off.getWidth()) && mouseLeftY > (ScreenHeight - soundbutton_off.getHeight()) ) {
-						if (isSoundOn) isSoundOn = false;
+						if (isSoundOn) isSoundOn = false;					//click sound on/off
 						else isSoundOn = true;
+					} else if ( mouseLeftX < quitbutton.getWidth() && mouseLeftY > ScreenHeight - quitbutton.getHeight()) {
+						scene = EXIT;
 					}
 
-					//click sound on/off
 
 					break;
 				case HOARD_LOOT:
@@ -83,23 +84,35 @@ void SceneManager::process_mouse_and_keyboard() {
 						else scene = MAIN_MENU;
 						if (isSoundOn) Sound_Engine.playcancelsound();
 					}
-					for (int i = 0; i != 9; i++) {  // spellbook level key clicks
-						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + SPELLBOOK_ENTRY_RECTANGLES[i].h)) {
-							tomeClickEntries = (TOMECLICKENTRIES)i;
+					if (!spellbookReadyToDisplay) {
+						for (int i = 0; i != 9; i++) {  // spellbook level key clicks
+							if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 140 + 50*i && mouseLeftY < 140 + 50*i + SPELLBOOK_ENTRY_RECTANGLES[i].h)) {
+								tomeClickEntries = (TOMECLICKENTRIES)i;
+							}
+						}
+						for (int i = 9; i != 11; i++) { // spellbook description or max pages key clicks
+							if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 590 && mouseLeftY < 590 + SPELLBOOK_ENTRY_RECTANGLES[i].h) && i == 9) {
+								tomeClickEntries = (TOMECLICKENTRIES)i;
+							}
+							if ((mouseLeftX > ScreenWidth/2 + 150 && mouseLeftX < ScreenWidth/2 + 150 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 640 && mouseLeftY < 640 + SPELLBOOK_ENTRY_RECTANGLES[i].h) && i == 10) {
+								tomeClickEntries = (TOMECLICKENTRIES)i;
+							}
+						}
+						if ((hasSpells || hasDescription || entriesText[10].size() > 0) &&  (mouseLeftX > ScreenWidth/2 - ScreenWidth/4 - resetbutton.getWidth()/2 && mouseLeftX < ScreenWidth/2 - ScreenWidth/4 + resetbutton.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - resetbutton.getHeight()/2 && mouseLeftY < ScreenHeight/2 + resetbutton.getHeight()/2)) {
+							//reset button clicked
+							for (int i = 0; i != 11; i++) {
+								entriesText[i] = "";
+							}
+							spellbookInputValidator();
+						}
+						if (hasSpells && hasDescription && hasValidTotalPages && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
+							makeSpellbook();   //make spellbook button clicked
+						}
+					} else {
+						if (mouseLeftX > ScreenWidth - 75 - save_loot_button.getWidth() && mouseLeftX < ScreenWidth - 75 && mouseLeftY > ScreenHeight - 75 - save_loot_button.getHeight() && mouseLeftY < ScreenHeight - 75) {
+							loot_write_out = true;
 						}
 					}
-					for (int i = 9; i != 11; i++) { // spellbook description or max pages key clicks
-						if ((mouseLeftX > ScreenWidth/2 + 40 && mouseLeftX < ScreenWidth/2 + 40 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 590 && mouseLeftY < 590 + SPELLBOOK_ENTRY_RECTANGLES[i].h) && i == 9) {
-							tomeClickEntries = (TOMECLICKENTRIES)i;
-						}
-						if ((mouseLeftX > ScreenWidth/2 + 150 && mouseLeftX < ScreenWidth/2 + 150 + SPELLBOOK_ENTRY_RECTANGLES[i].w) && (mouseLeftY > 640 && mouseLeftY < 640 + SPELLBOOK_ENTRY_RECTANGLES[i].h) && i == 10) {
-							tomeClickEntries = (TOMECLICKENTRIES)i;
-						}
-					}
-					if (hasSpells && hasDescription && hasValidTotalPages && (mouseLeftX > ScreenWidth/2 + ScreenWidth/4 - create_spellbook_button.getWidth()/2 && mouseLeftX < ScreenWidth/2 + ScreenWidth/4 + create_spellbook_button.getWidth()/2) && (mouseLeftY > ScreenHeight/2 - create_spellbook_button.getHeight()/2 && mouseLeftY < ScreenHeight/2 + create_spellbook_button.getHeight()/2)) {
-						makeSpellbook();
-					}
-
 					break;
 				case SCROLL_ROLLER:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked

@@ -73,7 +73,7 @@ void SceneManager::spellbookInputValidator() {
 void SceneManager::makeSpellbook() {  //the big kahuhna
 	spellbookReadyToDisplay = false;
 	bool debug = true;
-	std::vector<std::string> spellholder;  //for updating the render text
+	spellholder.clear();  //for updating the render text
 	string trySpell = "";
 	bool not_duplicateSpell;
 

@@ -24,6 +24,8 @@ SceneManager::SceneManager() {
 	toolsicon.load("assets/textures/main_menu_other_tools.png");
 	soundbutton_off.load("assets/textures/checkbox_sound_off_100x50.png");
 	soundbutton_on.load("assets/textures/checkbox_sound_on_100x50.png");
+	quitbutton.load("assets/textures/button_quit_90x38.png");
+	resetbutton.load("assets/textures/button_reset_120x50.png");
 
 	//load hoard loot assets
 	hoardlooticon.load("assets/textures/main_menu_hoard_loot.png");

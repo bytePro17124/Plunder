@@ -89,6 +89,7 @@ private:
 	bool spellbookReadyToDisplay = false;
 	void displayBuiltSpellbook();  //function to display the generated spells split across the pages
 	std::vector<Texture> completedSpellbookTextures;  //malleable texture for displaying the final list of spells
+	std::vector<std::string> spellholder;
 
 	// gen_scroll stuff
 	// Scroll stuff
