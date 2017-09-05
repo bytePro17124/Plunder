@@ -51,6 +51,7 @@ private:
 	bool loot_results_ready = false;
 	int frame_count = 0;
 	Uint8 currentalpha = 0;
+	Texture quitbutton, resetbutton;
 
 	// hoard_loot stuff
 	// Hoard Loot stuff

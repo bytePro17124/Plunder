@@ -57,7 +57,7 @@ SceneManager::SceneManager() {
 		spellbook_scene_labels[i].load(Bookman, SPELLBOOK_INPUT_LABELS[i], Orange);
 	}
 	for (int i = 0; i != 11; i++) {  //init the rectangles that are clickable to enter in spellbook creation details
-		if (i < 9) SPELLBOOK_ENTRY_RECTANGLES[i] = { ScreenWidth/2 + 40, 140 + 50*i, 90, 40 };
+		if (i < 9) SPELLBOOK_ENTRY_RECTANGLES[i] = { ScreenWidth/2 + 40, 140 + 50*i, 50, 40 };
 		else if (i == 9) SPELLBOOK_ENTRY_RECTANGLES[i] = { ScreenWidth/2 + 40, 590, 430, 40 };
 		else SPELLBOOK_ENTRY_RECTANGLES[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
 	}
