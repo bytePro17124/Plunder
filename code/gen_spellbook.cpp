@@ -59,10 +59,11 @@ void SceneManager::spellbookInputValidator() {
 	hasValidTotalPages = false;  //assume false as we are about to recheck next
 	if (!entriesText[10].empty()) {
 		if (pagesNeededForCurrentSpells < stoi(entriesText[10])) {
-			hasValidTotalPages = true;
 			entryDisplay[10].load(Vecna, entriesText[10], Green);
+			hasValidTotalPages = true;
 			cout << " --true\n";
-
+		} else {
+			entryDisplay[10].load(Vecna, entriesText[10], Red);
 		}
 	}
 	cout << "DONE CHECKING\n";

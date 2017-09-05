@@ -35,7 +35,7 @@ private:
 	//	SDL_Color Black = {0,0,0,0};
 	SDL_Color Orange = {255,115,35,0};
 	SDL_Color White = {240,248,240,0};  //offwhite cause it looks better
-	//	SDL_Color Red = {255,0,0,0};
+	SDL_Color Red = {255,0,0,0};
 	//	SDL_Color Blue = {0,0,255,0};
 	//	SDL_Color Teal = {0,191,255,0};
 	SDL_Color Green = {0,255,127,0};

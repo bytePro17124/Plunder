@@ -1,4 +1,4 @@
-#include "scenemanager.h"
+ #include "scenemanager.h"
 #include "random_gen.h"
 #include <iostream>
 
