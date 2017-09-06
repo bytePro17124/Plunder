@@ -1,4 +1,5 @@
 #include "sound.h"
+#include <iostream>
 
 SDL_sound::SDL_sound() {
 	//Initialize SDL
