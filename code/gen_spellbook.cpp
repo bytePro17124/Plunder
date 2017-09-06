@@ -78,7 +78,7 @@ void SceneManager::makeSpellbook() {  //the big kahuhna
 	string trySpell = "";
 	bool not_duplicateSpell;
 
-	spellholder.push_back("New Spellbook made from: " + entriesText[9]);
+	spellholder.push_back("New Spellbook Description: " + entriesText[9] + ", Pages: " + std::to_string(pagesNeededForCurrentSpells) + " used / " + entriesText[10] + " total " );
 
 	//ALL IN ONE VERSION!?!
 	//iterate over the 9 possible spell levels
