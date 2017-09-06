@@ -7,6 +7,7 @@
 #include <vector>
 #include <ctime>
 #include <fstream>
+#include <iostream>
 
 class SceneManager {
 public:
@@ -14,13 +15,13 @@ public:
 	~SceneManager();
 	void scene_selector();
 private:
-	bool fullQuit;  // application management
+	bool fullQuit = false;  // application management
 	// SCENE MANAGEMENT
 	SDL_graphics Graphics_Engine;
 	//	SDL_Renderer *renderer;
 	int ScreenWidth, ScreenHeight;  // scene sizes
 	enum SCENE { STARTUP, MAIN_MENU, HOARD_LOOT, SPELLBOOK_CREATE, SCROLL_ROLLER, OTHER_TOOLS, EXIT };  //core scenes
-	SCENE scene;
+	SCENE scene = STARTUP;
 	void scene_00_startup();  //startup logo and such
 	void scene_01_main_menu();  // display main menu
 	void scene_02_hoard_loot();

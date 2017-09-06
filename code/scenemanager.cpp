@@ -6,6 +6,7 @@
 //this file should include general purpose function definitons only, not scene specific other than the construct and destructor
 
 SceneManager::SceneManager() {
+	std::cout << "started initilizing scene variables\n";
 	isSoundOn = false;
 	mouseLeftX = mouseLeftY = 0;
 	scene = STARTUP;
@@ -67,6 +68,8 @@ SceneManager::SceneManager() {
 
 	//todo
 	//    spellbook_results_ready = false;
+
+	std::cout << "finished initilizing scene variables\n";
 }
 
 SceneManager::~SceneManager() {
@@ -77,9 +80,14 @@ SceneManager::~SceneManager() {
 }
 
 void SceneManager::scene_selector() {
+	std::cout << "scene selecter choosing...\n";
 	while (!fullQuit) {
 		switch (scene) {
-		case STARTUP: scene_00_startup(); break;
+		case STARTUP:
+			std::cout << "going for that startup scene\n";
+			scene_00_startup();
+
+			break;
 		case MAIN_MENU: scene_01_main_menu(); break;
 		case HOARD_LOOT: scene_02_hoard_loot(); break;
 		case SPELLBOOK_CREATE: scene_03_spellbook(); break;
@@ -88,6 +96,8 @@ void SceneManager::scene_selector() {
 		case EXIT: scene_99_exit(); break;
 		}
 	}
+	std::cout << "scene selecter choosing success...\n";
+
 }
 
 
