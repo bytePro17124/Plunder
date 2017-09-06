@@ -85,14 +85,10 @@ SceneManager::~SceneManager() {
 }
 
 void SceneManager::scene_selector() {
-	std::cout << "scene selecter choosing...\n";
+//	std::cout << "scene selecter choosing...\n";
 	while (!fullQuit) {
 		switch (scene) {
-		case STARTUP:
-			std::cout << "going for that startup scene\n";
-			scene_00_startup();
-
-			break;
+		case STARTUP: scene_00_startup(); break;
 		case MAIN_MENU: scene_01_main_menu(); break;
 		case HOARD_LOOT: scene_02_hoard_loot(); break;
 		case SPELLBOOK_CREATE: scene_03_spellbook(); break;
@@ -101,7 +97,7 @@ void SceneManager::scene_selector() {
 		case EXIT: scene_99_exit(); break;
 		}
 	}
-	std::cout << "scene selecter choosing success...\n";
+//	std::cout << "scene selecter choosing success...\n";
 
 }
 

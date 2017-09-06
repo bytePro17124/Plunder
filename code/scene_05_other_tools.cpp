@@ -10,7 +10,7 @@ void SceneManager::scene_05_other_tools() {
 		other_tools_header.draw(ScreenWidth/2 - other_tools_header.getWidth()/2, 40);
 		button_gen_random_name.draw(ScreenWidth/2 - ScreenWidth/4 - button_gen_random_name.getWidth()/2, ScreenHeight/2 - ScreenHeight/4 - button_gen_random_name.getHeight()/2);
 
-		for (int i = 0; i != 4; i++) {
+		for (int i = 0; i != 5; i++) {
 			if (list_of_generated_names[i].size() > 1)
 				texture_of_generated_names[i].draw(480, ScreenHeight/2 - ScreenHeight/4 - texture_of_generated_names[i].getHeight()/2 + i*32);
 

@@ -7,6 +7,7 @@ using namespace std;
 
 void SceneManager::newRandomName() {
 	cout << "genearting new random name\n";
+	list_of_generated_names[4] = list_of_generated_names[3];
 	list_of_generated_names[3] = list_of_generated_names[2];
 	list_of_generated_names[2] = list_of_generated_names[1];
 	list_of_generated_names[1] = list_of_generated_names[0];
@@ -35,7 +36,7 @@ std::string SceneManager::grabRandomName() {
 
 void SceneManager::clearNames() {
 	cout << "settings all names to blank\n";
-	for (int i = 0; i != 4; i++) {
+	for (int i = 0; i != 5; i++) {
 		if (list_of_generated_names[i].size() > 1)
 			list_of_generated_names[i] = "";
 	}}
@@ -43,7 +44,7 @@ void SceneManager::clearNames() {
 
 void SceneManager::updateRandomNameTextures() {
 	cout << "updating the randomname textures\n";
-	for (int i = 0; i != 4; i++) {
+	for (int i = 0; i != 5; i++) {
 		if (list_of_generated_names[i].size() > 1)
 			    texture_of_generated_names[i].load(Bookman, list_of_generated_names[i], White);
 		        texture_of_generated_names[i].setAlpha(255 - i * 37);
