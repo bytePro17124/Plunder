@@ -65,6 +65,7 @@ void SDL_sound::playlootsound() {
 }
 
 void SDL_sound::playcancelsound() {
+	std::cout << "not playing cancel sound - see code for reasons(todo)\n";
 	// THIS SOUND IS BROKEN ON OPENSUSE ON MY LAPTOP, LOUD DISTORTION SOUND
 	//	Mix_PlayChannel( -1, cancelSound, 0);
 }

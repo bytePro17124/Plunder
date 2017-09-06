@@ -7,7 +7,7 @@
 
 SceneManager::SceneManager() {
 	std::cout << "started initilizing scene variables\n";
-	isSoundOn = false;
+	isSoundOn = true;
 	mouseLeftX = mouseLeftY = 0;
 	scene = STARTUP;
 	ScreenHeight = Graphics_Engine.getScreenHeight();
