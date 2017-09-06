@@ -99,4 +99,19 @@ private:
 	Texture scroll_loot_display;
 	std::string GenerateScroll(const int& lvl); //also used in the makeSpellbook function
 
+
+	// other tools stuff
+	// RANDOM NAME GENERATION
+	const std::string OTHER_TOOLS_HEADER_TEXT = "Other Tools";
+	Texture other_tools_header;
+	Texture button_gen_random_name;
+	std::string list_of_generated_names[4] = { "", "", "", "" };  //stores a list of all the generated names until reset with clearNames()
+	Texture texture_of_generated_names[4];  //updates from list_of_generated_names
+	void newRandomName();  //begins populating a new random name onto the list of names and calls the rest of the functions as needed
+	std::string grabRandomName();  //pulls a random name from the data file and returns it
+	void clearNames();  //reset
+	void updateRandomNameTextures();
+
+
+
 };

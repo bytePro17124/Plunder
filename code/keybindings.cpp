@@ -168,9 +168,16 @@ void SceneManager::process_mouse_and_keyboard() {
 					break;
 				case OTHER_TOOLS:
 					if ((mouseLeftX > 75 && mouseLeftX < 75 + backarrow.getWidth()) && (mouseLeftY > ScreenHeight - 150 && mouseLeftY < ScreenHeight - 150 + backarrow.getHeight())) {  //back button clicked
-						if (!loot_results_ready) scene = MAIN_MENU;
+						if (!loot_results_ready) scene = MAIN_MENU;      //BACK BUTTON
 						loot_results_ready = false;
 						if (isSoundOn) Sound_Engine.playcancelsound();
+					} else if (mouseLeftX > ScreenWidth/2 - ScreenWidth/4 - button_gen_random_name.getWidth()/2
+					           && mouseLeftX < ScreenWidth/2 - ScreenWidth/4 + button_gen_random_name.getWidth()/2
+					           && mouseLeftY > ScreenHeight/2 - ScreenHeight/4 - button_gen_random_name.getHeight()/2
+					           && mouseLeftY < ScreenHeight/2 - ScreenHeight/4 + button_gen_random_name.getHeight()/2)
+					{   //Generate Name button clicked
+						newRandomName();
+
 					}
 					break;
 				case EXIT: break;  //disallow key clicks

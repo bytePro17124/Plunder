@@ -66,8 +66,13 @@ SceneManager::SceneManager() {
 	}
 	spellbook_pages_used_draw = { ScreenWidth/2 + 40, 640, 100, 40 }; //hidden box where current pages used is displayed
 
-	//todo
-	//    spellbook_results_ready = false;
+
+	other_tools_header.load(Vecna, OTHER_TOOLS_HEADER_TEXT, Orange);
+	button_gen_random_name.load("assets/textures/button_gen_random_name_120x50.png");
+
+	for (int i = 0; i != 4; i++) {  //allows alpha blending
+		texture_of_generated_names[i].setBlendMode(SDL_BLENDMODE_BLEND);
+	}
 
 	std::cout << "finished initilizing scene variables\n";
 }
