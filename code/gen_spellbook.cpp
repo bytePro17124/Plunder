@@ -14,7 +14,8 @@ void SceneManager::spellbookInputValidator() {
 	//CHECK THE SPELLS
 	cout << "checking input\n";
 	hasSpells = false; //assume no spells base case since we are about to recheck next
-	for (int i = 0; i != 9; i++) {
+	for (int i = 0; i != 11; i++) {
+		if (i == 9) continue;
 		if (!entriesText[i].empty()) {
 			if (entriesText[i].find_first_not_of("0123456789") == std::string::npos) { //if no letters
 				try {
