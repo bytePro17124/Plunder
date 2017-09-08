@@ -16,7 +16,13 @@
 2. ````cd plunder```` moves to directory
 3. ````make dep```` installs all dependencies using apt-get (you will need the SDL2 libraries and a C++ compiler to build)
 4. ````make```` builds the program
-5. ````./plunder```` runs the program
+5. ````./plunder```` runs the program  (or go double click the executable object)
+
+#### process updates
+
+1. ````git pull```` download latest changes
+2. ````make clean```` in case any headers were changed...
+3. ````make```` rebuild with the latest code
 
 #### notes
 
