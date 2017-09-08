@@ -25,7 +25,7 @@ void SceneManager::spellbookInputValidator() {
 					entriesText[i] = "";
 					continue;
 				}
-				if (numberCheckerVar <= SPELLBOOK_LIMITS[i]) {
+                if (numberCheckerVar <= SPELLBOOK_LIMITS[i] && numberCheckerVar != 0) {
 					hasSpells = true;
 					entryDisplay[i].load(Vecna, entriesText[i], Green);
 					cout << " --valid " << i+1 << "\n";
