@@ -12,17 +12,17 @@
 
 #### get to lootin' (build instructions - linux)
 
-1. ````git clone https://github.com/bytePro17124/Plunder.git```` <div style="text-align: right">downloads the source code</div>
-2. ````cd plunder```` moves to directory
-3. ````make dep```` installs all dependencies using apt-get (you will need the SDL2 libraries and a C++ compiler to build)
-4. ````make```` builds the program
-5. ````./plunder```` runs the program  (or go double click the executable object)
+1. ````git clone https://github.com/bytePro17124/Plunder.git```` : downloads the source code
+2. ````cd plunder```` : moves to directory
+3. ````make dep```` : installs all dependencies using apt-get (you will need the SDL2 libraries and a C++ compiler to build)
+4. ````make```` : builds the program
+5. ````./plunder```` : runs the program (or go double click the executable object)
 
 #### process updates
 
-1. ````git pull```` download latest changes
-2. ````make clean```` in case any headers were changed...
-3. ````make```` rebuild with the latest code
+1. ````git pull```` : download latest changes
+2. ````make clean```` : in case any headers were changed...
+3. ````make```` : rebuild with the latest code
 
 #### notes
 
