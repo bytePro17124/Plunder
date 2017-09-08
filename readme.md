@@ -12,7 +12,7 @@
 
 #### get to lootin' (build instructions - linux)
 
-1. ````git clone https://github.com/bytePro17124/Plunder.git```` downloads this program
+1. ````git clone https://github.com/bytePro17124/Plunder.git```` <div style="text-align: right">downloads the source code</div>
 2. ````cd plunder```` moves to directory
 3. ````make dep```` installs all dependencies using apt-get (you will need the SDL2 libraries and a C++ compiler to build)
 4. ````make```` builds the program
