@@ -22,6 +22,8 @@ public:
 	int getWidth(void) { return width; }
 	int getHeight(void) { return height; }
 
+	void drawWithWidthClamp(const int &clamp_width, int x = 0, int y = 0);
+
 	void draw(int x = 0, int y = 0, SDL_Rect *src_clip = NULL, SDL_Rect *dst_rect = NULL, double angle = 0.0, SDL_Point *center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 	void draw(SDL_Rect *destination);
