@@ -11,7 +11,7 @@ void SceneManager::scene_04_scroll() {
 		process_mouse_and_keyboard();  //check for any keypresses
 
 		if (loot_results_ready) {
-			scroll_loot_display.draw(ScreenWidth/2 - scroll_loot_display.getWidth()/2, ScreenHeight/2 - scroll_loot_display.getHeight()/2);
+			scroll_loot_display.drawWithWidthClamp(Graphics_Engine.getScreenWidth(), ScreenWidth/2 - scroll_loot_display.getWidth()/2, ScreenHeight/2 - scroll_loot_display.getHeight()/2);
 		} else {
 			for (int i = 0; i < 10; i++) {
 				if (i == 0) scroll_menu_display[i].draw(((ScreenWidth/2)-(scroll_menu_display[i].getWidth()/2)), 80);
