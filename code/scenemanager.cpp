@@ -3,8 +3,6 @@
 #include <stdexcept>
 #include <iostream>
 
-//this file should include general purpose function definitons only, not scene specific other than the construct and destructor
-
 SceneManager::SceneManager() {
 	std::cout << "started initilizing scene variables\n";
 	isSoundOn = true;
