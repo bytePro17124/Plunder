@@ -25,7 +25,7 @@ void SceneManager::spellbookInputValidator() {
 					entriesText[i] = "";
 					continue;
 				}
-                if (numberCheckerVar <= SPELLBOOK_LIMITS[i] && numberCheckerVar != 0) {
+				if (numberCheckerVar <= SPELLBOOK_LIMITS[i] && numberCheckerVar != 0) {
 					hasSpells = true;
 					entryDisplay[i].load(Vecna, entriesText[i], Green);
 					cout << " --valid " << i+1 << "\n";
@@ -91,7 +91,7 @@ void SceneManager::makeSpellbook() {  //the big kahuhna
 				if (trySpell.find("wizard") != std::string::npos) {  //a wizard spell was found
 					trySpell.erase(0,18);  //remove scroll formatting as it is for a spellbook
 					trySpell.erase((trySpell.begin()+trySpell.find_first_of("(")-1), \
-					               (trySpell.begin()+trySpell.find_first_of(")")+1)); //removes the class details property as we already know it is for a wizard if it is in the wizard spellbook
+								   (trySpell.begin()+trySpell.find_first_of(")")+1)); //removes the class details property as we already know it is for a wizard if it is in the wizard spellbook
 				} else { //a wizard spell was not found
 					i--;  // i must be an int so it can handle going to negative 1 if necessary
 					continue;  //start the loop over with the same iteration and hopefully find a wizard spell this time
@@ -138,9 +138,9 @@ void SceneManager::displayBuiltSpellbook() {
 			completedSpellbookTextures[i].draw(ScreenWidth/2-completedSpellbookTextures[i].getWidth()/2, offset);
 		else if (i < n/2)
 			completedSpellbookTextures[i].draw\
-			        (250, offset + i*completedSpellbookTextures[i].getHeight() + completedSpellbookTextures[0].getHeight());
+					(250, offset + i*completedSpellbookTextures[i].getHeight() + completedSpellbookTextures[0].getHeight());
 		else
 			completedSpellbookTextures[i].draw\
-			        (250+ScreenWidth/2, offset + (i - n/2) * completedSpellbookTextures[i].getHeight()+ completedSpellbookTextures[0].getHeight());
+					(250+ScreenWidth/2, offset + (i - n/2) * completedSpellbookTextures[i].getHeight()+ completedSpellbookTextures[0].getHeight());
 	}
 }
