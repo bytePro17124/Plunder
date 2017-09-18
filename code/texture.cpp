@@ -79,7 +79,7 @@ void Texture::draw(SDL_Rect *destination) {
 void Texture::drawWithWidthClamp(const int &clamp_width, int x, int y) {
 	if (width > clamp_width) {
 		SDL_Rect tmprect = {0,0,0,0};
-		tmprect.x = x;
+		tmprect.x = x + ((width - clamp_width) / 2);
 		tmprect.y = y;
 		tmprect.h = height;
 		tmprect.w = clamp_width;
