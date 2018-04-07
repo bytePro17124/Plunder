@@ -2,6 +2,7 @@
 #include "scenemanager.h"
 #include <stdexcept>
 
+
 using namespace std;
 
 /// spellbookInputValidator is triggered by a new keyboard entry on the spellbook
@@ -118,7 +119,7 @@ void SceneManager::makeSpellbook() {  //the big kahuhna
 	if (debug) std::cout << "turing " << spellholder.size() << " total headers and spells finds into textures...\n";
 	completedSpellbookTextures.clear();
 	completedSpellbookTextures.resize(spellholder.size());  //change to needed size for textures
-	for (uint i = 0; i < spellholder.size(); i++) {
+	for (uint8_t i = 0; i < spellholder.size(); i++) {
 		if (spellholder[i].find_first_of("~") != std::string::npos) {
 			completedSpellbookTextures[i].load(Bookman, spellholder[i], Orange);  //load up all the textures with the spellholder data text
 		} else {

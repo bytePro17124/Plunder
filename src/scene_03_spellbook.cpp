@@ -25,7 +25,7 @@ void SceneManager::scene_03_spellbook() {
 				fileoutputname = "saved_loot/spellbook" + std::to_string(1900+ltm->tm_year) +  std::to_string(1+ltm->tm_mon) +  std::to_string(ltm->tm_mday) + "_" +  std::to_string(ltm->tm_hour) +  std::to_string(ltm->tm_min) +  std::to_string(ltm->tm_sec) + "_" +  std::to_string(loot_rolls_this_session) + ".txt";
 				save_to_file.open(fileoutputname);
 				if (!save_to_file) {
-					cout << "Could not open to save. Check code or file.\n\n";
+					cout << "Could not open to save. Check src or file.\n\n";
 					return;
 				} else {
 					if (spellholder.size() < 1) {

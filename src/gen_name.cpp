@@ -18,7 +18,7 @@ void SceneManager::newRandomName() {
 std::string SceneManager::grabRandomName() {
 	ifstream fileOfNames;
 	string tmpName;
-	fileOfNames.open("assets/data/names.dat");
+	fileOfNames.open("res/data/names.dat");
 	if (fileOfNames.is_open()) {
 		auto chosenSeed = randomNumber(1, 7732);
 		for (auto i = 1; i < chosenSeed; i++) {
@@ -26,7 +26,7 @@ std::string SceneManager::grabRandomName() {
 		}
 		getline(fileOfNames, tmpName, '\n');
 	} else {
-		tmpName = "error with name file - check code";
+		tmpName = "error with name file - check src";
 		cout << "error grabbing name\n";
 	}
 	return tmpName;

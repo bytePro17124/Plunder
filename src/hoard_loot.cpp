@@ -3045,9 +3045,9 @@ string Hoard_Loot::GenerateScroll(const int& lvl) const{
 }
 
 string Hoard_Loot::GenerateGemstone(const int& amount, const int& value) const {
-	string gemstring = "error: check code or gemfile";
+	string gemstring = "error: check src or gemfile";
 	ifstream fileOfGems;
-	fileOfGems.open("assets/data/gems.dat");
+	fileOfGems.open("res/data/gems.dat");
 	if (fileOfGems.is_open()) {
 		string tmpName = "";
 		bool setvalue = false;
@@ -3144,9 +3144,9 @@ string Hoard_Loot::GenerateGemstone(const int& amount, const int& value) const {
 
 
 string Hoard_Loot::GenerateArt(const int& amount, const int& value) const {
-	string artstring = "error: check code or artfile";
+	string artstring = "error: check src or artfile";
 	ifstream fileOfArt;
-	fileOfArt.open("assets/data/artObjects.dat");
+	fileOfArt.open("res/data/artObjects.dat");
 	if (fileOfArt.is_open()) {
 		string tmpName = "";
 		bool setvalue = false;

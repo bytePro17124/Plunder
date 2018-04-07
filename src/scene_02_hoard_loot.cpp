@@ -16,7 +16,7 @@ void SceneManager::scene_02_hoard_loot() {
 
 		if (update_hoard_display) {
 			hoard_loot_display.resize(treasure_pile.full_gear_list.size());
-			for (uint i = 0; i < hoard_loot_display.size(); i++) {
+			for (uint8_t i = 0; i < hoard_loot_display.size(); i++) {
 				hoard_loot_display[i].load(Bookman, treasure_pile.full_gear_list[i].retrieveItemString(), White);
 			}
 			update_hoard_display = false;
@@ -31,7 +31,7 @@ void SceneManager::scene_02_hoard_loot() {
 			fileoutputname = "saved_loot/lootroll" + std::to_string(1900+ltm->tm_year) +  std::to_string(1+ltm->tm_mon) +  std::to_string(ltm->tm_mday) + "_" +  std::to_string(ltm->tm_hour) +  std::to_string(ltm->tm_min) +  std::to_string(ltm->tm_sec) + "_" +  std::to_string(loot_rolls_this_session) + ".txt";
 			save_to_file.open(fileoutputname);
 			if (!save_to_file) {
-				cout << "Could not open to save. Check code or file.\n\n";
+				cout << "Could not open to save. Check src or file.\n\n";
 				return;
 			} else {
 				if (treasure_pile.full_gear_list.size() < 1) {
@@ -52,7 +52,7 @@ void SceneManager::scene_02_hoard_loot() {
 		}
 		if (loot_results_ready) {
 			loot_found_header.draw(80,30);
-			for (uint i = 0; i < hoard_loot_display.size(); i++) {
+			for (uint8_t i = 0; i < hoard_loot_display.size(); i++) {
 				hoard_loot_display[i].draw(120, 90+i*40);
 			}
 			save_loot_button.draw(ScreenWidth - 75 - save_loot_button.getWidth(), ScreenHeight - 75 - save_loot_button.getHeight());

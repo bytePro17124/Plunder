@@ -79,7 +79,7 @@ private:
 	const std::string SPELLBOOK_SCENE_TEXT = "Create a Randomized Spellbook";
 	const std::string SPELLBOOK_INPUT_LABELS[11] = { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Spellbook Material Description", "Pages Used / Total Pages In Tome" };
 	const int SPELLBOOK_LIMITS[11] = { 31, 30, 27, 23, 23, 20, 15, 14, 12, 40, 10000 };  //[0-8] are max wizard spells per level possible, [9] is max description length, [10] is the max pages allowed in a spellbook
-	Texture spellbook_scene_header, spellbook_scene_labels[11], create_spellbook_button;  //basic display handler assets
+	Texture spellbook_scene_header, spellbook_scene_labels[11], create_spellbook_button;  //basic display handler res
 	SDL_Rect spellbook_pages_used_draw, SPELLBOOK_ENTRY_RECTANGLES[11];  //the fill out section of the spellbook
 	std::string entriesText[11];  //entries 0-8 are the spells per level entries, 9 is the description, 10 is the pages total
 	void spellbookInputValidator();  //validates or removes entriesText data, updates pagesNeededForCurrentSpells, updates has bools

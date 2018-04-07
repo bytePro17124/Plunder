@@ -10,27 +10,27 @@ SDL_sound::SDL_sound() {
 		printf( "SDL_mixer could not initialize! SDL2_mixer Error: %s\n", Mix_GetError() );
 		exit(-1);
 	}
-	startupSound = Mix_LoadWAV("assets/sounds/digital-life-16-bit.wav");
+	startupSound = Mix_LoadWAV("../res/sounds/digital-life-16-bit.wav");
 	if (startupSound == NULL) {
 		printf("Failed to load startup sound! SDL_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
 	}
-	shutdownSound = Mix_LoadWAV("assets/sounds/powerdown-16-bit.wav");
+	shutdownSound = Mix_LoadWAV("../res/sounds/powerdown-16-bit.wav");
 	if (shutdownSound == NULL) {
 		printf("Failed to load shutdown sound! SDL_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
 	}
-	lootSound = Mix_LoadWAV("assets/sounds/small-box-opening-16-bit.wav");
+	lootSound = Mix_LoadWAV("../res/sounds/small-box-opening-16-bit.wav");
 	if (lootSound == NULL) {
 		printf("Failed to load loot sound! SDL_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
 	}
-	cancelSound = Mix_LoadWAV("assets/sounds/cancel-16-bit.wav");
+	cancelSound = Mix_LoadWAV("../res/sounds/cancel-16-bit.wav");
 	if (cancelSound == NULL) {
 		printf("Failed to load cancel sound! SDL_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
 	}
-	menuSound = Mix_LoadWAV("assets/sounds/menu-click-16-bit.wav");
+	menuSound = Mix_LoadWAV("../res/sounds/menu-click-16-bit.wav");
 	if (menuSound == NULL) {
 		printf("Failed to load menu sound! SDL_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
@@ -66,7 +66,7 @@ void SDL_sound::playlootsound() {
 }
 
 void SDL_sound::playcancelsound() {
-	std::cout << "not playing cancel sound - see code for reasons(todo)\n";
+	std::cout << "not playing cancel sound - see src for reasons(todo)\n";
 	// THIS SOUND IS BROKEN ON OPENSUSE ON MY LAPTOP, LOUD DISTORTION SOUND
 	//	Mix_PlayChannel( -1, cancelSound, 0);
 }
