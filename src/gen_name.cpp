@@ -18,7 +18,7 @@ void SceneManager::newRandomName() {
 std::string SceneManager::grabRandomName() {
 	ifstream fileOfNames;
 	string tmpName;
-	fileOfNames.open("res/data/names.dat");
+	fileOfNames.open("../res/data/names.dat");
 	if (fileOfNames.is_open()) {
 		auto chosenSeed = randomNumber(1, 7732);
 		for (auto i = 1; i < chosenSeed; i++) {
@@ -33,21 +33,21 @@ std::string SceneManager::grabRandomName() {
 }
 
 
-
 void SceneManager::clearNames() {
 	cout << "settings all names to blank\n";
 	for (int i = 0; i != 5; i++) {
 		if (list_of_generated_names[i].size() > 1)
 			list_of_generated_names[i] = "";
-	}}
+	}
+}
 
 
 void SceneManager::updateRandomNameTextures() {
 	cout << "updating the randomname textures\n";
 	for (int i = 0; i != 5; i++) {
 		if (list_of_generated_names[i].size() > 1)
-			    texture_of_generated_names[i].load(Bookman, list_of_generated_names[i], White);
-		        texture_of_generated_names[i].setAlpha(255 - i * 37);
+			texture_of_generated_names[i].load(Bookman, list_of_generated_names[i], White);
+		texture_of_generated_names[i].setAlpha(static_cast<Uint8>(255 - i * 37));
 	}
 
 }

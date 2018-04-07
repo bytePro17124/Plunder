@@ -13,10 +13,10 @@ SceneManager::SceneManager() {
 
 	//load general reused res
 	Bookman = TTF_OpenFont("../res/fonts/Bookman.ttf", 23);
-	if(!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
+	if (!Bookman) { printf("TTF_OpenFont Bookman: %s\n", TTF_GetError()); }
 	//	TTF_SetFontHinting(Bookman, TTF_HINTING_LIGHT);
 	Vecna = TTF_OpenFont("../res/fonts/Vecna.otf", 55);
-	if(!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
+	if (!Vecna) { printf("TTF_OpenFont Vecna: %s\n", TTF_GetError()); }
 	logo1.setBlendMode(SDL_BLENDMODE_BLEND);
 	backarrow.load("../res/textures/button_back_arrow_75x75.png");
 	logo1.load("../res/textures/getdatloot-322x256.png");
@@ -33,7 +33,7 @@ SceneManager::SceneManager() {
 	scroll_menu_display.resize(10);
 	hoard_menu_display.resize(5);
 	for (int i = 0; i < 5; i++) {
-		if (i == 0)	hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Orange);
+		if (i == 0) hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Orange);
 		else hoard_menu_display[i].load(Vecna, hoard_loot_menu_items[i], Green);
 	}
 
@@ -41,7 +41,7 @@ SceneManager::SceneManager() {
 	scrollicon.load("../res/textures/main_menu_scroll.png");
 	scroll_menu_display.resize(10);
 	for (int i = 0; i < 10; i++) {
-		if (i == 0)	scroll_menu_display[i].load(Vecna, scroll_level_menu_items[i], Orange);
+		if (i == 0) scroll_menu_display[i].load(Vecna, scroll_level_menu_items[i], Orange);
 		else scroll_menu_display[i].load(Vecna, scroll_level_menu_items[i], Green);
 	}
 
@@ -58,11 +58,11 @@ SceneManager::SceneManager() {
 		spellbook_scene_labels[i].load(Bookman, SPELLBOOK_INPUT_LABELS[i], Orange);
 	}
 	for (int i = 0; i != 11; i++) {  //init the rectangles that are clickable to enter in spellbook creation details
-		if (i < 9) SPELLBOOK_ENTRY_RECTANGLES[i] = { ScreenWidth/2 + 40, 140 + 50*i, 50, 40 };
-		else if (i == 9) SPELLBOOK_ENTRY_RECTANGLES[i] = { ScreenWidth/2 + 40, 590, 430, 40 };
-		else SPELLBOOK_ENTRY_RECTANGLES[i] = {ScreenWidth/2 + 150, 640, 100, 40 };
+		if (i < 9) SPELLBOOK_ENTRY_RECTANGLES[i] = {ScreenWidth / 2 + 40, 140 + 50 * i, 50, 40};
+		else if (i == 9) SPELLBOOK_ENTRY_RECTANGLES[i] = {ScreenWidth / 2 + 40, 590, 430, 40};
+		else SPELLBOOK_ENTRY_RECTANGLES[i] = {ScreenWidth / 2 + 150, 640, 100, 40};
 	}
-	spellbook_pages_used_draw = { ScreenWidth/2 + 40, 640, 100, 40 }; //hidden box where current pages used is displayed
+	spellbook_pages_used_draw = {ScreenWidth / 2 + 40, 640, 100, 40}; //hidden box where current pages used is displayed
 
 
 	other_tools_header.load(Vecna, OTHER_TOOLS_HEADER_TEXT, Orange);
@@ -86,13 +86,27 @@ void SceneManager::scene_selector() {
 //	std::cout << "scene selecter choosing...\n";
 	while (!fullQuit) {
 		switch (scene) {
-		case STARTUP: scene_00_startup(); break;
-		case MAIN_MENU: scene_01_main_menu(); break;
-		case HOARD_LOOT: scene_02_hoard_loot(); break;
-		case SPELLBOOK_CREATE: scene_03_spellbook(); break;
-		case SCROLL_ROLLER: scene_04_scroll(); break;
-		case OTHER_TOOLS: scene_05_other_tools(); break;
-		case EXIT: scene_99_exit(); break;
+			case STARTUP:
+				scene_00_startup();
+				break;
+			case MAIN_MENU:
+				scene_01_main_menu();
+				break;
+			case HOARD_LOOT:
+				scene_02_hoard_loot();
+				break;
+			case SPELLBOOK_CREATE:
+				scene_03_spellbook();
+				break;
+			case SCROLL_ROLLER:
+				scene_04_scroll();
+				break;
+			case OTHER_TOOLS:
+				scene_05_other_tools();
+				break;
+			case EXIT:
+				scene_99_exit();
+				break;
 		}
 	}
 //	std::cout << "scene selecter choosing success...\n";

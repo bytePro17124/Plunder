@@ -3,11 +3,11 @@
 
 SDL_sound::SDL_sound() {
 	//Initialize SDL
-	if( SDL_Init(SDL_INIT_AUDIO) < 0 ) {
-		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
+	if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
 	}
-	if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 ) {
-		printf( "SDL_mixer could not initialize! SDL2_mixer Error: %s\n", Mix_GetError() );
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+		printf("SDL_mixer could not initialize! SDL2_mixer Error: %s\n", Mix_GetError());
 		exit(-1);
 	}
 	startupSound = Mix_LoadWAV("../res/sounds/digital-life-16-bit.wav");
@@ -52,16 +52,16 @@ SDL_sound::~SDL_sound() {
 }
 
 void SDL_sound::playstartupsound() {
-	Mix_PlayChannel( -1,  startupSound, 0 );
+	Mix_PlayChannel(-1, startupSound, 0);
 }
 
 
 void SDL_sound::playshutdownsound() {
-	Mix_PlayChannel( -1, shutdownSound, 0 );
+	Mix_PlayChannel(-1, shutdownSound, 0);
 }
 
 void SDL_sound::playlootsound() {
-	Mix_PlayChannel( -1, lootSound, 0 );
+	Mix_PlayChannel(-1, lootSound, 0);
 
 }
 
@@ -72,5 +72,5 @@ void SDL_sound::playcancelsound() {
 }
 
 void SDL_sound::playmenusound() {
-	Mix_PlayChannel( -1, menuSound, 0);
+	Mix_PlayChannel(-1, menuSound, 0);
 }

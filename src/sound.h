@@ -6,12 +6,19 @@
 class SDL_sound {
 public:
 	SDL_sound();
+
 	~SDL_sound();
+
 	void playstartupsound();
+
 	void playshutdownsound();
+
 	void playlootsound();
+
 	void playcancelsound();
+
 	void playmenusound();
+
 private:
 	//The music that will be played
 	//	Mix_Music *themeMusic = NULL;

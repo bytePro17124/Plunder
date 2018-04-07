@@ -1,7 +1,6 @@
 #include "scenemanager.h"
 
 
-
 //Draws each section of the message for 2 seconds then exits
 void SceneManager::scene_99_exit() {
 	std::string displaytext = "Roll For Dexterity!";
@@ -39,7 +38,8 @@ void SceneManager::scene_99_exit() {
 		}
 
 		displaytext1.setAlpha(currentalpha);
-		displaytext1.draw( ((ScreenWidth - displaytext1.getWidth())/2), ((ScreenHeight - displaytext1.getHeight())/2) );
+		displaytext1.draw(((ScreenWidth - displaytext1.getWidth()) / 2),
+						  ((ScreenHeight - displaytext1.getHeight()) / 2));
 		Graphics_Engine.render();
 		frame_count++;
 

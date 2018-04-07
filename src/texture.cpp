@@ -1,9 +1,10 @@
 #include "texture.h"
 
-Texture::Texture(){
+Texture::Texture() {
 	SDLtex = nullptr;
 }
-Texture::~Texture(){ free(); }
+
+Texture::~Texture() { free(); }
 
 void Texture::free() {
 	if (SDLtex != NULL) {
@@ -18,7 +19,7 @@ bool Texture::load(const std::string &path) {
 	free();
 	SDL_Texture *newTexture = nullptr;
 	SDL_Surface *loadedSurface = IMG_Load(path.c_str());
-	if (loadedSurface == nullptr){
+	if (loadedSurface == nullptr) {
 		printf("failed to load surface in Texture::load function path: %s\n", path.c_str());
 	} else {
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
@@ -43,8 +44,7 @@ bool Texture::load(TTF_Font *font, std::string text, SDL_Color text_color) {
 		SDLtex = SDL_CreateTextureFromSurface(SDL_graphics::renderer, textSurface);
 		if (SDLtex == NULL) {
 			printf("SDL Failed to Create Texture from text! ERROR: %s. \n", SDL_GetError());
-		}
-		else {
+		} else {
 			width = textSurface->w;
 			height = textSurface->h;
 		}
@@ -56,7 +56,8 @@ bool Texture::load(TTF_Font *font, std::string text, SDL_Color text_color) {
 	return SDLtex != NULL;
 }
 
-void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double angle, SDL_Point *center, SDL_RendererFlip render_flip) {
+void Texture::draw(int x, int y, SDL_Rect *src_clip, SDL_Rect *dst_rect, double angle, SDL_Point *center,
+				   SDL_RendererFlip render_flip) {
 	SDL_Rect srcClip = {0, 0, width, height};
 	if (src_clip != nullptr) {
 		srcClip.x = src_clip->x;
@@ -78,7 +79,7 @@ void Texture::draw(SDL_Rect *destination) {
 
 void Texture::drawWithWidthClamp(const int &clamp_width, int x, int y) {
 	if (width > clamp_width) {
-		SDL_Rect tmprect = {0,0,0,0};
+		SDL_Rect tmprect = {0, 0, 0, 0};
 		tmprect.x = x + ((width - clamp_width) / 2);
 		tmprect.y = y;
 		tmprect.h = height;

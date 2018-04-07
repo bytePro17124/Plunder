@@ -1,3 +1,4 @@
+#include <afxres.h>
 #include "scenemanager.h"
 
 void SceneManager::scene_00_startup() {
@@ -7,12 +8,23 @@ void SceneManager::scene_00_startup() {
 	logo1.setAlpha(currentalpha);
 	frame_count = 0;  //reset frame count
 
+	std::string OutputFolder = "saved_loot";
+	if (CreateDirectory(OutputFolder.c_str(), NULL) ||
+		ERROR_ALREADY_EXISTS == GetLastError())
+	{
+		// SaveFile location is ready
+	}
+	else
+	{
+		// Failed to create directory.
+	}
+
 	std::cout << "displaying the get dat loot logo\n";
 	while (frame_count < 127) {
 		Graphics_Engine.clear();
 		currentalpha += 2;
 		logo1.setAlpha(currentalpha);   //fade in logo
-		logo1.draw(ScreenWidth/2 - logo1.getWidth()/2, ScreenHeight/2 - logo1.getHeight()/2);
+		logo1.draw(ScreenWidth / 2 - logo1.getWidth() / 2, ScreenHeight / 2 - logo1.getHeight() / 2);
 		Graphics_Engine.render();
 		frame_count++;
 	}
