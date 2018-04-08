@@ -1,41 +1,31 @@
 # Plunder D&D Loot
 
-<img src="plunder_screenshot_main_menu.png" height="180px" align="right">
+_save hours of game time by letting your cpu lookup things in the book_
 
+<img src="plunder_screenshot_main_menu.png" height="180px" align="center" border="4px">
 
-## Features 
+## Features of Plunder
 
-1. Generate Piles of Treasure (Horde Loot Logic, See 5e DM Guide)
-2. Generate Spellbooks and Scrolls prefilled with Random Spells
-3. Generate Random Names ([based on Kismet's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf))
-* Save treasure and spellbook results to a text file.
-* Hours of game time saved!
+1. HOARD LOOT
+    * Generate Piles of Treasure 
+    * Horde Loot Logic, See 5e DM Guide
+    * save to file working
+2. SPELLBOOKS
+    * Generate Any Size Spellbooks pre-filled with Random spells
+    * save to file working
+3. SPELL SCROLLS
+    * Generate Scrolls of any level pre-rolled into random spell
+4. OTHER TOOLS
+    * Generate Random Names
+        * [based on Kismet's list](http://www.dnd.kismetrose.com/pdfs/KismetsFantasyNames.pdf)
 
-#### get to lootin' (BUILD & RUN instructions - linux: ubuntu, mint)
+## Build
 
-1. ````git clone https://github.com/bytePro17124/Plunder.git```` : downloads the source code
-2. ````cd plunder```` : moves to directory
-3. ````make dep```` : installs all dependencies using apt-get (you will need the SDL2 libraries and a C++ compiler to build)
-4. ````make```` : builds the program
-5. ````./plunder```` : runs the program (or go double click the executable object)
+Use CMake
 
--- CURRENTLY WORKING ON A CROSSPLATFORM BUILD SOLUTION WITH CMAKE
-
-#### process updates
-
-1. ````git pull```` : download latest changes
-2. ````make clean```` : in case any headers were changed...
-3. ````make```` : rebuild with the latest code
-
-#### notes
-
-* this program is still a work in progress
-	* everything is currently functional but may be a little wonky in some cases
-* there are ways to get this running in Windows and macOS but I haven't tested it yet - you just need the SDL2 libraries and a C++ compiler pretty much
-* running **plunder** within a virtual machine will not use vsync correctly, and some screens may fly by at an alarming rate. This is to be expected in a vm but shouldn't effect core functionality. I'll cap frame rate at some point.
-* tried to focus on things that WotC didn't provide good tools for in its latest online tool suite
-
-#### continual development
-I am making this program for myself and will continually update it as I see fit. Open source contributions are welcome.
-
-*Anyone out there that uses this - please notify me of any issues!*
+| Built Using |
+| --- |
+| [Jetbrains CLion IDE](https://www.jetbrains.com/clion/) - however the toolchain should be able to be set up on any modern IDE| 
+| [C++ mingw32 compiler](http://www.mingw.org/) - development toolcahin|
+| [CMake build tool](https://cmake.org/) - probably comes with mingw |
+| [SDL2 Libaries](https://www.libsdl.org/download-2.0.php) - add to mingw |
